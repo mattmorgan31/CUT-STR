@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#041417">
-<title>Cut + Strength — v2.9 Classic Muscle Chart</title>
+<title>Cut + Strength — v3.0 Verified Media</title>
 <style>
 :root{
  --bg:#031315;--bg2:#061b1f;--panel:#061a1e;--panel2:#08262a;--line:#1f666c;
@@ -89,6 +89,9 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
 .target-chart-swatch.primary{background:#d33b27;border:1px solid #9f271c}.target-chart-swatch.secondary{background:#e37b61;border:1px solid #b34e39}
 .target-chart-note{font-size:7px;color:#789496;line-height:1.35;margin-top:4px;text-align:center}
 .visual img{cursor:zoom-in}
+
+
+.media-verified{display:inline-block;margin-left:6px;padding:2px 5px;border:1px solid #28736f;border-radius:999px;color:#63e8d4;font-size:7px;letter-spacing:.06em;vertical-align:1px}
 
 </style>
 
@@ -271,6 +274,9 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
 
 <script>
 const REPDB='https://exercise-dataset.com';
+const VERIFIED_MEDIA_IDS={"barbell-bench-press":"bench-press","incline-dumbbell-bench-press":"incline-db-press","machine-chest-press":"chest-press-machine","weighted-dip":"weighted-dips","cable-chest-fly":"cable-fly","ez-bar-skull-crusher":"ez-bar-lying-tricep-extension","t-bar-row":"t-bar-row","one-arm-dumbbell-row":"single-arm-db-row","close-grip-lat-pulldown":"close-grip-lat-pulldown","straight-arm-pulldown":"straight-arm-pulldown","barbell-curl":"barbell-curl","hammer-curl":"hammer-curl","leg-press":"leg-press","bulgarian-split-squat":"bulgarian-split-squat","seated-leg-curl":"seated-leg-curl","45-degree-back-extension":"back-extension","leg-extension":"leg-extension","seated-calf-raise":"seated-calf-raise","seated-barbell-shoulder-press":"seated-barbell-overhead-press","arnold-press":"arnold-press","machine-lateral-raise":"plate-loaded-lateral-raise","smith-machine-incline-bench-press":"smith-machine-incline-bench-press","dumbbell-bench-press":"db-bench-press","lat-pulldown":"lat-pulldown","seated-cable-row":"seated-cable-row","reverse-pec-deck":"machine-reverse-fly","cable-curl":"cable-curl","goblet-squat":"goblet-squat","reverse-lunge":"reverse-lunge","lying-leg-curl":"leg-curl","cable-crunch":"cable-crunch","captains-chair-leg-raise":"captains-chair-leg-raise","pallof-press":"cable-pallof-press","walking":"walking","incline-barbell-bench-press":"incline-bench-press","spoto-press":"spoto-press","push-up":"push-up","front-squat":"front-squat","hack-squat":"hack-squat","romanian-deadlift":"romanian-deadlift","cable-lateral-raise":"cable-lateral-raise","face-pull":"face-pull","incline-dumbbell-curl":"incline-db-curl","ab-wheel-rollout":"ab-wheel-rollout","weighted-chin-up":"weighted-pull-up","machine-high-row":"chest-supported-machine-row","bayesian-cable-curl":"cable-curl","cable-rear-delt-fly":"rear-delt-fly","rope-hammer-curl":"hammer-curl","chest-supported-t-bar-row":"t-bar-row","rope-triceps-pushdown":"rope-pushdown","incline-machine-chest-press":"chest-press-machine","deficit-push-up":"deficit-push-ups","low-to-high-cable-fly":"cable-fly","seated-overhead-dumbbell-triceps-extension":"overhead-tricep-extension"};
+const VERIFIED_MAIN_ONLY=new Set(["walking"]);
+
 const CURRENT=[
  {day:'Monday',focus:'Chest + Triceps | Heavy',ex:[['Barbell Bench Press','5 × 4–6','barbell-bench-press'],['Incline Dumbbell Press','4 × 8','incline-dumbbell-bench-press'],['Hammer Strength Chest Press','3 × 10','machine-chest-press'],['Weighted Dips','3 × 8–10','weighted-dip'],['Cable Fly','3 × 12–15','cable-chest-fly'],['EZ-Bar Skull Crushers','3 × 10','ez-bar-skull-crusher'],['Cross-Body Cable Extensions','3 × 12–15','single-arm-cable-triceps-extension']]},
  {day:'Tuesday',focus:'Back + Biceps | Heavy',ex:[['Weighted Chin-Ups','5 × 4–6','weighted-chin-up'],['T-Bar Row','4 × 6–8','t-bar-row'],['Single-Arm Dumbbell Row','3 × 8–10','one-arm-dumbbell-row'],['Close-Grip Pulldown','3 × 10','close-grip-lat-pulldown'],['Machine High Row','3 × 12','machine-high-row'],['Straight-Arm Pulldown','3 × 15','straight-arm-pulldown'],['Barbell Curl','3 × 8–10','barbell-curl'],['Bayesian Cable Curl','3 × 12','bayesian-cable-curl'],['Hammer Curl','2 × 15','hammer-curl']]},
@@ -333,37 +339,30 @@ function dayExercises(){return lockBenchFirst(orderedExercises(),selectedDay)}
 function ex(){let arr=dayExercises();if(selectedEx>=arr.length)selectedEx=Math.max(0,arr.length-1);return arr[selectedEx]}
 function exId(){return ex()[2]}
 function normName(s){return String(s||'').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,' ').trim()}
-const EX_ALIASES={
- 'machine-chest-press':'chest-press-machine',
- 'barbell-bench-press':'bench-press',
- 'incline-barbell-bench-press':'incline-bench-press',
- 'incline-dumbbell-bench-press':'incline-dumbbell-press',
- 'weighted-dip':'weighted-dips',
- 'cable-chest-fly':'cable-fly',
- 'one-arm-dumbbell-row':'single-arm-dumbbell-row',
- 'close-grip-lat-pulldown':'close-grip-pulldown',
- 'machine-high-row':'high-row-machine',
- 'seated-barbell-shoulder-press':'seated-barbell-overhead-press',
- 'machine-lateral-raise':'lateral-raise-machine',
- 'cable-rear-delt-fly':'rear-delt-cable-fly',
- 'rope-triceps-pushdown':'rope-pushdown',
- 'incline-machine-chest-press':'incline-chest-press-machine',
- 'calf-press-on-leg-press':'calf-press',
- 'captains-chair-leg-raise':'captain-chair-leg-raise'
-};
+const EX_ALIASES={"barbell-bench-press":"bench-press","incline-dumbbell-bench-press":"incline-db-press","machine-chest-press":"chest-press-machine","weighted-dip":"weighted-dips","cable-chest-fly":"cable-fly","ez-bar-skull-crusher":"ez-bar-lying-tricep-extension","t-bar-row":"t-bar-row","one-arm-dumbbell-row":"single-arm-db-row","close-grip-lat-pulldown":"close-grip-lat-pulldown","straight-arm-pulldown":"straight-arm-pulldown","barbell-curl":"barbell-curl","hammer-curl":"hammer-curl","leg-press":"leg-press","bulgarian-split-squat":"bulgarian-split-squat","seated-leg-curl":"seated-leg-curl","45-degree-back-extension":"back-extension","leg-extension":"leg-extension","seated-calf-raise":"seated-calf-raise","seated-barbell-shoulder-press":"seated-barbell-overhead-press","arnold-press":"arnold-press","machine-lateral-raise":"plate-loaded-lateral-raise","smith-machine-incline-bench-press":"smith-machine-incline-bench-press","dumbbell-bench-press":"db-bench-press","lat-pulldown":"lat-pulldown","seated-cable-row":"seated-cable-row","reverse-pec-deck":"machine-reverse-fly","cable-curl":"cable-curl","goblet-squat":"goblet-squat","reverse-lunge":"reverse-lunge","lying-leg-curl":"leg-curl","cable-crunch":"cable-crunch","captains-chair-leg-raise":"captains-chair-leg-raise","pallof-press":"cable-pallof-press","walking":"walking","incline-barbell-bench-press":"incline-bench-press","spoto-press":"spoto-press","push-up":"push-up","front-squat":"front-squat","hack-squat":"hack-squat","romanian-deadlift":"romanian-deadlift","cable-lateral-raise":"cable-lateral-raise","face-pull":"face-pull","incline-dumbbell-curl":"incline-db-curl","ab-wheel-rollout":"ab-wheel-rollout","weighted-chin-up":"weighted-pull-up","machine-high-row":"chest-supported-machine-row","bayesian-cable-curl":"cable-curl","cable-rear-delt-fly":"rear-delt-fly","rope-hammer-curl":"hammer-curl","chest-supported-t-bar-row":"t-bar-row","rope-triceps-pushdown":"rope-pushdown","incline-machine-chest-press":"chest-press-machine","deficit-push-up":"deficit-push-ups","low-to-high-cable-fly":"cable-fly","seated-overhead-dumbbell-triceps-extension":"overhead-tricep-extension","single-arm-cable-triceps-extension":"single-arm-cable-triceps-extension","cable-y-raise":"cable-y-raise","ez-bar-preacher-curl":"ez-bar-preacher-curl","single-arm-cable-pushdown":"single-arm-cable-pushdown","weighted-decline-sit-up":"weighted-decline-sit-up","calf-press-on-leg-press":"calf-press"};
 let byName={};
+function verifiedMediaStub(id,name){
+ let canonical=VERIFIED_MEDIA_IDS[id];
+ if(!canonical)return null;
+ let flat=VERIFIED_MAIN_ONLY.has(canonical)
+   ? {main:`images/flat/${canonical}-main.webp`}
+   : {start:`images/flat/${canonical}-start.webp`,peak:`images/flat/${canonical}-peak.webp`};
+ return {id:canonical,name_en:name||canonical,primary_muscles:[],secondary_muscles:[],instructions_en:[],images:{flat},verifiedMediaStub:true};
+}
 function resolveRecord(id,name){
  let c=customById(id);
  if(c)return {id:c.id,name_en:c.name,primary_muscles:[c.primary||'Full Body'],secondary_muscles:c.secondary||[],instructions_en:c.instructions&&c.instructions.length?c.instructions:instructionsFallback(c.name),customImages:{start:c.startImage||'',peak:c.peakImage||''},isCustom:true};
- if(!dataset||!dataset.length)return null;
- let r=byId[id]||byId[EX_ALIASES[id]];
- if(r)return r;
- let n=normName(name), candidates=[n,n.replace(/^weighted /,''),n.replace(/^machine /,''),n.replace(/ dumbbell /,' db '),n.replace(/barbell /,'')];
- for(const c of candidates){if(byName[c])return byName[c]}
- // conservative token match: only accept if every meaningful token is present.
- let toks=n.split(' ').filter(x=>x.length>2&&!['the','and','with'].includes(x));
- let best=dataset.find(x=>{let z=normName(x.name_en);return toks.length>=2&&toks.every(t=>z.includes(t))});
- return best||null;
+ let canonical=VERIFIED_MEDIA_IDS[id]||EX_ALIASES[id]||id;
+ if(dataset&&dataset.length){
+   let r=byId[canonical]||byId[id];
+   if(r)return r;
+   let n=normName(name);
+   if(byName[n])return byName[n];
+   // Exact normalized-name variants only. No token-fuzzy media matching.
+   let variants=[n,n.replace(/^weighted /,''),n.replace(/^machine /,''),n.replace(/ dumbbell /,' db '),n.replace(/barbell /,'')];
+   for(const v of variants){if(byName[v])return byName[v]}
+ }
+ return verifiedMediaStub(id,name);
 }
 function mediaUrlForRecord(r,pos){
  if(r&&r.customImages)return r.customImages[pos]||r.customImages.start||r.customImages.peak||'';
@@ -632,7 +631,7 @@ function renderExerciseList(){
  exerciseList.innerHTML='';
  let arr=dayExercises();
  arr.forEach((e,i)=>{
-   let r=resolveRecord(e[2],e[0]),src=mediaUrlForRecord(r,'start')||mediaPlaceholder('MEDIA CHECK');
+   let r=resolveRecord(e[2],e[0]),src=mediaUrlForRecord(r,'start')||mediaPlaceholder('NO VERIFIED PREVIEW');
    let item=document.createElement('div'),benchLocked=selectedDay===0&&e[2]==='barbell-bench-press';
    item.className='exercise-item'+(i===selectedEx?' active':'');item.dataset.index=i;
    item.innerHTML=`<button type="button" class="drag-handle ${benchLocked?'locked':''}" aria-label="${benchLocked?'Monday flat bench is locked first':'Drag '+e[0]+' to reorder'}" ${benchLocked?'disabled':''}>${benchLocked?'🔒':'☰'}</button>
@@ -710,7 +709,7 @@ function renderSets(){
 }
 function renderWorkoutDetail(){
  let e=ex();if(!e)return;let r=record(e[2],e[0]);exTitle.textContent=(selectedEx+1)+'. '+e[0];exTarget.textContent=e[1];let prim=(r.primary_muscles||[]).map(niceMuscle),sec=(r.secondary_muscles||[]).map(niceMuscle);exPrimary.textContent=prim.join(', ')||primaryFallback(e[0])[0];exSecondary.textContent=sec.join(', ')||primaryFallback(e[0])[1].join(', ')||'—';
- let verified=resolveRecord(e[2],e[0]);let sUrl=mediaUrlForRecord(verified,'start'),pUrl=mediaUrlForRecord(verified,'peak');startImg.loading='eager';peakImg.loading='lazy';startImg.src=sUrl||mediaPlaceholder(e[0]+' START');peakImg.src=pUrl||mediaPlaceholder(e[0]+' FINISH');startImg.alt=e[0]+' start/setup';peakImg.alt=e[0]+' finish/peak';startImg.onerror=()=>{startImg.src=mediaPlaceholder(e[0]+' START')};peakImg.onerror=()=>{peakImg.src=mediaPlaceholder(e[0]+' FINISH')};
+ let verified=resolveRecord(e[2],e[0]);let sUrl=mediaUrlForRecord(verified,'start'),pUrl=mediaUrlForRecord(verified,'peak');startImg.loading='eager';peakImg.loading='lazy';startImg.src=sUrl||mediaPlaceholder('NO VERIFIED START');peakImg.src=pUrl||mediaPlaceholder('NO VERIFIED FINISH');startImg.alt=e[0]+' start/setup';peakImg.alt=e[0]+' finish/peak';startImg.onerror=()=>{startImg.src=mediaPlaceholder('NO VERIFIED START')};peakImg.onerror=()=>{peakImg.src=mediaPlaceholder('NO VERIFIED FINISH')};
  howList.innerHTML=(r.instructions_en||instructionsFallback(e[0])).slice(0,6).map(x=>`<li>${x}</li>`).join('');
  bodyMap.innerHTML=renderMuscleChart(prim,sec,e[0]);muscleLines.innerHTML=`<div><span class="dot p"></span>Primary: ${prim.join(', ')||primaryFallback(e[0])[0]}</div><div><span class="dot s"></span>Secondary: ${sec.join(', ')||primaryFallback(e[0])[1].join(', ')||'—'}</div>`;
  notes.value=state.draft[noteKey()]||'';notes.oninput=()=>{state.draft[noteKey()]=notes.value;save()};favoriteBtn.classList.toggle('on',!!state.favorites[e[2]]);renderSets();renderExerciseList()
@@ -832,7 +831,7 @@ async function mediaQA(){
  let all=[];programs().forEach(p=>p.plan.forEach((d,di)=>dayBaseExercises(p.id,di).forEach(e=>all.push(e))));
  let unique=[...new Map(all.map(e=>[e[0]+'|'+e[2],e])).values()];
  let missing=[];
- if(dataset&&dataset.length){unique.forEach(e=>{let r=resolveRecord(e[2],e[0]);if(!r||!r.images||!r.images.flat||!r.images.flat.start||!r.images.flat.peak)missing.push(e[0])})}
+ unique.forEach(e=>{let r=resolveRecord(e[2],e[0]),flat=r&&r.images&&r.images.flat;if(!flat||(!flat.main&&(!flat.start||!flat.peak)))missing.push(e[0])})
  return {total:unique.length,missing};
 }
 function renderSettings(){profileName.value=state.profile.name||'';profileWeight.value=state.profile.currentWeight??state.goals.currentWeight??'';profileName.oninput=()=>{state.profile.name=profileName.value;save();renderHeader()};profileWeight.oninput=()=>{state.profile.currentWeight=profileWeight.value===''?'':Number(profileWeight.value);state.goals.currentWeight=state.profile.currentWeight;save()}}
