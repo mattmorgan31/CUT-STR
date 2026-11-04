@@ -1,7 +1,7 @@
 services:
   - type: web
     name: cut-str
-    runtime: static
-    buildCommand: echo "Static site - no build required"
-    staticPublishPath: .
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
     autoDeployTrigger: commit
