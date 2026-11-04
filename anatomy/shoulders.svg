@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="470" height="390" viewBox="0 0 470 390">
+<defs>
+ <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2c3638"/><stop offset=".48" stop-color="#758386"/><stop offset="1" stop-color="#20292b"/></linearGradient>
+ <radialGradient id="base" cx="45%" cy="35%"><stop stop-color="#667679"/><stop offset="1" stop-color="#2c3739"/></radialGradient>
+ <radialGradient id="primary" cx="45%" cy="35%"><stop stop-color="#ff8a68"/><stop offset=".48" stop-color="#ef4d37"/><stop offset="1" stop-color="#8c211d"/></radialGradient>
+ <radialGradient id="secondary" cx="45%" cy="35%"><stop stop-color="#ffca72"/><stop offset=".55" stop-color="#f5863d"/><stop offset="1" stop-color="#8d3d1d"/></radialGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="1.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <style>.muscle{stroke:#97a7a9;stroke-width:1.2}.base{fill:url(#base)}#f-delts-l{fill:url(#primary)!important;stroke:#ff8a66!important;filter:url(#glow)}#f-delts-r{fill:url(#primary)!important;stroke:#ff8a66!important;filter:url(#glow)}#b-delts-l{fill:url(#primary)!important;stroke:#ff8a66!important;filter:url(#glow)}#b-delts-r{fill:url(#primary)!important;stroke:#ff8a66!important;filter:url(#glow)}#b-traps{fill:url(#secondary)!important;stroke:#ffc16a!important}#b-triceps-l{fill:url(#secondary)!important;stroke:#ffc16a!important}#b-triceps-r{fill:url(#secondary)!important;stroke:#ffc16a!important}</style>
+</defs>
+<rect width="470" height="390" rx="18" fill="#041316"/>
+<text x="105" y="380" text-anchor="middle" fill="#91b5b6" font-family="Arial" font-size="11">FRONT</text><text x="350" y="380" text-anchor="middle" fill="#91b5b6" font-family="Arial" font-size="11">BACK</text>
+
+<g id="front" transform="translate(15,18)">
+  <ellipse cx="105" cy="45" rx="23" ry="28" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path d="M92 70 Q105 79 118 70 L124 91 L86 91Z" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path d="M84 88 Q105 76 126 88 L143 145 Q131 180 120 216 L90 216 Q79 180 67 145Z" fill="url(#skin)" stroke="#c6d4d5" stroke-width="1.5"/>
+  <path d="M67 96 Q49 101 39 118 L20 180 Q18 194 28 198 Q38 197 42 183 L58 141 76 125Z" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path d="M143 96 Q161 101 171 118 L190 180 Q192 194 182 198 Q172 197 168 183 L152 141 134 125Z" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path d="M90 216 L80 285 Q82 318 92 348 L104 348 L106 286 105 216Z" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path d="M120 216 L130 285 Q128 318 118 348 L106 348 L104 286 105 216Z" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path id="f-chest-l" d="M77 100 Q88 90 104 96 L104 128 Q88 132 73 119Z" class="muscle base"/>
+  <path id="f-chest-r" d="M133 100 Q122 90 106 96 L106 128 Q122 132 137 119Z" class="muscle base"/>
+  <ellipse id="f-delts-l" cx="62" cy="108" rx="18" ry="21" class="muscle base"/>
+  <ellipse id="f-delts-r" cx="148" cy="108" rx="18" ry="21" class="muscle base"/>
+  <path id="f-biceps-l" d="M48 125 Q38 139 36 159 Q43 168 51 160 L61 133Z" class="muscle base"/>
+  <path id="f-biceps-r" d="M162 125 Q172 139 174 159 Q167 168 159 160 L149 133Z" class="muscle base"/>
+  <path id="f-core" d="M92 132 L118 132 122 196 Q105 208 88 196Z" class="muscle base"/>
+  <path id="f-quads-l" d="M91 219 L104 219 101 286 Q92 302 82 284Z" class="muscle base"/>
+  <path id="f-quads-r" d="M119 219 L106 219 109 286 Q118 302 128 284Z" class="muscle base"/>
+  <path id="f-calves-l" d="M84 286 Q94 298 98 341 L89 341 Q80 318 80 295Z" class="muscle base"/>
+  <path id="f-calves-r" d="M126 286 Q116 298 112 341 L121 341 Q130 318 130 295Z" class="muscle base"/>
+</g>
+<g id="back" transform="translate(245,18)">
+  <ellipse cx="105" cy="45" rx="23" ry="28" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path d="M92 70 Q105 79 118 70 L124 91 L86 91Z" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path d="M84 88 Q105 76 126 88 L143 145 Q131 180 120 216 L90 216 Q79 180 67 145Z" fill="url(#skin)" stroke="#c6d4d5" stroke-width="1.5"/>
+  <path d="M67 96 Q49 101 39 118 L20 180 Q18 194 28 198 Q38 197 42 183 L58 141 76 125Z" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path d="M143 96 Q161 101 171 118 L190 180 Q192 194 182 198 Q172 197 168 183 L152 141 134 125Z" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path d="M90 216 L80 285 Q82 318 92 348 L104 348 L106 286 105 216Z" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path d="M120 216 L130 285 Q128 318 118 348 L106 348 L104 286 105 216Z" fill="url(#skin)" stroke="#c6d4d5"/>
+  <path id="b-traps" d="M89 88 Q105 78 121 88 L130 113 105 127 80 113Z" class="muscle base"/>
+  <path id="b-lats-l" d="M79 111 Q88 124 103 129 L99 185 Q82 173 70 145Z" class="muscle base"/>
+  <path id="b-lats-r" d="M131 111 Q122 124 107 129 L111 185 Q128 173 140 145Z" class="muscle base"/>
+  <ellipse id="b-delts-l" cx="62" cy="108" rx="18" ry="21" class="muscle base"/>
+  <ellipse id="b-delts-r" cx="148" cy="108" rx="18" ry="21" class="muscle base"/>
+  <path id="b-triceps-l" d="M48 125 Q38 139 36 159 Q43 168 51 160 L61 133Z" class="muscle base"/>
+  <path id="b-triceps-r" d="M162 125 Q172 139 174 159 Q167 168 159 160 L149 133Z" class="muscle base"/>
+  <path id="b-glutes-l" d="M87 192 Q96 184 104 194 L104 225 Q91 230 82 214Z" class="muscle base"/>
+  <path id="b-glutes-r" d="M123 192 Q114 184 106 194 L106 225 Q119 230 128 214Z" class="muscle base"/>
+  <path id="b-hams-l" d="M91 225 L104 225 101 286 Q92 302 82 284Z" class="muscle base"/>
+  <path id="b-hams-r" d="M119 225 L106 225 109 286 Q118 302 128 284Z" class="muscle base"/>
+  <path id="b-calves-l" d="M84 286 Q94 298 98 341 L89 341 Q80 318 80 295Z" class="muscle base"/>
+  <path id="b-calves-r" d="M126 286 Q116 298 112 341 L121 341 Q130 318 130 295Z" class="muscle base"/>
+</g></svg>
