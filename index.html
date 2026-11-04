@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#041417">
-<title>CUT+STR — Mobile Optimized v3.2.7</title>
+<title>CUT+STR — Progression v4.0</title>
 <style>
 :root{
  --bg:#031315;--bg2:#061b1f;--panel:#061a1e;--panel2:#08262a;--line:#1f666c;
@@ -260,6 +260,18 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 .history-delete-btn{min-height:38px;padding:8px 11px;border:1px solid #5b3535;border-radius:9px;background:#1a1111;color:#e89696;font-size:9px;font-weight:850}
 @media(max-width:760px){.history-card-actions{justify-content:stretch}.history-delete-btn{width:100%;min-height:44px;font-size:10px}}
 </style>
+<style id="progression-v40">
+.progression-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;border:1px solid #2a4742;background:#101b19;border-radius:11px;padding:11px 12px;margin-bottom:10px}
+.progression-card>div:first-child{display:flex;flex-direction:column;gap:3px;min-width:0}.progression-label{font-size:7px;color:#76908c;text-transform:uppercase;letter-spacing:.1em;font-weight:900}.progression-card strong{color:#f5f8f7;font-size:14px}.progression-card #progressionReason{font-size:8px;color:#8fa09f;line-height:1.4}
+.e1rm-box{min-width:126px;text-align:right;border-left:1px solid #2a3937;padding-left:12px}.e1rm-box span,.e1rm-box small{display:block;color:#728784;font-size:7px;text-transform:uppercase;letter-spacing:.06em}.e1rm-box strong{display:block;color:var(--teal);font-size:18px;margin:2px 0}
+.advanced-settable select{width:100%;min-height:38px;background:#11191b;border:1px solid #2a363a;border-radius:8px;color:#fff;padding:5px;font-size:10px}.advanced-settable .set-prev{min-width:92px}.previous-value{display:block;color:#dce7e5;font-weight:900;white-space:nowrap}.previous-meta{display:block;color:#718386;font-size:7px;line-height:1.3;margin-top:2px}.set-target{color:var(--teal);font-weight:900}.pr-badge{display:inline-block;margin-top:4px;padding:2px 5px;border-radius:999px;background:#382314;border:1px solid #8b562f;color:#ffb16f;font-size:7px;font-weight:1000;letter-spacing:.06em}.set-e1rm{display:block;color:#6f8582;font-size:7px;margin-top:3px}.mobile-set-label{display:none}
+.workout-summary-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.72);display:grid;place-items:center;padding:18px;backdrop-filter:blur(6px)}.workout-summary-card{width:min(620px,100%);max-height:88vh;overflow:auto;background:#101719;border:1px solid #334247;border-radius:16px;padding:20px;box-shadow:0 24px 70px rgba(0,0,0,.5)}.summary-kicker{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:900}.workout-summary-card h2{margin:5px 0 15px;font-size:25px}.summary-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.summary-metric{background:#0c1214;border:1px solid #263136;border-radius:10px;padding:11px}.summary-metric strong{display:block;font-size:18px}.summary-metric span{display:block;font-size:7px;color:#788b8e;text-transform:uppercase;margin-top:3px}.summary-prs{margin-top:14px;border-top:1px solid #253034;padding-top:12px}.summary-pr{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #202b2e;font-size:9px}.summary-pr strong{color:#ff9b68}.summary-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+@media(max-width:760px){
+ .progression-card{grid-template-columns:1fr;gap:8px;padding:10px}.e1rm-box{text-align:left;border-left:0;border-top:1px solid #293735;padding:8px 0 0;display:grid;grid-template-columns:1fr auto;align-items:end}.e1rm-box span{grid-column:1}.e1rm-box strong{grid-column:2;grid-row:1/3}.e1rm-box small{grid-column:1}
+ .advanced-settable thead{display:none}.advanced-settable,.advanced-settable tbody{display:block;width:100%}.advanced-settable tr{display:grid;grid-template-columns:42px 1fr 1fr 58px;grid-template-areas:"num prev prev done" "target weight reps rir" "type type type type";gap:5px;border:1px solid #263136;background:#0c1315;border-radius:11px;padding:8px;margin-bottom:8px}.advanced-settable td{border:0!important;padding:0!important;min-width:0}.advanced-settable td:nth-child(1){grid-area:num}.advanced-settable td:nth-child(2){grid-area:prev}.advanced-settable td:nth-child(3){grid-area:target}.advanced-settable td:nth-child(4){grid-area:weight}.advanced-settable td:nth-child(5){grid-area:reps}.advanced-settable td:nth-child(6){grid-area:rir}.advanced-settable td:nth-child(7){grid-area:type}.advanced-settable td:nth-child(8){grid-area:done;text-align:right}.mobile-set-label{display:block;font-size:6px;color:#697d80;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}.advanced-settable input,.advanced-settable select{min-height:44px!important;font-size:16px!important}.advanced-settable td:nth-child(7) select{font-size:13px!important}.advanced-settable .done{width:44px;height:44px}.set-prev{align-self:center}.previous-meta{font-size:7px}.set-target{display:block;padding-top:7px}
+ .workout-summary-card{padding:16px;border-radius:14px}.summary-metrics{grid-template-columns:1fr 1fr}.summary-metric strong{font-size:17px}
+}
+</style>
 </head>
 <body>
 <div class="app">
@@ -342,7 +354,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
    </div>
    <div class="lower">
     <div class="how"><h3>Technique</h3><ol id="howList"></ol></div>
-    <div class="setsbox"><h3>Log sets</h3><div class="rep-prescription"><span class="rp-label">Rep Target</span><span class="rp-value" id="logRepTarget">—</span></div><table class="settable"><thead><tr><th>Set</th><th>Target</th><th>Weight</th><th>Reps</th><th>Done</th></tr></thead><tbody id="setRows"></tbody></table></div>
+    <div class="setsbox"><h3>Log sets</h3><div class="rep-prescription"><span class="rp-label">Rep Target</span><span class="rp-value" id="logRepTarget">—</span></div><div class="progression-card"><div><span class="progression-label">Recommended today</span><strong id="progressionValue">Build history first</strong><span id="progressionReason">Complete a session to unlock progression guidance.</span></div><div class="e1rm-box"><span>Estimated 1RM</span><strong id="currentE1rm">—</strong><small id="previousE1rm">Previous best: —</small></div></div><table class="settable advanced-settable"><thead><tr><th>Set</th><th>Previous</th><th>Target</th><th>Weight</th><th>Reps</th><th>RIR</th><th>Type</th><th>Done</th></tr></thead><tbody id="setRows"></tbody></table></div>
     <div class="notesbox"><h3>Notes</h3><textarea id="notes" placeholder="How did it feel? Any adjustments?"></textarea></div>
    </div>
    <div class="actions"><button class="btn" id="restBtn">⏱ Rest 2:00</button><button class="btn primary" id="completeExercise">✓ Complete exercise</button><button class="btn orange" id="nextExercise">Next exercise →</button></div>
@@ -411,6 +423,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 </div>
 <div class="timer-toast hidden" id="timerToast">Rest: <span id="timerText">2:00</span></div>
 
+<div class="workout-summary-overlay hidden" id="workoutSummaryOverlay"><div class="workout-summary-card" role="dialog" aria-modal="true" aria-labelledby="summaryTitle"><div class="summary-kicker">Workout complete</div><h2 id="summaryTitle">Session Summary</h2><div id="summaryBody"></div><div class="summary-actions"><button class="btn" id="summaryClose">Close</button><button class="btn primary" id="summaryHistory">View History</button></div></div></div>
 <script>
 const REPDB='https://exercise-dataset.com';
 const VERIFIED_MEDIA_IDS={"barbell-bench-press":"bench-press","incline-dumbbell-bench-press":"incline-db-press","machine-chest-press":"chest-press-machine","weighted-dip":"weighted-dips","cable-chest-fly":"cable-fly","ez-bar-skull-crusher":"ez-bar-lying-tricep-extension","t-bar-row":"t-bar-row","one-arm-dumbbell-row":"single-arm-db-row","close-grip-lat-pulldown":"close-grip-lat-pulldown","straight-arm-pulldown":"straight-arm-pulldown","barbell-curl":"barbell-curl","hammer-curl":"hammer-curl","leg-press":"leg-press","bulgarian-split-squat":"bulgarian-split-squat","seated-leg-curl":"seated-leg-curl","45-degree-back-extension":"back-extension","leg-extension":"leg-extension","seated-calf-raise":"seated-calf-raise","seated-barbell-shoulder-press":"seated-barbell-overhead-press","arnold-press":"arnold-press","machine-lateral-raise":"plate-loaded-lateral-raise","smith-machine-incline-bench-press":"smith-machine-incline-bench-press","dumbbell-bench-press":"db-bench-press","lat-pulldown":"lat-pulldown","seated-cable-row":"seated-cable-row","reverse-pec-deck":"machine-reverse-fly","cable-curl":"cable-curl","goblet-squat":"goblet-squat","reverse-lunge":"reverse-lunge","lying-leg-curl":"leg-curl","cable-crunch":"cable-crunch","captains-chair-leg-raise":"captains-chair-leg-raise","pallof-press":"cable-pallof-press","walking":"walking","incline-barbell-bench-press":"incline-bench-press","spoto-press":"spoto-press","push-up":"push-up","front-squat":"front-squat","hack-squat":"hack-squat","romanian-deadlift":"romanian-deadlift","cable-lateral-raise":"cable-lateral-raise","face-pull":"face-pull","incline-dumbbell-curl":"incline-db-curl","ab-wheel-rollout":"ab-wheel-rollout","weighted-chin-up":"weighted-pull-up","machine-high-row":"chest-supported-machine-row","bayesian-cable-curl":"cable-curl","cable-rear-delt-fly":"rear-delt-fly","rope-hammer-curl":"hammer-curl","chest-supported-t-bar-row":"t-bar-row","rope-triceps-pushdown":"rope-pushdown","incline-machine-chest-press":"chest-press-machine","deficit-push-up":"deficit-push-ups","low-to-high-cable-fly":"cable-fly","seated-overhead-dumbbell-triceps-extension":"overhead-tricep-extension"};
@@ -438,9 +451,9 @@ const POOL={
  core:[['Cable Crunch','4 × 15','cable-crunch'],["Captain's Chair Leg Raise",'3 × 15','captains-chair-leg-raise'],['Ab Wheel Rollout','3 × 10–12','ab-wheel-rollout'],['Pallof Press','3 × 12/side','pallof-press']]
 };
 
-const DEFAULT={history:[],draft:{},goals:{goalWeight:240},profile:{name:'Account'},favorites:{},generated:[],activeProgramId:'current',lastGeneratedAt:null,exerciseOrder:{},draftKeyVersion:0,customExercises:[],dayAdditions:{}};
+const DEFAULT={history:[],draft:{},goals:{goalWeight:240},profile:{name:'Account'},favorites:{},generated:[],activeProgramId:'current',lastGeneratedAt:null,exerciseOrder:{},draftKeyVersion:0,customExercises:[],dayAdditions:{},sessionStarts:{}};
 let state;try{state={...DEFAULT,...JSON.parse(localStorage.getItem('cutStrengthFull')||'{}')}}catch(e){state=structuredClone(DEFAULT)}
-state.history=state.history||[];state.draft=state.draft||{};state.generated=state.generated||[];state.goals=state.goals||{goalWeight:240};state.profile=state.profile||{name:'Account'};state.favorites=state.favorites||{};state.exerciseOrder=state.exerciseOrder||{};state.draftKeyVersion=Number(state.draftKeyVersion)||0;state.customExercises=state.customExercises||[];state.dayAdditions=state.dayAdditions||{};
+state.history=state.history||[];state.draft=state.draft||{};state.generated=state.generated||[];state.goals=state.goals||{goalWeight:240};state.profile=state.profile||{name:'Account'};state.favorites=state.favorites||{};state.exerciseOrder=state.exerciseOrder||{};state.draftKeyVersion=Number(state.draftKeyVersion)||0;state.customExercises=state.customExercises||[];state.dayAdditions=state.dayAdditions||{};state.sessionStarts=state.sessionStarts||{};
 let selectedDay=Math.max(0,new Date().getDay()-1);if(new Date().getDay()===0)selectedDay=6;let selectedEx=0;let dataset=null;let byId={};
 
 function save(){localStorage.setItem('cutStrengthFull',JSON.stringify(state))}
@@ -840,14 +853,73 @@ function beginExerciseDrag(ev,from){
  document.addEventListener('pointerup',end);
  document.addEventListener('pointercancel',end);
 }
+const SET_TYPES=[['working','Working'],['warmup','Warm-up'],['backoff','Back-off'],['drop','Drop'],['failure','Failure']];
+function parseRepRange(target){
+ let t=String(target||'').split(/[×x]/).slice(1).join(' ').trim();
+ let m=t.match(/(\d+)\s*[–-]\s*(\d+)/);if(m)return {min:+m[1],max:+m[2]};
+ m=t.match(/(\d+)/);return m?{min:+m[1],max:+m[1]}:null;
+}
+function estimated1RM(weight,reps){weight=Number(weight)||0;reps=Number(reps)||0;if(weight<=0||reps<=0)return 0;return weight*(1+Math.min(reps,30)/30)}
+function normalizedSetType(s){return String((s&&s.type)||'working').toLowerCase()}
+function progressionSet(s){return !!(s&&s.done)&&normalizedSetType(s)!=='warmup'}
+function findPreviousExercise(e){
+ for(const h of state.history){let hx=(h.exercises||[]).find(x=>(x.id&&x.id===e[2])||normName(x.name)===normName(e[0]));if(hx)return {session:h,exercise:hx}}
+ return null;
+}
+function historicalBestE1RM(e){
+ let best=0;state.history.forEach(h=>(h.exercises||[]).forEach(x=>{if(!((x.id&&x.id===e[2])||normName(x.name)===normName(e[0])))return;(x.sets||[]).forEach(s=>{if(progressionSet(s))best=Math.max(best,Number(s.e1rm)||estimated1RM(s.weight,s.reps))})}));return best;
+}
+function currentBestE1RM(e){
+ let best=0;for(let i=0;i<setsCount(e[1]);i++){let d=state.draft[draftKeyFor(e,i)]||{};if(d.done&&normalizedSetType(d)!=='warmup')best=Math.max(best,estimated1RM(d.w,d.r))}return best;
+}
+function progressionIncrement(name,weight){
+ let n=String(name||'').toLowerCase();if((Number(weight)||0)<50)return 2.5;
+ return /squat|leg press|deadlift|rdl|hack|lunge/.test(n)?10:5;
+}
+function progressionRecommendation(e){
+ let prev=findPreviousExercise(e),range=parseRepRange(e[1]);
+ if(!prev)return {value:'Build your baseline',reason:'No previous session yet. Choose a load that leaves about 2 RIR with clean technique.'};
+ let sets=(prev.exercise.sets||[]).filter(progressionSet),weighted=sets.filter(s=>(Number(s.weight)||0)>0&&(Number(s.reps)||0)>0);
+ if(!sets.length)return {value:'Build your baseline',reason:'The last session has no completed working sets for this exercise.'};
+ if(!weighted.length){let total=sets.reduce((n,s)=>n+(Number(s.reps)||0),0);return {value:'Beat '+total+' total reps',reason:'Match last session quality and add 1–2 clean reps if you can.'}}
+ let top=Math.max(...weighted.map(s=>Number(s.weight)||0)),topSets=weighted.filter(s=>Math.abs((Number(s.weight)||0)-top)<.01),avg=topSets.reduce((n,s)=>n+(Number(s.reps)||0),0)/topSets.length;
+ let rirs=topSets.map(s=>Number(s.rir)).filter(x=>Number.isFinite(x)&&x>=0),avgRir=rirs.length?rirs.reduce((a,b)=>a+b,0)/rirs.length:null;
+ if(!range)return {value:top+' lb',reason:'Use the last working weight and improve reps or RIR before adding load.'};
+ if(avg>=range.max&&(avgRir===null||avgRir>=1)){let next=top+progressionIncrement(e[0],top);return {value:next+' lb • '+range.min+'–'+range.max+' reps',reason:'You reached the top of the rep range last time'+(avgRir===null?'.':(' at about '+avgRir.toFixed(1)+' RIR.'))}}
+ if(avg<range.min)return {value:top+' lb • '+range.min+'–'+range.max+' reps',reason:'Last session averaged '+avg.toFixed(1)+' reps at this load. Hold it and regain the bottom of the range before adding weight.'};
+ return {value:top+' lb • add 1 rep',reason:'Stay at the same load and beat last session by roughly one rep across the working sets.'};
+}
+function ensureSessionStart(){let k=orderKey();if(!state.sessionStarts[k]){state.sessionStarts[k]=Date.now();save()}}
+function sessionDurationMinutes(){let t=state.sessionStarts[orderKey()];return t?Math.max(1,Math.round((Date.now()-Number(t))/60000)):0}
+function setTypeLabel(v){let x=SET_TYPES.find(a=>a[0]===String(v||'working'));return x?x[1]:'Working'}
 function renderSets(){
- let target=repTargetText(ex()[1]);logRepTarget.textContent=target;
- setRows.innerHTML='';let count=setsCount(ex()[1]);for(let i=0;i<count;i++){let d=state.draft[draftKey(i)]||{};let tr=document.createElement('tr');tr.innerHTML=`<td>${i+1}</td><td><strong style="color:var(--teal)">${escapeHtml(target)}</strong></td><td><input data-s="${i}" data-f="w" type="number" inputmode="decimal" enterkeyhint="next" step=".5" value="${d.w??''}" placeholder="lbs" aria-label="Set ${i+1} weight"></td><td><input data-s="${i}" data-f="r" type="number" inputmode="numeric" enterkeyhint="${i===count-1?'done':'next'}" value="${d.r??''}" placeholder="${escapeHtml(target)}" aria-label="Set ${i+1} reps"></td><td><button class="done ${d.done?'on':''}" data-d="${i}" aria-label="Mark set ${i+1} complete">✓</button></td>`;setRows.appendChild(tr)}
+ let e=ex(),target=repTargetText(e[1]);logRepTarget.textContent=target;
+ let prev=findPreviousExercise(e),prevSets=prev?(prev.exercise.sets||[]):[],rec=progressionRecommendation(e),histBest=historicalBestE1RM(e),curBest=currentBestE1RM(e);
+ progressionValue.textContent=rec.value;progressionReason.textContent=rec.reason;currentE1rm.textContent=curBest?Math.round(curBest)+' lb':'—';previousE1rm.textContent='Previous best: '+(histBest?Math.round(histBest)+' lb':'—');
+ setRows.innerHTML='';let count=setsCount(e[1]);
+ for(let i=0;i<count;i++){
+   let d=state.draft[draftKey(i)]||{},ps=prevSets[i]||null,type=d.type||'working',rir=d.rir??'',e1=estimated1RM(d.w,d.r),isPr=!!d.done&&type!=='warmup'&&e1>histBest+.5;
+   let prevVal=ps?((Number(ps.weight)||0)?((Number(ps.weight)||0).toLocaleString()+' × '+(Number(ps.reps)||'—')):((Number(ps.reps)||'—')+' reps')):'—';
+   let prevMeta=ps?((ps.rir!==undefined&&ps.rir!==''?'RIR '+ps.rir+' • ':'')+setTypeLabel(ps.type)):'No prior set';
+   let typeOpts=SET_TYPES.map(x=>'<option value="'+x[0]+'" '+(type===x[0]?'selected':'')+'>'+x[1]+'</option>').join('');
+   let rirOpts='<option value="">—</option>'+[0,1,2,3,4,5].map(x=>'<option value="'+x+'" '+(String(rir)===String(x)?'selected':'')+'>'+x+'</option>').join('');
+   let tr=document.createElement('tr');
+   tr.innerHTML='<td><span class="mobile-set-label">Set</span><strong>'+(i+1)+'</strong></td>'+
+    '<td class="set-prev"><span class="mobile-set-label">Previous</span><span class="previous-value">'+escapeHtml(prevVal)+'</span><span class="previous-meta">'+escapeHtml(prevMeta)+'</span></td>'+
+    '<td><span class="mobile-set-label">Target</span><span class="set-target">'+escapeHtml(target)+'</span></td>'+
+    '<td><span class="mobile-set-label">Weight</span><input data-s="'+i+'" data-f="w" type="number" inputmode="decimal" enterkeyhint="next" step=".5" value="'+(d.w??'')+'" placeholder="lbs" aria-label="Set '+(i+1)+' weight">'+(e1?'<span class="set-e1rm">e1RM '+Math.round(e1)+'</span>':'')+'</td>'+
+    '<td><span class="mobile-set-label">Reps</span><input data-s="'+i+'" data-f="r" type="number" inputmode="numeric" enterkeyhint="next" value="'+(d.r??'')+'" placeholder="'+escapeHtml(target)+'" aria-label="Set '+(i+1)+' reps"></td>'+
+    '<td><span class="mobile-set-label">RIR</span><select data-s="'+i+'" data-f="rir" aria-label="Set '+(i+1)+' reps in reserve">'+rirOpts+'</select></td>'+
+    '<td><span class="mobile-set-label">Type</span><select data-s="'+i+'" data-f="type" aria-label="Set '+(i+1)+' type">'+typeOpts+'</select></td>'+
+    '<td><span class="mobile-set-label">Done</span><button class="done '+(d.done?'on':'')+'" data-d="'+i+'" aria-label="Mark set '+(i+1)+' complete">✓</button>'+(isPr?'<span class="pr-badge">NEW PR</span>':'')+'</td>';
+   setRows.appendChild(tr);
+ }
  setRows.querySelectorAll('input').forEach(x=>{
-   x.oninput=()=>{let k=draftKey(+x.dataset.s);state.draft[k]=state.draft[k]||{};state.draft[k][x.dataset.f]=x.value===''?'':Number(x.value);save()};
+   x.oninput=()=>{ensureSessionStart();let k=draftKey(+x.dataset.s);state.draft[k]=state.draft[k]||{};state.draft[k][x.dataset.f]=x.value===''?'':Number(x.value);save();let e1=currentBestE1RM(ex());currentE1rm.textContent=e1?Math.round(e1)+' lb':'—'};
    x.onkeydown=ev=>{if(ev.key!=='Enter')return;ev.preventDefault();let inputs=[...setRows.querySelectorAll('input')],i=inputs.indexOf(x);if(i>=0&&i<inputs.length-1){inputs[i+1].focus();inputs[i+1].select()}else{x.blur()}};
  });
- setRows.querySelectorAll('[data-d]').forEach(x=>x.onclick=()=>{let k=draftKey(+x.dataset.d);state.draft[k]=state.draft[k]||{};state.draft[k].done=!state.draft[k].done;save();renderSets()})
+ setRows.querySelectorAll('select').forEach(x=>x.onchange=()=>{ensureSessionStart();let k=draftKey(+x.dataset.s);state.draft[k]=state.draft[k]||{};state.draft[k][x.dataset.f]=x.dataset.f==='rir'?(x.value===''?'':Number(x.value)):x.value;save();renderSets()});
+ setRows.querySelectorAll('[data-d]').forEach(x=>x.onclick=()=>{ensureSessionStart();let k=draftKey(+x.dataset.d);state.draft[k]=state.draft[k]||{};state.draft[k].done=!state.draft[k].done;save();renderSets()});
 }
 function renderWorkoutDetail(){
  let e=ex();if(!e)return;let r=record(e[2],e[0]);exTitle.textContent=(selectedEx+1)+'. '+e[0];exTarget.textContent=e[1];let prim=(r.primary_muscles||[]).map(niceMuscle),sec=(r.secondary_muscles||[]).map(niceMuscle);exPrimary.textContent=prim.join(', ')||primaryFallback(e[0])[0];exSecondary.textContent=sec.join(', ')||primaryFallback(e[0])[1].join(', ')||'—';
@@ -869,16 +941,24 @@ function setMobileWorkoutPanel(panel){
  });
 }
 function snapshot(){
- let d=program().plan[selectedDay],setCount=0,volume=0,exercises=dayExercises().map(e=>{let sets=[];for(let i=0;i<setsCount(e[1]);i++){let k=draftKeyFor(e,i),v=state.draft[k]||{},row={weight:+v.w||0,reps:+v.r||0,done:!!v.done};sets.push(row);if(row.done){setCount++;volume+=row.weight*row.reps}}return {name:e[0],target:e[1],sets,notes:state.draft[noteKeyFor(e)]||''}});return {id:Date.now(),date:new Date().toISOString(),program:program().name,day:d.day,focus:d.focus,setCount,volume,exercises}
+ let d=program().plan[selectedDay],setCount=0,workingSetCount=0,volume=0,prCount=0,exercises=dayExercises().map(e=>{
+   let sets=[],histBest=historicalBestE1RM(e);
+   for(let i=0;i<setsCount(e[1]);i++){
+     let k=draftKeyFor(e,i),v=state.draft[k]||{},type=v.type||'working',e1=estimated1RM(v.w,v.r),row={weight:+v.w||0,reps:+v.r||0,rir:v.rir===''||v.rir===undefined?'':Number(v.rir),type,done:!!v.done,e1rm:e1?Math.round(e1*10)/10:0,pr:false};
+     if(row.done){setCount++;volume+=row.weight*row.reps;if(type!=='warmup'){workingSetCount++;if(e1>histBest+.5){row.pr=true;prCount++}}}sets.push(row);
+   }
+   return {id:e[2],name:e[0],target:e[1],sets,notes:state.draft[noteKeyFor(e)]||''};
+ });
+ return {id:Date.now(),date:new Date().toISOString(),program:program().name,day:d.day,focus:d.focus,setCount,workingSetCount,volume,prCount,durationMinutes:sessionDurationMinutes(),exercises};
 }
-function clearDayData(){let prefix=`${program().id}|${selectedDay}|`;Object.keys(state.draft).filter(k=>k.startsWith(prefix)).forEach(k=>delete state.draft[k]);save()}
+function clearDayData(){let prefix=`${program().id}|${selectedDay}|`;Object.keys(state.draft).filter(k=>k.startsWith(prefix)).forEach(k=>delete state.draft[k]);delete state.sessionStarts[orderKey()];save()}
 function renderHistory(){
  if(!state.history.length){historyList.innerHTML='<div class="panel small">No saved workouts yet.</div>';return}
  historyList.innerHTML=state.history.map(h=>{
    let exercises=(h.exercises||[]).map(e=>{
      let sets=(e.sets||[]).map((set,i)=>{
        let w=Number(set.weight)||0,r=Number(set.reps)||0,label=w?`${w.toLocaleString()} lb × ${r||'—'} reps`:`${r||'—'} reps${set.done?' • bodyweight / unweighted':''}`;
-       return `<div class="history-set"><strong>Set ${i+1}</strong><span class="load">${label}</span><span class="set-status ${set.done?'good':''}">${set.done?'Completed':'Not marked'}</span></div>`;
+       let meta=[setTypeLabel(set.type),set.rir!==undefined&&set.rir!==''?'RIR '+set.rir:'',set.e1rm?'e1RM '+Math.round(set.e1rm):''].filter(Boolean).join(' • ');return `<div class="history-set"><strong>Set ${i+1}${set.pr?' <span class="pr-badge">PR</span>':''}</strong><span class="load">${label}<span class="previous-meta">${escapeHtml(meta)}</span></span><span class="set-status ${set.done?'good':''}">${set.done?'Completed':'Not marked'}</span></div>`;
      }).join('')||'<div class="small">No set data saved.</div>';
      return `<div class="history-exercise"><div class="row"><div class="history-exercise-name">${escapeHtml(e.name)}</div><div class="small">${escapeHtml(e.target||'')}</div></div><div class="history-set-list">${sets}</div>${e.notes?`<div class="history-notes"><strong>Notes:</strong> ${escapeHtml(e.notes)}</div>`:''}</div>`;
    }).join('');
@@ -995,19 +1075,32 @@ async function mediaQA(){
  return {total:unique.length,missing};
 }
 function renderSettings(){profileName.value=state.profile.name||'';profileWeight.value=state.profile.currentWeight??state.goals.currentWeight??'';profileName.oninput=()=>{state.profile.name=profileName.value;save();renderHeader()};profileWeight.oninput=()=>{state.profile.currentWeight=profileWeight.value===''?'':Number(profileWeight.value);state.goals.currentWeight=state.profile.currentWeight;save()}}
+function showWorkoutSummary(snap){
+ let prs=[];(snap.exercises||[]).forEach(e=>(e.sets||[]).forEach((s,i)=>{if(s.pr)prs.push({name:e.name,set:i+1,weight:s.weight,reps:s.reps,e1rm:s.e1rm})}));
+ summaryTitle.textContent=snap.day+' — '+snap.focus;
+ summaryBody.innerHTML='<div class="summary-metrics">'+
+  '<div class="summary-metric"><strong>'+snap.setCount+'</strong><span>Completed sets</span></div>'+
+  '<div class="summary-metric"><strong>'+Math.round(snap.volume).toLocaleString()+'</strong><span>Total volume</span></div>'+
+  '<div class="summary-metric"><strong>'+snap.prCount+'</strong><span>New PRs</span></div>'+
+  '<div class="summary-metric"><strong>'+(snap.durationMinutes?snap.durationMinutes+' min':'—')+'</strong><span>Duration</span></div></div>'+
+  (prs.length?'<div class="summary-prs"><div class="ptitle">Personal Records</div>'+prs.slice(0,6).map(x=>'<div class="summary-pr"><span>'+escapeHtml(x.name)+' • Set '+x.set+'</span><strong>'+x.weight+' × '+x.reps+' · e1RM '+Math.round(x.e1rm)+'</strong></div>').join('')+'</div>':'<div class="summary-prs small">No new estimated 1RM PRs this session. Keep stacking quality work.</div>');
+ workoutSummaryOverlay.classList.remove('hidden');
+}
+function hideWorkoutSummary(){workoutSummaryOverlay.classList.add('hidden')}
 function renderAll(){renderHeader();renderDashboard();renderWorkout();renderHistory();renderGoals();renderProgress();renderBadges();renderPrograms();renderCustomBuilder();renderSettings();genStatus.textContent=refreshInfo().text}
 function setView(v){document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.view===v));['dashboard','workouts','history','goals','progress','achievements','programs','custom','generate','settings'].forEach(x=>document.getElementById(x+'View').classList.toggle('hidden',x!==v));if(v==='workouts')renderWorkout();if(v==='history')renderHistory();if(v==='progress')renderProgress();if(v==='programs')renderPrograms();if(v==='custom')renderCustomBuilder()}
 document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>setView(b.dataset.view));
-openWorkout.onclick=()=>setView('workouts');dashGenerate.onclick=generateProgram;generateNow.onclick=()=>{if(confirm('Generate a completely new 7-day program and make it active?'))generateProgram()};
+openWorkout.onclick=()=>{ensureSessionStart();setView('workouts')};dashGenerate.onclick=generateProgram;generateNow.onclick=()=>{if(confirm('Generate a completely new 7-day program and make it active?'))generateProgram()};
 customProgram.onchange=populateCustomDays;saveCustomExercise.onclick=createCustomExercise;addCustomFromWorkout.onclick=()=>{setView('custom');customProgram.value=program().id;populateCustomDays();customDay.value=String(selectedDay)};
 favoriteBtn.onclick=()=>{state.favorites[exId()]=!state.favorites[exId()];save();renderWorkoutDetail()};
 document.querySelectorAll('#mobileDetailTabs [data-mobile-panel]').forEach(b=>b.onclick=()=>setMobileWorkoutPanel(b.dataset.mobilePanel));
 mobileFinishWorkout.onclick=()=>finishDay.click();
 nextExercise.onclick=()=>{selectedEx=(selectedEx+1)%dayExercises().length;setMobileWorkoutPanel('log');renderWorkoutDetail()};
-completeExercise.onclick=()=>{for(let i=0;i<setsCount(ex()[1]);i++){let k=draftKey(i);state.draft[k]=state.draft[k]||{};state.draft[k].done=true}save();renderSets();if(selectedEx<dayExercises().length-1){selectedEx++;setMobileWorkoutPanel('log');renderWorkoutDetail()}else{renderWorkoutDetail()}};
+completeExercise.onclick=()=>{ensureSessionStart();for(let i=0;i<setsCount(ex()[1]);i++){let k=draftKey(i);state.draft[k]=state.draft[k]||{};state.draft[k].done=true}save();renderSets();if(selectedEx<dayExercises().length-1){selectedEx++;setMobileWorkoutPanel('log');renderWorkoutDetail()}else{renderWorkoutDetail()}};
 clearDay.onclick=()=>{if(confirm('Clear all entries for this day?')){clearDayData();renderWorkout()}};
-saveWorkout.onclick=()=>{state.history.unshift(snapshot());save();renderAll();alert('Workout saved.')};
-finishDay.onclick=()=>{state.history.unshift(snapshot());clearDayData();save();renderAll();alert('Workout saved and cleared.')};
+saveWorkout.onclick=()=>{ensureSessionStart();state.history.unshift(snapshot());save();renderAll();alert('Workout progress saved to History.')};
+finishDay.onclick=()=>{ensureSessionStart();let snap=snapshot();state.history.unshift(snap);clearDayData();save();renderAll();showWorkoutSummary(snap)};
+summaryClose.onclick=hideWorkoutSummary;summaryHistory.onclick=()=>{hideWorkoutSummary();setView('history')};workoutSummaryOverlay.onclick=e=>{if(e.target===workoutSummaryOverlay)hideWorkoutSummary()};
 let timer,secs=120;restBtn.onclick=()=>{clearInterval(timer);secs=120;timerToast.classList.remove('hidden');timerText.textContent='2:00';timer=setInterval(()=>{secs--;timerText.textContent=Math.floor(secs/60)+':'+String(secs%60).padStart(2,'0');if(secs<=0){clearInterval(timer);timerText.textContent='GO';setTimeout(()=>timerToast.classList.add('hidden'),3000)}},1000)};
 exportBtn.onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='cut-strength-backup.json';a.click();URL.revokeObjectURL(a.href)};
 importFile.onchange=async e=>{let f=e.target.files[0];if(!f)return;try{state={...DEFAULT,...JSON.parse(await f.text())};state.exerciseOrder=state.exerciseOrder||{};state.draftKeyVersion=Number(state.draftKeyVersion)||0;state.customExercises=state.customExercises||[];state.dayAdditions=state.dayAdditions||{};migrateDraftKeys();save();renderAll();alert('Backup imported.')}catch(err){alert('Invalid backup file.')}};
