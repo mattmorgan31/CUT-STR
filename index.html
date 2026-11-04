@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#041417">
-<title>CUT+STR — Progression v4.1</title>
+<title>CUT+STR — Progression v4.1.1</title>
 <style>
 :root{
  --bg:#031315;--bg2:#061b1f;--panel:#061a1e;--panel2:#08262a;--line:#1f666c;
@@ -69,10 +69,10 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
 
 /* v2.9 classic bodybuilding-chart target visual */
 .target-chart-wrap{width:100%;display:flex;justify-content:center;align-items:flex-start;gap:10px}
-.target-chart-card{position:relative;width:min(100%,305px);min-height:295px;border:0;border-radius:3px;overflow:hidden;background:#fff;padding:4px 6px 0}
+.target-chart-card{position:relative;width:min(100%,305px);min-height:295px;border:1px solid #263136;border-radius:8px;overflow:hidden;background:#101719;padding:4px 6px 0}
 .target-chart-card.dual{width:min(50%,215px)}
 .target-chart-card .view-tag{display:none}
-.muscle-chart-svg{width:100%;height:272px;display:block;background:#fff}
+.muscle-chart-svg{width:100%;height:272px;display:block;background:transparent}
 .body-base{fill:url(#bodyMetal);stroke:#4d4d4d;stroke-width:1.25}
 .body-shadow{fill:#b7b7b7;stroke:#666;stroke-width:.8}
 .body-line{fill:none;stroke:#555;stroke-width:.85;opacity:.98}
@@ -83,7 +83,7 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
 .muscle-region.tertiary{fill:#e7a592;stroke:#aa5b48;stroke-width:.8}
 .muscle-sep{fill:none;stroke:#5d5d5d;stroke-width:.58;opacity:.95}
 .chart-floor{stroke:#d0d0d0;stroke-width:.7}
-.chart-view-label{text-anchor:middle;font:900 9px Arial,sans-serif;letter-spacing:.08em;fill:#161616}
+.chart-view-label{text-anchor:middle;font:900 9px Arial,sans-serif;letter-spacing:.08em;fill:#d7e3e1}
 .target-chart-legend{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:6px;font-size:8px;color:#748f91;text-transform:uppercase;font-weight:900;letter-spacing:.04em}
 .target-chart-swatch{display:inline-block;width:10px;height:10px;border-radius:1px;margin-right:4px;vertical-align:-1px}
 .target-chart-swatch.primary{background:#d33b27;border:1px solid #9f271c}.target-chart-swatch.secondary{background:#e37b61;border:1px solid #b34e39}
@@ -281,7 +281,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 .bodybuilder-chart .bodybuilder-line{stroke:#484848;stroke-width:.8}
 .bodybuilder-chart .bodybuilder-sep{stroke:#575757;stroke-width:.62;opacity:.95}
 .bodybuilder-chart .chart-view-label{font-size:8px;fill:#252525}
-.target-chart-card{max-width:340px!important;padding:5px 7px 1px!important}
+.target-chart-card{max-width:340px!important;padding:5px 7px 1px!important;background:#101719!important;border:1px solid #263136!important}
 .muscle-chart-svg.bodybuilder-chart{height:auto!important;aspect-ratio:260 / 420!important}
 @media(max-width:760px){
  .target-chart-card{max-width:330px!important}
