@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#041417">
-<title>Cut + Strength — v2.6 Mobile</title>
+<title>Cut + Strength — v2.7 Technical</title>
 <style>
 :root{
  --bg:#031315;--bg2:#061b1f;--panel:#061a1e;--panel2:#08262a;--line:#1f666c;
@@ -67,21 +67,32 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
 @media(max-width:1050px){.visuals{grid-template-columns:1fr 1fr}.muscle-card{grid-column:1/-1;min-height:230px;flex-direction:row;gap:20px}.lower{grid-template-columns:1fr 1fr}.notesbox{grid-column:1/-1}.workout-grid{grid-template-columns:330px minmax(0,1fr)}.exercise-item{grid-template-columns:34px 36px minmax(0,1fr) 52px}.thumb{display:none}}
 @media(max-width:760px){.app{display:block}.sidebar{top:auto;bottom:0;right:0;width:auto;height:70px;padding:5px;display:flex;overflow:auto;border-right:0;border-top:1px solid #16464c}.nav{min-width:78px;margin:0;padding:6px}.nav .ico{font-size:16px}.main{padding:0 8px 80px}.topbar{grid-template-columns:1fr auto;height:auto;padding:10px;position:sticky}.brand{font-size:20px}.tag,.motto{display:none}.account{min-width:175px;padding:7px}.week{display:flex;overflow:auto}.daytab{min-width:90px}.dashboard{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.workout-grid{grid-template-columns:1fr}.exercise-list{display:flex;overflow:auto;gap:7px}.exercise-item{min-width:310px;margin:0;grid-template-columns:34px 35px minmax(0,1fr) 52px}.thumb{display:none}.visuals{grid-template-columns:1fr}.muscle-card{grid-column:auto}.lower{grid-template-columns:1fr}.notesbox{grid-column:auto}.actions{grid-template-columns:1fr}.info-row{grid-template-columns:1fr 1fr 1fr}.detail-title{font-size:22px}.muscle-volume-grid{grid-template-columns:1fr}}
 
-/* v2.6 premium anatomy */
-.anatomy-stage{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:7px;align-items:stretch}
-.anatomy-view{position:relative;overflow:hidden;border:1px solid #245e64;border-radius:9px;background:#020b0d;min-height:225px}
-.anatomy-view img{width:100%;height:225px;object-fit:contain;background:#f6f3ed;display:block;filter:saturate(.9) contrast(1.05)}
-.anatomy-view.is-muted{opacity:.46}
-.anatomy-view.is-primary{border-color:var(--orange);box-shadow:0 0 0 1px rgba(255,141,67,.18)}
-.anatomy-view .view-tag{position:absolute;left:7px;top:7px;background:rgba(2,11,13,.88);border:1px solid #3b7378;border-radius:999px;padding:4px 7px;font-size:8px;font-weight:1000;letter-spacing:.06em;text-transform:uppercase}
-.muscle-hotspot{position:absolute;border:2px solid rgba(255,126,64,.96);background:rgba(255,92,46,.28);box-shadow:0 0 18px rgba(255,92,46,.62),inset 0 0 14px rgba(255,177,76,.26);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%)}
-.muscle-hotspot.secondary{border-color:rgba(255,187,74,.85);background:rgba(255,187,74,.17);box-shadow:0 0 12px rgba(255,187,74,.40)}
-.muscle-card .anatomy-credit{font-size:7px;color:#67898b;line-height:1.35;margin-top:6px;text-align:center}
+/* v2.7 technical target-muscle graphic */
+.tech-target-stage{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.tech-body-card{position:relative;border:1px solid #245e64;border-radius:9px;overflow:hidden;background:
+ linear-gradient(rgba(40,234,208,.035) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(40,234,208,.035) 1px,transparent 1px),
+ #031114;background-size:14px 14px;min-height:240px}
+.tech-body-card.active-view{border-color:#38777d;box-shadow:inset 0 0 28px rgba(40,234,208,.045)}
+.tech-body-card .view-tag{position:absolute;left:7px;top:7px;z-index:2;background:rgba(2,11,13,.9);border:1px solid #356b71;border-radius:999px;padding:4px 7px;font-size:8px;font-weight:1000;letter-spacing:.08em;text-transform:uppercase;color:#a7cdca}
+.tech-body-svg{width:100%;height:238px;display:block}
+.tech-outline{fill:#08262a;stroke:#4f8589;stroke-width:1.4}
+.tech-joint{fill:#103a3d;stroke:#5d9699;stroke-width:1}
+.tech-line{fill:none;stroke:#266268;stroke-width:.8;stroke-dasharray:3 4;opacity:.7}
+.tech-region{fill:transparent;stroke:transparent;stroke-width:1.4;transition:.18s ease}
+.tech-region.secondary{fill:rgba(255,186,73,.32);stroke:#ffc062;filter:drop-shadow(0 0 4px rgba(255,192,98,.45))}
+.tech-region.primary{fill:rgba(255,92,46,.68);stroke:#ff9a58;filter:drop-shadow(0 0 7px rgba(255,92,46,.72))}
+.tech-region.primary-soft{fill:rgba(255,92,46,.48);stroke:#ff9a58;filter:drop-shadow(0 0 5px rgba(255,92,46,.56))}
+.tech-target-legend{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:7px;font-size:8px;color:#92b8b9;text-transform:uppercase;font-weight:900;letter-spacing:.04em}
+.tech-swatch{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.tech-swatch.primary{background:#ff6339;border:1px solid #ffab73}.tech-swatch.secondary{background:#d99b3d;border:1px solid #ffc062}
+.tech-zone-label{font-size:7px;fill:#7ba4a6;letter-spacing:.08em}
+.muscle-card .tech-note{font-size:7px;color:#67898b;line-height:1.35;margin-top:5px;text-align:center}
 .visual img{cursor:zoom-in}
 
 </style>
 
-<style id="mobile-v26">
+<style id="mobile-v27">
 @media(max-width:760px){
  html,body{overflow-x:hidden}
  body{background:#020b0d}
@@ -111,14 +122,14 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
  .visuals{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:6px;padding-bottom:3px}
  .visual{min-width:82vw;min-height:242px;scroll-snap-align:center}.visual img{height:208px}.visual .cap{font-size:9px;padding:6px}
  .muscle-card{min-width:88vw;min-height:242px;scroll-snap-align:center;display:flex;flex-direction:column;padding:7px}.muscle-card h3{font-size:11px;margin-bottom:5px}
- .anatomy-stage{grid-template-columns:1fr 1fr;gap:4px}.anatomy-view{min-height:196px}.anatomy-view img{height:196px}.anatomy-view .view-tag{font-size:7px;padding:3px 5px}
+ .tech-target-stage{grid-template-columns:1fr 1fr;gap:4px}.tech-body-card{min-height:196px}.tech-body-svg{height:196px}.tech-body-card .view-tag{font-size:7px;padding:3px 5px}
  .muscle-lines{font-size:9px;line-height:1.4}
  .history-card,.program-card,.trend-card,.badge,.custom-card{padding:9px}.history-set{grid-template-columns:42px 1fr auto;padding:7px 6px}
  .formgrid{grid-template-columns:1fr}.custom-wide{grid-column:auto}.field input,.field select,.field textarea{font-size:16px}
 }
 @media(max-width:380px){
  .account{min-width:130px}.brand{font-size:15px}.exercise-item{min-width:242px}.actions{grid-template-columns:1fr 1.2fr 1fr}
- .anatomy-view,.anatomy-view img{height:176px;min-height:176px}.visual{min-width:88vw}
+ .tech-body-card{height:176px;min-height:176px}.tech-body-svg{height:174px}.visual{min-width:88vw}
 }
 </style>
 
@@ -436,54 +447,103 @@ function record(id,name){
 function niceMuscle(s){return String(s||'').replaceAll('_',' ').replace(/\b\w/g,c=>c.toUpperCase()).replace('Pectoralis Major','Chest').replace('Latissimus Dorsi','Lats').replace('Triceps Brachii','Triceps').replace('Biceps Brachii','Biceps').replace('Anterior Deltoid','Front Delts')}
 function escapeHtml(v){return String(v??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]))}
 
-const ANATOMY_FRONT='https://upload.wikimedia.org/wikipedia/commons/c/c4/Anterior_View_of_Muscles.jpg';
-const ANATOMY_BACK='https://upload.wikimedia.org/wikipedia/commons/6/69/Posterior_View_of_Muscles.jpg';
-const MUSCLE_ZONES={
- chest:{view:'front',x:50,y:24,w:32,h:13},
- shoulders:{view:'front',x:50,y:20,w:52,h:12},
- biceps:{view:'front',x:50,y:31,w:53,h:14},
- triceps:{view:'back',x:50,y:30,w:54,h:14},
- back:{view:'back',x:50,y:31,w:38,h:25},
- quads:{view:'front',x:50,y:61,w:35,h:25},
- hamstrings:{view:'back',x:50,y:62,w:36,h:24},
- glutes:{view:'back',x:50,y:51,w:30,h:16},
- calves:{view:'back',x:50,y:80,w:31,h:20},
- core:{view:'front',x:50,y:41,w:27,h:26},
- fullbody:{view:'front',x:50,y:48,w:50,h:70}
-};
-function muscleZone(primary,name){
- let n=(String(primary||'')+' '+String(name||'')).toLowerCase();
- if(/calf|gastro|soleus/.test(n))return ['calves'];
- if(/hamstring|leg curl|rdl|romanian|deadlift/.test(n))return ['hamstrings','glutes'];
- if(/glute|hip thrust|back extension/.test(n))return ['glutes','hamstrings'];
- if(/quad|squat|leg press|lunge|leg extension|split squat/.test(n))return ['quads','glutes'];
- if(/core|ab|crunch|pallof|sit-up|leg raise|plank/.test(n))return ['core'];
- if(/triceps|pushdown|skull|jm press|extension/.test(n))return ['triceps'];
- if(/biceps|curl/.test(n)&&!/leg curl/.test(n))return ['biceps'];
- if(/shoulder|delto|lateral|rear delt|overhead|arnold|face pull/.test(n))return ['shoulders'];
- if(/lat|back|row|pulldown|pull-up|pullup|chin/.test(n))return ['back','biceps'];
- if(/chest|pector|bench|fly|dip|push-up|pushup/.test(n))return ['chest','triceps','shoulders'];
- return ['fullbody'];
+function muscleKeysFromText(values,name=''){
+ let text=(Array.isArray(values)?values.join(' '):String(values||''))+' '+String(name||'');
+ text=text.toLowerCase();
+ let keys=[];
+ const add=k=>{if(!keys.includes(k))keys.push(k)};
+ if(/pector|chest/.test(text))add('chest');
+ if(/anterior deltoid|front delt|deltoid|shoulder/.test(text))add('shoulders');
+ if(/triceps/.test(text))add('triceps');
+ if(/biceps|brachialis/.test(text))add('biceps');
+ if(/latissimus|lats|back|rhomboid|trapezius|trap/.test(text))add('back');
+ if(/abdom|rectus abdominis|oblique|core/.test(text))add('core');
+ if(/quadriceps|quad/.test(text))add('quads');
+ if(/hamstring/.test(text))add('hamstrings');
+ if(/glute/.test(text))add('glutes');
+ if(/gastrocnemius|soleus|calf/.test(text))add('calves');
+ return keys;
 }
-function hotspotHtml(zoneKey,secondary=false){
- let z=MUSCLE_ZONES[zoneKey]||MUSCLE_ZONES.fullbody;
- return `<span class="muscle-hotspot ${secondary?'secondary':''}" style="left:${z.x}%;top:${z.y}%;width:${z.w}%;height:${z.h}%"></span>`;
+function fallbackMuscleKeys(name){
+ let n=String(name||'').toLowerCase();
+ if(/calf/.test(n))return {primary:['calves'],secondary:[]};
+ if(/leg curl|rdl|romanian|deadlift/.test(n))return {primary:['hamstrings'],secondary:['glutes','back']};
+ if(/hip thrust|glute|back extension/.test(n))return {primary:['glutes'],secondary:['hamstrings','back']};
+ if(/squat|leg press|lunge|leg extension|split squat|goblet/.test(n))return {primary:['quads'],secondary:['glutes','hamstrings','core']};
+ if(/crunch|sit-up|leg raise|pallof|plank|ab wheel/.test(n))return {primary:['core'],secondary:[]};
+ if(/pushdown|skull|jm press|triceps extension|overhead dumbbell extension/.test(n))return {primary:['triceps'],secondary:[]};
+ if(/curl/.test(n)&&!/leg curl/.test(n))return {primary:['biceps'],secondary:[]};
+ if(/lateral|rear delt|shoulder|overhead press|ohp|arnold|face pull|y-raise/.test(n))return {primary:['shoulders'],secondary:['triceps']};
+ if(/row|pulldown|pull-up|pullup|chin-up|chin up|straight-arm|meadows/.test(n))return {primary:['back'],secondary:['biceps','shoulders']};
+ if(/bench|chest|fly|dip|push-up|pushup|incline press|machine press|smith press/.test(n))return {primary:['chest'],secondary:['triceps','shoulders']};
+ return {primary:['core'],secondary:[]};
 }
-function renderAnatomyTarget(primary,name){
- let zones=muscleZone(primary,name),primaryZone=MUSCLE_ZONES[zones[0]]||MUSCLE_ZONES.fullbody;
- let frontZones=zones.filter(z=>(MUSCLE_ZONES[z]||{}).view==='front').map((z,i)=>hotspotHtml(z,i>0)).join('');
- let backZones=zones.filter(z=>(MUSCLE_ZONES[z]||{}).view==='back').map((z,i)=>hotspotHtml(z,i>0)).join('');
- return `<div class="anatomy-stage">
-   <div class="anatomy-view ${primaryZone.view==='front'?'is-primary':'is-muted'}">
-     <img src="${ANATOMY_FRONT}" alt="Anterior human muscular anatomy" loading="lazy">
-     <span class="view-tag">Front</span>${frontZones}
-   </div>
-   <div class="anatomy-view ${primaryZone.view==='back'?'is-primary':'is-muted'}">
-     <img src="${ANATOMY_BACK}" alt="Posterior human muscular anatomy" loading="lazy">
-     <span class="view-tag">Back</span>${backZones}
-   </div>
+function muscleTargetKeys(primaryList,secondaryList,name){
+ let primary=muscleKeysFromText(primaryList);
+ let secondary=muscleKeysFromText(secondaryList).filter(k=>!primary.includes(k));
+ if(!primary.length){
+   let f=fallbackMuscleKeys(name);
+   primary=f.primary;
+   secondary=f.secondary.filter(k=>!primary.includes(k));
+ }
+ return {primary,secondary};
+}
+function techClass(key,primary,secondary){
+ if(primary.includes(key))return 'tech-region primary';
+ if(secondary.includes(key))return 'tech-region secondary';
+ return 'tech-region';
+}
+function technicalBodySvg(view,primary,secondary){
+ const c=k=>techClass(k,primary,secondary);
+ const front=view==='front';
+ return `<svg class="tech-body-svg" viewBox="0 0 220 330" role="img" aria-label="${front?'Front':'Back'} technical muscle target diagram">
+   <line class="tech-line" x1="110" y1="12" x2="110" y2="318"/>
+   <line class="tech-line" x1="26" y1="82" x2="194" y2="82"/>
+   <line class="tech-line" x1="26" y1="184" x2="194" y2="184"/>
+   <circle class="tech-outline" cx="110" cy="38" r="23"/>
+   <path class="tech-outline" d="M84 62 Q110 54 136 62 L148 105 140 168 126 194 94 194 80 168 72 105Z"/>
+   <path class="tech-outline" d="M76 73 Q56 78 48 102 L37 153 48 158 66 113 83 99Z"/>
+   <path class="tech-outline" d="M144 73 Q164 78 172 102 L183 153 172 158 154 113 137 99Z"/>
+   <path class="tech-outline" d="M95 192 L81 252 88 315 105 315 111 246 110 194Z"/>
+   <path class="tech-outline" d="M125 192 L139 252 132 315 115 315 109 246 110 194Z"/>
+   <circle class="tech-joint" cx="48" cy="158" r="5"/><circle class="tech-joint" cx="172" cy="158" r="5"/>
+   <circle class="tech-joint" cx="87" cy="252" r="5"/><circle class="tech-joint" cx="133" cy="252" r="5"/>
+   ${front ? `
+   <path class="${c('shoulders')}" d="M79 70 Q65 72 56 87 L72 101 86 92 91 73Z"/>
+   <path class="${c('shoulders')}" d="M141 70 Q155 72 164 87 L148 101 134 92 129 73Z"/>
+   <path class="${c('chest')}" d="M88 82 Q110 72 132 82 L132 112 Q110 120 88 112Z"/>
+   <path class="${c('biceps')}" d="M61 100 Q52 110 50 132 L62 136 70 110Z"/>
+   <path class="${c('biceps')}" d="M159 100 Q168 110 170 132 L158 136 150 110Z"/>
+   <path class="${c('core')}" d="M94 116 L126 116 132 171 88 171Z"/>
+   <path class="${c('quads')}" d="M94 196 L109 196 105 248 86 248Z"/>
+   <path class="${c('quads')}" d="M126 196 L111 196 115 248 134 248Z"/>
+   ` : `
+   <path class="${c('shoulders')}" d="M79 70 Q65 72 56 87 L72 101 86 92 91 73Z"/>
+   <path class="${c('shoulders')}" d="M141 70 Q155 72 164 87 L148 101 134 92 129 73Z"/>
+   <path class="${c('back')}" d="M88 82 Q110 74 132 82 L138 132 126 160 110 169 94 160 82 132Z"/>
+   <path class="${c('triceps')}" d="M58 98 Q49 113 48 139 L61 143 69 111Z"/>
+   <path class="${c('triceps')}" d="M162 98 Q171 113 172 139 L159 143 151 111Z"/>
+   <path class="${c('glutes')}" d="M91 166 Q110 158 129 166 L130 194 Q110 202 90 194Z"/>
+   <path class="${c('hamstrings')}" d="M91 198 L108 198 104 250 84 250Z"/>
+   <path class="${c('hamstrings')}" d="M129 198 L112 198 116 250 136 250Z"/>
+   <path class="${c('calves')}" d="M87 258 L104 258 101 306 88 306Z"/>
+   <path class="${c('calves')}" d="M133 258 L116 258 119 306 132 306Z"/>
+   `}
+   <text class="tech-zone-label" x="110" y="326" text-anchor="middle">${front?'ANTERIOR':'POSTERIOR'}</text>
+ </svg>`;
+}
+function renderTechnicalTarget(primaryList,secondaryList,name){
+ let t=muscleTargetKeys(primaryList,secondaryList,name);
+ let frontKeys=['chest','shoulders','biceps','core','quads'];
+ let backKeys=['shoulders','triceps','back','glutes','hamstrings','calves'];
+ let frontActive=t.primary.concat(t.secondary).some(k=>frontKeys.includes(k));
+ let backActive=t.primary.concat(t.secondary).some(k=>backKeys.includes(k));
+ return `<div class="tech-target-stage">
+   <div class="tech-body-card ${frontActive?'active-view':''}"><span class="view-tag">Front</span>${technicalBodySvg('front',t.primary,t.secondary)}</div>
+   <div class="tech-body-card ${backActive?'active-view':''}"><span class="view-tag">Back</span>${technicalBodySvg('back',t.primary,t.secondary)}</div>
  </div>
- <div class="anatomy-credit">Anatomical reference: CFCF / Wikimedia Commons · CC BY-SA 4.0</div>`;
+ <div class="tech-target-legend"><span><i class="tech-swatch primary"></i>Primary</span><span><i class="tech-swatch secondary"></i>Secondary</span></div>
+ <div class="tech-note">Highlighted zones show the main areas trained by this exercise.</div>`;
 }
 function mediaPlaceholder(label){
  let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560"><rect width="100%" height="100%" fill="#06171a"/><rect x="18" y="18" width="864" height="524" rx="18" fill="none" stroke="#285e64" stroke-width="3"/><text x="450" y="250" text-anchor="middle" font-family="Arial" font-size="34" fill="#6f9b9e">${label}</text><text x="450" y="310" text-anchor="middle" font-family="Arial" font-size="18" fill="#ff8d43">VERIFIED EXERCISE MEDIA UNAVAILABLE</text></svg>`;
@@ -583,7 +643,7 @@ function renderWorkoutDetail(){
  let e=ex();if(!e)return;let r=record(e[2],e[0]);exTitle.textContent=(selectedEx+1)+'. '+e[0];exTarget.textContent=e[1];let prim=(r.primary_muscles||[]).map(niceMuscle),sec=(r.secondary_muscles||[]).map(niceMuscle);exPrimary.textContent=prim.join(', ')||primaryFallback(e[0])[0];exSecondary.textContent=sec.join(', ')||primaryFallback(e[0])[1].join(', ')||'—';
  let verified=resolveRecord(e[2],e[0]);let sUrl=mediaUrlForRecord(verified,'start'),pUrl=mediaUrlForRecord(verified,'peak');startImg.loading='eager';peakImg.loading='lazy';startImg.src=sUrl||mediaPlaceholder(e[0]+' START');peakImg.src=pUrl||mediaPlaceholder(e[0]+' FINISH');startImg.alt=e[0]+' start/setup';peakImg.alt=e[0]+' finish/peak';startImg.onerror=()=>{startImg.src=mediaPlaceholder(e[0]+' START')};peakImg.onerror=()=>{peakImg.src=mediaPlaceholder(e[0]+' FINISH')};
  howList.innerHTML=(r.instructions_en||instructionsFallback(e[0])).slice(0,6).map(x=>`<li>${x}</li>`).join('');
- bodyMap.innerHTML=renderAnatomyTarget(prim[0]||primaryFallback(e[0])[0],e[0]);muscleLines.innerHTML=`<div><span class="dot p"></span>Primary: ${prim.join(', ')||primaryFallback(e[0])[0]}</div><div><span class="dot s"></span>Secondary: ${sec.join(', ')||primaryFallback(e[0])[1].join(', ')||'—'}</div>`;
+ bodyMap.innerHTML=renderTechnicalTarget(prim,sec,e[0]);muscleLines.innerHTML=`<div><span class="dot p"></span>Primary: ${prim.join(', ')||primaryFallback(e[0])[0]}</div><div><span class="dot s"></span>Secondary: ${sec.join(', ')||primaryFallback(e[0])[1].join(', ')||'—'}</div>`;
  notes.value=state.draft[noteKey()]||'';notes.oninput=()=>{state.draft[noteKey()]=notes.value;save()};favoriteBtn.classList.toggle('on',!!state.favorites[e[2]]);renderSets();renderExerciseList()
 }
 function renderWorkout(){renderWeek(workWeek);let d=program().plan[selectedDay];workDay.innerHTML=`${d.day.toUpperCase()}<br><span>${d.focus.toUpperCase()}</span>`;workFocus.textContent=program().name;renderExerciseList();renderWorkoutDetail()}
