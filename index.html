@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#041417">
-<title>Cut + Strength — v3.0 Verified Media</title>
+<title>CUT+STR — Professional v3.1</title>
 <style>
 :root{
  --bg:#031315;--bg2:#061b1f;--panel:#061a1e;--panel2:#08262a;--line:#1f666c;
@@ -136,27 +136,113 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
 }
 </style>
 
+
+<style id="professional-v31">
+:root{
+ --bg:#080c0e;--bg2:#0b1113;--panel:#101618;--panel2:#141c1f;--line:#263136;
+ --teal:#48d7c1;--teal2:#8cecdf;--orange:#f07a45;--text:#f5f8f7;--muted:#93a3a5;
+ --good:#62d690;--bad:#ef7474;--shadow:0 16px 44px rgba(0,0,0,.24);
+ --radius:14px;--radius-sm:10px;
+}
+*{scrollbar-color:#2c4448 transparent}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--text);letter-spacing:-.005em}
+button,input,textarea,select{font-family:inherit}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.app{grid-template-columns:210px minmax(0,1fr)}
+.sidebar{width:210px;padding:18px 12px 20px;background:#0c1214;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px}
+.sidebar-brand{display:flex;align-items:center;gap:10px;padding:4px 7px 18px;margin-bottom:8px;border-bottom:1px solid #202a2e}
+.sidebar-brand .brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:var(--teal);color:#06211d;font-size:12px;font-weight:1000;letter-spacing:-.05em}
+.sidebar-brand strong{display:block;font-size:14px;letter-spacing:.04em}.sidebar-brand small{display:block;color:var(--muted);font-size:9px;margin-top:2px;letter-spacing:.12em;text-transform:uppercase}
+.nav{width:100%;min-height:46px;margin:0;padding:0 11px;border-radius:10px;display:grid;grid-template-columns:28px 1fr;align-items:center;justify-items:start;gap:8px;font-size:11px;font-weight:750;color:#aebabc;text-align:left}
+.nav .ico{font-size:17px;width:28px;text-align:center;color:#718386}.nav.active{background:#142321;color:#f5fffd;box-shadow:none;border:1px solid #25463f}.nav.active .ico{color:var(--teal)}
+.main{grid-column:2;padding:0 22px 48px}
+.topbar{height:74px;padding:10px 4px 10px 8px;gap:18px;background:rgba(8,12,14,.93);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
+.brand{font-size:21px;letter-spacing:-.03em}.brand b{color:var(--teal)}.tag{font-size:8px;color:#708386;letter-spacing:.15em;margin-top:3px}
+.account{min-width:300px;background:#0e1517;border:1px solid var(--line);border-radius:12px;padding:9px 12px}.acc-row{font-size:10px}.xp{height:5px;border:0;background:#1c272a;margin-top:7px}.xp>div{background:var(--teal)}
+.motto{font-size:9px;color:#687a7d;letter-spacing:.11em}.content{max-width:1500px;padding-top:18px}
+.panel,.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:none}.panel{padding:18px}
+.ptitle{font-size:10px;color:#809194;letter-spacing:.11em;margin-bottom:11px}.hero{padding:18px 20px;margin-bottom:14px;background:linear-gradient(120deg,#121a1c,#0f1618)}
+.hero h1{font-size:25px;text-transform:none;letter-spacing:-.03em}.hero h1 span{color:var(--text)}.hero p{font-size:10px;margin-top:6px;color:var(--muted)}
+.week{gap:7px;margin-bottom:14px}.daytab{background:#0d1416;border:1px solid #232e32;border-radius:11px;padding:10px 7px;color:#aab7b9;font-size:10px}
+.daytab span{font-size:8px}.daytab.active{background:#152522;border-color:#315b52;color:#f0fffb;box-shadow:inset 0 -2px 0 var(--teal)}
+.dashboard{grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr);gap:14px}
+.metrics{gap:9px}.metric{background:#0d1416;border:1px solid #222d31;border-radius:12px;padding:14px}.metric .v{font-size:24px;color:#f5f8f7}.metric .l{font-size:8px;color:#718285;margin-top:3px;letter-spacing:.08em}
+.btn{border:1px solid #303c40;background:#151d20;color:#e8eeee;border-radius:10px;padding:12px 14px;font-size:10px;font-weight:800;text-transform:none;letter-spacing:.01em;transition:.16s ease}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#06221e;font-size:11px}.btn.orange{border-color:#77462f;color:#f0a07a;background:#1c1613}
+.favorite{border:1px solid #303c40;background:#131b1d;border-radius:10px;color:#9eadaf;font-size:10px;padding:9px 12px}.favorite.on{background:#231914;color:#ff9b6c;border-color:#6f422e}
+.workout-grid{grid-template-columns:300px minmax(0,1fr);gap:14px}.workout-grid>div:first-child{min-width:0}
+.reorder-help{font-size:8px;line-height:1.5;color:#718285;margin:1px 4px 8px}
+.exercise-list{padding:8px;max-height:calc(100vh - 205px);overflow-y:auto;position:sticky;top:92px}
+.exercise-item{grid-template-columns:30px 32px minmax(0,1fr) 44px;gap:6px;padding:8px 7px;margin-bottom:5px;background:#0d1416;border:1px solid transparent;border-radius:10px;min-height:62px}
+.exercise-item.active{background:#152421;border-color:#315a52;box-shadow:none}.drag-handle{width:30px;height:38px;background:transparent;border:0;color:#657679;font-size:17px}.drag-handle.locked{border:0}
+.exnum{font-size:13px;color:#66777a}.exname{font-size:11px;color:#f0f4f3;text-transform:none;line-height:1.2;letter-spacing:0}.extarget{font-size:9px;color:#8fa0a2}
+.reorder-btn{height:27px;background:#11191b;border:1px solid #293438;color:#819194;border-radius:7px}
+.detail{padding:16px;display:grid;grid-template-columns:minmax(0,1fr) 350px;grid-template-areas:"head head" "info sets" "visuals sets" "how notes" "actions actions";gap:13px;align-items:start}
+.detail-head{grid-area:head;align-items:center}.detail-title{font-size:27px;color:#f5f8f7;text-transform:none;letter-spacing:-.035em}.info-row{grid-area:info;margin:0;gap:7px}
+.infobox{background:#0d1416;border:1px solid #222e31;border-radius:10px;padding:9px 10px}.infobox .k{font-size:7px;color:#718386}.infobox .v{font-size:13px;margin-top:4px}
+.visuals{grid-area:visuals;grid-template-columns:1fr 1fr;gap:9px}.visual{min-height:250px;background:#0c1214;border:1px solid #253136;border-radius:12px}
+.visual img{height:220px;background:#0c1214}.visual .cap{font-size:8px;color:#869699;border-top:1px solid #222d31;letter-spacing:.09em}
+.muscle-card{grid-column:1/-1;min-height:300px;border:1px solid #253136;border-radius:12px;background:#0d1416;padding:12px;display:grid;grid-template-columns:minmax(280px,.85fr) minmax(220px,1.15fr);align-items:center;gap:14px}
+.muscle-card h3{grid-column:1/-1;margin:0;color:#87989a;font-size:9px;letter-spacing:.11em}.muscle-lines{font-size:10px;line-height:1.7;margin:0}
+.target-chart-wrap{justify-content:flex-start}.target-chart-card{max-width:290px}
+.lower{display:contents}.how{grid-area:how}.setsbox{grid-area:sets}.notesbox{grid-area:notes}
+.how,.setsbox,.notesbox{background:#0d1416;border:1px solid #253136;border-radius:12px;padding:13px}.how h3,.setsbox h3,.notesbox h3{font-size:10px;color:#839497;text-transform:none;letter-spacing:.09em;margin-bottom:10px}
+.how li{font-size:10px;color:#c3cdce;line-height:1.55;margin:6px 0}.setsbox{position:sticky;top:92px}
+.rep-prescription{background:#121f1d;border:1px solid #29463f;border-radius:10px;padding:9px 10px;margin-bottom:10px}.rep-prescription .rp-label{font-size:7px;color:#7d918e}.rep-prescription .rp-value{font-size:14px;color:var(--teal)}
+.settable{font-size:9px}.settable th{color:#718386;font-size:7px;text-transform:uppercase;letter-spacing:.07em}.settable th,.settable td{border:0;border-bottom:1px solid #202a2d;padding:7px 4px}
+.settable input{min-height:40px;background:#11191b;border:1px solid #2a363a;border-radius:8px;font-size:13px}.done{width:38px;height:38px;border-radius:8px;border-color:#3f6861}.done.on{background:var(--teal);border-color:var(--teal)}
+.notesbox textarea{height:116px;background:#11191b;border:1px solid #2a363a;border-radius:9px;font-size:12px;line-height:1.45}
+.detail>.actions{grid-area:actions;margin-top:0;grid-template-columns:160px 1fr 180px;gap:8px;padding-top:3px}
+.history-card,.program-card,.trend-card,.badge,.custom-card{background:#0f1618;border:1px solid #253034;border-radius:12px;padding:14px}.history-card.open{border-color:#315a52}
+.history-exercise{background:#0b1214;border-color:#222d31;border-radius:10px}.history-set{background:#0d1517;border-color:#202b2e}
+.formgrid{gap:10px}.field{background:#0f1618;border:1px solid #253034;border-radius:12px;padding:12px}.field label{color:#718386}.field input{font-size:17px}
+.muscle-volume-card{background:#0f1618;border-color:#253034;border-radius:12px}.muscle-volume-fill{background:var(--teal)}.badge .bn{color:#e7edec}
+.refresh{background:#17130f;border-color:#65422f;border-radius:12px}.volume-note{background:#0d1416;border-color:#202c30;border-radius:10px}.custom-status{color:var(--teal)}.attribution{color:#536568;margin-top:16px}
+@media (hover:hover) and (pointer:fine){.btn:hover{transform:translateY(-1px);border-color:#4b5c61}.btn.primary:hover{filter:brightness(1.04)}.nav:hover{background:#10191b;color:#dbe3e2}.nav.active:hover{background:#152421}.exercise-item:hover{border-color:#2d3b3f;background:#11191b}}
+@media(max-width:1100px) and (min-width:761px){.app{grid-template-columns:170px minmax(0,1fr)}.sidebar{width:170px}.main{padding-left:16px;padding-right:16px}.detail{grid-template-columns:minmax(0,1fr) 310px}.workout-grid{grid-template-columns:270px minmax(0,1fr)}.muscle-card{grid-template-columns:1fr}.muscle-card h3{grid-column:auto}.account{min-width:260px}}
+@media(max-width:760px){
+ .app{display:block}.main{padding:0 7px calc(80px + env(safe-area-inset-bottom))}.sidebar-brand{display:none}
+ .sidebar{position:fixed;left:0;right:0;top:auto;bottom:0;width:auto;height:64px;padding:4px 5px calc(4px + env(safe-area-inset-bottom));flex-direction:row;overflow-x:auto;gap:2px;background:rgba(9,14,16,.98);border:0;border-top:1px solid #263136;scrollbar-width:none}
+ .sidebar::-webkit-scrollbar{display:none}.nav{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;min-width:66px;width:auto;min-height:52px;padding:4px 5px;font-size:7px;text-align:center;border:0}.nav .ico{font-size:15px;width:auto}.nav.active{border:0;background:#142321;color:#f5fffd}
+ .topbar{min-height:58px;height:auto;padding:7px 8px;gap:7px}.brand{font-size:17px}.tag,.motto{display:none}.account{min-width:145px;padding:6px 8px}.acc-row{font-size:8px}
+ .content{padding-top:7px}.week{gap:5px;margin-bottom:8px}.daytab{min-width:72px;min-height:48px;padding:7px 4px;border-radius:9px}.hero{padding:12px;margin-bottom:8px}.hero h1{font-size:20px}.hero p{font-size:9px}
+ .dashboard{grid-template-columns:1fr}.panel{padding:13px}.metrics{grid-template-columns:repeat(2,1fr)}.metric{padding:11px}.metric .v{font-size:20px}
+ .workout-grid{display:block}.exercise-list{position:static;max-height:none;margin:0 -7px 8px;padding:6px 7px;display:flex;overflow-x:auto;overflow-y:hidden;gap:6px;scroll-snap-type:x mandatory}
+ .exercise-item{min-width:258px;max-width:84vw;margin:0;scroll-snap-align:center;grid-template-columns:28px 29px minmax(0,1fr) 42px;min-height:60px}
+ .detail{display:flex;flex-direction:column;padding:10px;gap:7px}.detail-head{order:1}.detail-title{font-size:20px}.info-row{order:2;margin:0}
+ .lower{display:flex;flex-direction:column;order:3;gap:7px}.setsbox{order:1;position:static}.how{order:2}.notesbox{order:3}
+ .detail>.actions{order:4;position:sticky;bottom:64px;z-index:18;display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:5px;margin:0 -2px;padding:6px;background:rgba(9,14,16,.95);border:1px solid #263136;border-radius:11px;backdrop-filter:blur(10px)}
+ .visuals{order:5;display:flex;overflow-x:auto;gap:7px;scroll-snap-type:x mandatory}.visual,.muscle-card{min-width:86vw;scroll-snap-align:center}.visual{min-height:235px}.visual img{height:204px}
+ .muscle-card{grid-column:auto;display:flex;flex-direction:column;min-height:275px;padding:9px}.muscle-card h3{align-self:flex-start}.target-chart-card{max-width:260px}
+ .infobox{padding:7px}.infobox .v{font-size:12px}.settable input{font-size:16px;min-height:44px}.done{width:42px;height:42px}.notesbox textarea{font-size:16px;height:88px}
+ .btn{min-height:44px;padding:9px 7px}.detail>.actions .btn{font-size:8px}.formgrid{grid-template-columns:1fr}.badges{grid-template-columns:1fr 1fr}.muscle-volume-grid{grid-template-columns:1fr}
+}
+@media(max-width:370px){.account{min-width:128px}.brand{font-size:15px}.exercise-item{min-width:238px}.detail>.actions{grid-template-columns:1fr 1.1fr 1fr}.nav{min-width:62px}}
+</style>
+
 </head>
 <body>
 <div class="app">
 <aside class="sidebar" id="sidebar">
- <button class="nav active" data-view="dashboard"><span class="ico">⌂</span>Dashboard</button>
- <button class="nav" data-view="workouts"><span class="ico">🏋</span>Workouts</button>
- <button class="nav" data-view="history"><span class="ico">▥</span>History</button>
- <button class="nav" data-view="goals"><span class="ico">◎</span>Goals</button>
- <button class="nav" data-view="progress"><span class="ico">◒</span>Progress</button>
- <button class="nav" data-view="achievements"><span class="ico">🏆</span>Achievements</button>
- <button class="nav" data-view="programs"><span class="ico">☷</span>Programs</button>
- <button class="nav" data-view="custom"><span class="ico">＋</span>Custom</button>
- <button class="nav" data-view="generate"><span class="ico">⤨</span>Generate</button>
- <button class="nav" data-view="settings"><span class="ico">⚙</span>Settings</button>
+ <div class="sidebar-brand"><span class="brand-mark">C+S</span><div><strong>CUT+STR</strong><small>Training</small></div></div>
+ <button class="nav active" data-view="dashboard"><span class="ico">⌂</span><span>Dashboard</span></button>
+ <button class="nav" data-view="workouts"><span class="ico">◉</span><span>Workouts</span></button>
+ <button class="nav" data-view="history"><span class="ico">↺</span><span>History</span></button>
+ <button class="nav" data-view="goals"><span class="ico">◎</span><span>Goals</span></button>
+ <button class="nav" data-view="progress"><span class="ico">↗</span><span>Progress</span></button>
+ <button class="nav" data-view="achievements"><span class="ico">◇</span><span>Achievements</span></button>
+ <button class="nav" data-view="programs"><span class="ico">▤</span><span>Programs</span></button>
+ <button class="nav" data-view="custom"><span class="ico">＋</span><span>Custom</span></button>
+ <button class="nav" data-view="generate"><span class="ico">✦</span><span>Generate</span></button>
+ <button class="nav" data-view="settings"><span class="ico">⚙</span><span>Settings</span></button>
 </aside>
 
 <main class="main">
 <header class="topbar">
- <div><div class="brand">CUT + <b>STRENGTH</b></div><div class="tag">DISCIPLINE TODAY. A STRONGER TOMORROW.</div></div>
+ <div><div class="brand">CUT + <b>STRENGTH</b></div><div class="tag">TRAIN WITH INTENT. TRACK WHAT MATTERS.</div></div>
  <div class="account" id="accountBox"><div class="acc-row"><strong id="accountName">Account</strong><span id="level">Level 1</span></div><div class="acc-row"><span id="xpLabel">0 / 1,000 XP</span><span id="weightGoalTop">Goal 240 lb</span></div><div class="xp"><div id="xpFill"></div></div></div>
- <div class="motto">BETTER HABITS.<br>BIGGER RESULTS.</div>
+ <div class="motto">CONSISTENCY<br>COMPOUNDS.</div>
 </header>
 
 <div class="content">
@@ -175,7 +261,7 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
    <button class="btn primary" id="openWorkout" style="width:100%;margin-top:14px">Start Workout</button>
   </div>
   <div>
-   <div class="panel"><div class="ptitle">3-Week Refresh</div><div id="refreshText" class="small"></div><button class="btn orange" id="dashGenerate" style="width:100%;margin-top:10px">Generate New Program</button></div>
+   <div class="panel"><div class="ptitle">Program Refresh</div><div id="refreshText" class="small"></div><button class="btn orange" id="dashGenerate" style="width:100%;margin-top:10px">Build Next Program</button></div>
    <div class="panel"><div class="ptitle">Active Program</div><div id="activeProgramName" style="font-size:18px;font-weight:1000;color:var(--teal)"></div><div class="small" id="activeProgramDate"></div></div>
   </div>
  </div>
@@ -197,24 +283,24 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
     <div class="infobox"><div class="k">Secondary</div><div class="v" id="exSecondary">—</div></div>
    </div>
    <div class="visuals">
-    <div class="visual"><img id="startImg" alt=""><div class="cap">1. START / SETUP</div></div>
-    <div class="visual"><img id="peakImg" alt=""><div class="cap">2. FINISH / PEAK</div></div>
+    <div class="visual"><img id="startImg" alt=""><div class="cap">1. SETUP</div></div>
+    <div class="visual"><img id="peakImg" alt=""><div class="cap">2. FINISH</div></div>
     <div class="muscle-card"><h3>Target Muscles</h3><div id="bodyMap"></div><div class="muscle-lines" id="muscleLines"></div></div>
    </div>
    <div class="lower">
-    <div class="how"><h3>How To</h3><ol id="howList"></ol></div>
-    <div class="setsbox"><h3>Log Your Sets</h3><div class="rep-prescription"><span class="rp-label">Rep Target</span><span class="rp-value" id="logRepTarget">—</span></div><table class="settable"><thead><tr><th>Set</th><th>Target</th><th>Weight</th><th>Reps</th><th>Done</th></tr></thead><tbody id="setRows"></tbody></table></div>
+    <div class="how"><h3>Technique</h3><ol id="howList"></ol></div>
+    <div class="setsbox"><h3>Log sets</h3><div class="rep-prescription"><span class="rp-label">Rep Target</span><span class="rp-value" id="logRepTarget">—</span></div><table class="settable"><thead><tr><th>Set</th><th>Target</th><th>Weight</th><th>Reps</th><th>Done</th></tr></thead><tbody id="setRows"></tbody></table></div>
     <div class="notesbox"><h3>Notes</h3><textarea id="notes" placeholder="How did it feel? Any adjustments?"></textarea></div>
    </div>
-   <div class="actions"><button class="btn" id="restBtn">⏱ Rest 2:00</button><button class="btn primary" id="completeExercise">✓ Complete Exercise</button><button class="btn orange" id="nextExercise">Skip to Next →</button></div>
+   <div class="actions"><button class="btn" id="restBtn">⏱ Rest 2:00</button><button class="btn primary" id="completeExercise">✓ Complete exercise</button><button class="btn orange" id="nextExercise">Next exercise →</button></div>
   </div>
  </div>
- <div class="actions" style="margin-top:10px"><button class="btn" id="clearDay">Clear Day</button><button class="btn primary" id="saveWorkout">Save Full Workout</button><button class="btn orange" id="finishDay">Finish & Save</button></div>
- <button class="btn" id="addCustomFromWorkout" style="width:100%;margin-top:8px">＋ Add Custom Exercise to This Workout</button>
+ <div class="actions" style="margin-top:10px"><button class="btn" id="clearDay">Clear Day</button><button class="btn primary" id="saveWorkout">Save progress</button><button class="btn orange" id="finishDay">Finish workout</button></div>
+ <button class="btn" id="addCustomFromWorkout" style="width:100%;margin-top:8px">＋ Add exercise to this workout</button>
  <div class="attribution">Exercise data and exercise illustrations by RepDB / exercise-dataset.com. Used with attribution for in-app use.</div>
 </section>
 
-<section id="historyView" class="hidden"><div class="hero card"><h1>History</h1><p>Tap any completed workout to see every exercise, set, weight, and rep.</p></div><div id="historyList"></div></section>
+<section id="historyView" class="hidden"><div class="hero card"><h1>History</h1><p>Open a completed session to review every exercise, set, weight, and rep.</p></div><div id="historyList"></div></section>
 <section id="goalsView" class="hidden"><div class="hero card"><h1>Goals</h1><p>Bodyweight and strength targets.</p></div><div class="formgrid">
  <div class="field"><label>Current Weight</label><input id="gCurrent" type="number" step=".1"></div><div class="field"><label>Goal Weight</label><input id="gGoal" type="number" step=".1"></div>
  <div class="field"><label>Bench Goal</label><input id="gBench" type="number"></div><div class="field"><label>Squat Goal</label><input id="gSquat" type="number"></div>
@@ -222,7 +308,7 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
  </div><div class="panel" style="margin-top:10px"><div class="ptitle">Summary</div><div class="small" id="goalSummary"></div></div>
 </section>
 <section id="progressView" class="hidden">
-<div class="hero card"><h1>Progress</h1><p>Weekly performance comparison and training-volume distribution.</p></div>
+<div class="hero card"><h1>Progress</h1><p>Weekly workload, muscle-group distribution, and exercise trends.</p></div>
 <div class="metrics">
  <div class="metric"><div class="v" id="pSessions">0</div><div class="l">Sessions</div></div>
  <div class="metric"><div class="v" id="pSets">0</div><div class="l">Completed Sets</div></div>
