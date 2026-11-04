@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#041417">
-<title>Cut + Strength — v2.8 Muscle Chart</title>
+<title>Cut + Strength — v2.9 Classic Muscle Chart</title>
 <style>
 :root{
  --bg:#031315;--bg2:#061b1f;--panel:#061a1e;--panel2:#08262a;--line:#1f666c;
@@ -67,26 +67,27 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
 @media(max-width:1050px){.visuals{grid-template-columns:1fr 1fr}.muscle-card{grid-column:1/-1;min-height:230px;flex-direction:row;gap:20px}.lower{grid-template-columns:1fr 1fr}.notesbox{grid-column:1/-1}.workout-grid{grid-template-columns:330px minmax(0,1fr)}.exercise-item{grid-template-columns:34px 36px minmax(0,1fr) 52px}.thumb{display:none}}
 @media(max-width:760px){.app{display:block}.sidebar{top:auto;bottom:0;right:0;width:auto;height:70px;padding:5px;display:flex;overflow:auto;border-right:0;border-top:1px solid #16464c}.nav{min-width:78px;margin:0;padding:6px}.nav .ico{font-size:16px}.main{padding:0 8px 80px}.topbar{grid-template-columns:1fr auto;height:auto;padding:10px;position:sticky}.brand{font-size:20px}.tag,.motto{display:none}.account{min-width:175px;padding:7px}.week{display:flex;overflow:auto}.daytab{min-width:90px}.dashboard{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.workout-grid{grid-template-columns:1fr}.exercise-list{display:flex;overflow:auto;gap:7px}.exercise-item{min-width:310px;margin:0;grid-template-columns:34px 35px minmax(0,1fr) 52px}.thumb{display:none}.visuals{grid-template-columns:1fr}.muscle-card{grid-column:auto}.lower{grid-template-columns:1fr}.notesbox{grid-column:auto}.actions{grid-template-columns:1fr}.info-row{grid-template-columns:1fr 1fr 1fr}.detail-title{font-size:22px}.muscle-volume-grid{grid-template-columns:1fr}}
 
-/* v2.8 fitness-chart target-muscle visual */
-.target-chart-wrap{width:100%;display:flex;justify-content:center;align-items:stretch;gap:8px}
-.target-chart-card{position:relative;width:min(100%,310px);min-height:270px;border:1px solid #245e64;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#f8f8f6,#e9eceb)}
-.target-chart-card.dual{width:min(50%,225px)}
-.target-chart-card .view-tag{position:absolute;left:8px;top:8px;z-index:2;background:rgba(4,18,20,.88);color:#d7ece9;border:1px solid #396f73;border-radius:999px;padding:4px 8px;font-size:8px;font-weight:1000;letter-spacing:.08em;text-transform:uppercase}
-.muscle-chart-svg{width:100%;height:268px;display:block}
-.body-base{fill:url(#bodyMetal);stroke:#555;stroke-width:1.15}
-.body-shadow{fill:#b7bbba;stroke:#737776;stroke-width:.75}
-.body-line{fill:none;stroke:#6e7271;stroke-width:.75;opacity:.95}
-.body-fine{fill:none;stroke:#8b8f8e;stroke-width:.55;opacity:.8}
-.muscle-region{fill:#bfc3c2;stroke:#747877;stroke-width:.8}
-.muscle-region.primary{fill:url(#targetPrimary);stroke:#a52f22;stroke-width:1.05;filter:drop-shadow(0 0 2px rgba(198,49,31,.35))}
-.muscle-region.secondary{fill:url(#targetSecondary);stroke:#bd6d39;stroke-width:.95}
-.muscle-region.tertiary{fill:#dfab83;stroke:#b97951;stroke-width:.8}
-.muscle-sep{fill:none;stroke:#8a8e8d;stroke-width:.55;opacity:.9}
-.chart-floor{stroke:#b9bcbb;stroke-width:.8}
-.target-chart-legend{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:7px;font-size:8px;color:#92b8b9;text-transform:uppercase;font-weight:900;letter-spacing:.04em}
-.target-chart-swatch{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
-.target-chart-swatch.primary{background:#d63f27;border:1px solid #ff8b6d}.target-chart-swatch.secondary{background:#e18b55;border:1px solid #f0ae85}
-.target-chart-note{font-size:7px;color:#6f9395;line-height:1.4;margin-top:5px;text-align:center}
+/* v2.9 classic bodybuilding-chart target visual */
+.target-chart-wrap{width:100%;display:flex;justify-content:center;align-items:flex-start;gap:10px}
+.target-chart-card{position:relative;width:min(100%,305px);min-height:295px;border:0;border-radius:3px;overflow:hidden;background:#fff;padding:4px 6px 0}
+.target-chart-card.dual{width:min(50%,215px)}
+.target-chart-card .view-tag{display:none}
+.muscle-chart-svg{width:100%;height:272px;display:block;background:#fff}
+.body-base{fill:url(#bodyMetal);stroke:#4d4d4d;stroke-width:1.25}
+.body-shadow{fill:#b7b7b7;stroke:#666;stroke-width:.8}
+.body-line{fill:none;stroke:#555;stroke-width:.85;opacity:.98}
+.body-fine{fill:none;stroke:#777;stroke-width:.58;opacity:.92}
+.muscle-region{fill:url(#bodyMetal);stroke:#696969;stroke-width:.82}
+.muscle-region.primary{fill:url(#targetPrimary);stroke:#8f241b;stroke-width:1.05;filter:none}
+.muscle-region.secondary{fill:url(#targetSecondary);stroke:#a5452f;stroke-width:.95;filter:none}
+.muscle-region.tertiary{fill:#e7a592;stroke:#aa5b48;stroke-width:.8}
+.muscle-sep{fill:none;stroke:#5d5d5d;stroke-width:.58;opacity:.95}
+.chart-floor{stroke:#d0d0d0;stroke-width:.7}
+.chart-view-label{text-anchor:middle;font:900 9px Arial,sans-serif;letter-spacing:.08em;fill:#161616}
+.target-chart-legend{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:6px;font-size:8px;color:#748f91;text-transform:uppercase;font-weight:900;letter-spacing:.04em}
+.target-chart-swatch{display:inline-block;width:10px;height:10px;border-radius:1px;margin-right:4px;vertical-align:-1px}
+.target-chart-swatch.primary{background:#d33b27;border:1px solid #9f271c}.target-chart-swatch.secondary{background:#e37b61;border:1px solid #b34e39}
+.target-chart-note{font-size:7px;color:#789496;line-height:1.35;margin-top:4px;text-align:center}
 .visual img{cursor:zoom-in}
 
 </style>
@@ -121,14 +122,14 @@ body{background:radial-gradient(circle at 14% 0%,rgba(40,234,208,.08),transparen
  .visuals{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:6px;padding-bottom:3px}
  .visual{min-width:82vw;min-height:242px;scroll-snap-align:center}.visual img{height:208px}.visual .cap{font-size:9px;padding:6px}
  .muscle-card{min-width:88vw;min-height:242px;scroll-snap-align:center;display:flex;flex-direction:column;padding:7px}.muscle-card h3{font-size:11px;margin-bottom:5px}
- .target-chart-wrap{gap:5px}.target-chart-card{min-height:238px;width:min(100%,290px)}.target-chart-card.dual{width:50%}.muscle-chart-svg{height:236px}.target-chart-card .view-tag{font-size:7px;padding:3px 6px}
+ .target-chart-wrap{gap:5px}.target-chart-card{min-height:270px;width:min(100%,300px)}.target-chart-card.dual{width:50%}.muscle-chart-svg{height:266px}.target-chart-card .view-tag{font-size:7px;padding:3px 6px}
  .muscle-lines{font-size:9px;line-height:1.4}
  .history-card,.program-card,.trend-card,.badge,.custom-card{padding:9px}.history-set{grid-template-columns:42px 1fr auto;padding:7px 6px}
  .formgrid{grid-template-columns:1fr}.custom-wide{grid-column:auto}.field input,.field select,.field textarea{font-size:16px}
 }
 @media(max-width:380px){
  .account{min-width:130px}.brand{font-size:15px}.exercise-item{min-width:242px}.actions{grid-template-columns:1fr 1.2fr 1fr}
- .target-chart-card{height:220px;min-height:220px}.muscle-chart-svg{height:218px}.visual{min-width:88vw}
+ .target-chart-card{height:250px;min-height:250px}.muscle-chart-svg{height:246px}.visual{min-width:88vw}
 }
 </style>
 
@@ -497,59 +498,102 @@ function regionClass(key,primary,secondary){
 }
 function muscularFigureSvg(view,primary,secondary){
  const c=k=>regionClass(k,primary,secondary),front=view==='front';
- return `<svg class="muscle-chart-svg" viewBox="0 0 240 360" role="img" aria-label="${front?'Front':'Back'} muscle target chart">
+ return `<svg class="muscle-chart-svg" viewBox="0 0 240 390" role="img" aria-label="${front?'Front':'Back'} muscle target chart">
  <defs>
-  <linearGradient id="bodyMetal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3f4f3"/><stop offset=".42" stop-color="#c7cbca"/><stop offset="1" stop-color="#9da2a1"/></linearGradient>
-  <linearGradient id="targetPrimary" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f06443"/><stop offset=".55" stop-color="#d6422b"/><stop offset="1" stop-color="#b82f21"/></linearGradient>
-  <linearGradient id="targetSecondary" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3ae7e"/><stop offset="1" stop-color="#dc7542"/></linearGradient>
+  <linearGradient id="bodyMetal" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0" stop-color="#f7f7f7"/><stop offset=".28" stop-color="#d8d8d8"/><stop offset=".58" stop-color="#b6b6b6"/><stop offset=".82" stop-color="#eeeeee"/><stop offset="1" stop-color="#9f9f9f"/>
+  </linearGradient>
+  <linearGradient id="targetPrimary" x1="0" y1="0" x2="0" y2="1">
+   <stop offset="0" stop-color="#ef654d"/><stop offset=".48" stop-color="#d8442f"/><stop offset="1" stop-color="#af2d22"/>
+  </linearGradient>
+  <linearGradient id="targetSecondary" x1="0" y1="0" x2="0" y2="1">
+   <stop offset="0" stop-color="#f09b84"/><stop offset="1" stop-color="#d7654e"/>
+  </linearGradient>
  </defs>
- <line class="chart-floor" x1="44" y1="346" x2="196" y2="346"/>
- <ellipse class="body-base" cx="120" cy="31" rx="20" ry="25"/>
- <path class="body-line" d="M108 27 Q120 32 132 27M111 39 Q120 43 129 39M120 8L120 55"/>
- <path class="body-base" d="M99 52 Q120 44 141 52 L155 77 150 133 142 180 132 198 108 198 98 180 90 133 85 77Z"/>
- <path class="body-base" d="M91 60 Q70 63 60 82 L45 132 52 137 72 96 96 82Z"/>
- <path class="body-base" d="M149 60 Q170 63 180 82 L195 132 188 137 168 96 144 82Z"/>
- <path class="body-base" d="M52 137 L45 188 55 190 66 145Z"/>
- <path class="body-base" d="M188 137 L195 188 185 190 174 145Z"/>
- <path class="body-base" d="M108 196 L91 257 94 338 111 338 120 260 120 198Z"/>
- <path class="body-base" d="M132 196 L149 257 146 338 129 338 120 260 120 198Z"/>
+
+ <!-- head and neck -->
+ <ellipse class="body-base" cx="120" cy="30" rx="18.5" ry="25"/>
+ <path class="body-line" d="M108 23 Q120 29 132 23 M109 36 Q120 41 131 36 M120 7L120 54"/>
+ <path class="body-line" d="M111 53 L103 63 M129 53 L137 63"/>
+
+ <!-- torso -->
+ <path class="body-base" d="M98 56 Q120 47 142 56 L156 77 151 132 144 181 134 205 106 205 96 181 89 132 84 77Z"/>
+ <!-- arms -->
+ <path class="body-base" d="M91 63 Q69 66 58 87 L44 136 52 141 73 101 96 85Z"/>
+ <path class="body-base" d="M149 63 Q171 66 182 87 L196 136 188 141 167 101 144 85Z"/>
+ <path class="body-base" d="M52 141 L43 194 54 196 67 148Z"/>
+ <path class="body-base" d="M188 141 L197 194 186 196 173 148Z"/>
+ <!-- hands -->
+ <path class="body-base" d="M43 194 Q35 202 39 214 L47 211 52 198Z"/>
+ <path class="body-base" d="M197 194 Q205 202 201 214 L193 211 188 198Z"/>
+ <!-- legs -->
+ <path class="body-base" d="M106 202 L88 267 92 354 109 354 120 272 120 204Z"/>
+ <path class="body-base" d="M134 202 L152 267 148 354 131 354 120 272 120 204Z"/>
+ <path class="body-base" d="M92 354 L87 370 107 370 109 354Z"/>
+ <path class="body-base" d="M148 354 L153 370 133 370 131 354Z"/>
+
  ${front?`
- <path class="${c('shoulders')}" d="M92 58 Q75 60 64 76 L76 92 93 82 101 62Z"/>
- <path class="${c('shoulders')}" d="M148 58 Q165 60 176 76 L164 92 147 82 139 62Z"/>
- <path class="${c('chest')}" d="M100 68 Q111 60 119 66 L119 105 Q105 109 94 98Z"/>
- <path class="${c('chest')}" d="M140 68 Q129 60 121 66 L121 105 Q135 109 146 98Z"/>
- <path class="${c('biceps')}" d="M69 91 Q57 105 55 129 L68 134 78 104Z"/>
- <path class="${c('biceps')}" d="M171 91 Q183 105 185 129 L172 134 162 104Z"/>
- <path class="${c('forearms')}" d="M54 140 Q46 158 48 181 L58 183 65 146Z"/>
- <path class="${c('forearms')}" d="M186 140 Q194 158 192 181 L182 183 175 146Z"/>
- <path class="${c('core')}" d="M105 108 Q120 113 135 108 L138 169 Q120 181 102 169Z"/>
- <path class="muscle-sep" d="M120 111V171M104 127H136M103 146H137M106 162H134"/>
- <path class="${c('core')}" d="M99 112 Q91 131 94 164 L103 170 106 114Z"/>
- <path class="${c('core')}" d="M141 112 Q149 131 146 164 L137 170 134 114Z"/>
- <path class="${c('quads')}" d="M105 201 Q91 220 94 257 L109 263 118 207Z"/>
- <path class="${c('quads')}" d="M135 201 Q149 220 146 257 L131 263 122 207Z"/>
- <path class="${c('adductors')}" d="M116 205 L119 258 108 249 109 215Z"/>
- <path class="${c('adductors')}" d="M124 205 L121 258 132 249 131 215Z"/>
- <path class="${c('calves')}" d="M97 267 Q88 291 94 329 L107 331 111 274Z"/>
- <path class="${c('calves')}" d="M143 267 Q152 291 146 329 L133 331 129 274Z"/>
+ <!-- front delts -->
+ <path class="${c('shoulders')}" d="M93 60 Q75 62 63 78 L75 95 93 84 102 64Z"/>
+ <path class="${c('shoulders')}" d="M147 60 Q165 62 177 78 L165 95 147 84 138 64Z"/>
+ <!-- pecs -->
+ <path class="${c('chest')}" d="M99 69 Q111 60 119 66 L119 106 Q104 111 93 99Z"/>
+ <path class="${c('chest')}" d="M141 69 Q129 60 121 66 L121 106 Q136 111 147 99Z"/>
+ <path class="muscle-sep" d="M120 65V107 M96 85Q110 90 119 85 M121 85Q135 90 144 85"/>
+ <!-- biceps -->
+ <path class="${c('biceps')}" d="M70 94 Q57 108 55 133 L68 138 79 106Z"/>
+ <path class="${c('biceps')}" d="M170 94 Q183 108 185 133 L172 138 161 106Z"/>
+ <path class="muscle-sep" d="M61 112Q66 121 70 132 M179 112Q174 121 170 132"/>
+ <!-- forearms -->
+ <path class="${c('forearms')}" d="M54 143 Q45 161 47 187 L58 190 66 150Z"/>
+ <path class="${c('forearms')}" d="M186 143 Q195 161 193 187 L182 190 174 150Z"/>
+ <path class="muscle-sep" d="M49 165L61 177 M191 165L179 177"/>
+ <!-- abs / obliques -->
+ <path class="${c('core')}" d="M105 110 Q120 115 135 110 L139 174 Q120 186 101 174Z"/>
+ <path class="muscle-sep" d="M120 113V177 M103 128H137 M102 147H138 M105 165H135"/>
+ <path class="${c('core')}" d="M98 114 Q89 133 93 169 L102 176 106 116Z"/>
+ <path class="${c('core')}" d="M142 114 Q151 133 147 169 L138 176 134 116Z"/>
+ <!-- quads -->
+ <path class="${c('quads')}" d="M104 209 Q89 229 92 267 L108 273 118 215Z"/>
+ <path class="${c('quads')}" d="M136 209 Q151 229 148 267 L132 273 122 215Z"/>
+ <path class="muscle-sep" d="M101 219L106 264 M139 219L134 264"/>
+ <path class="${c('adductors')}" d="M115 212 L119 268 107 258 108 221Z"/>
+ <path class="${c('adductors')}" d="M125 212 L121 268 133 258 132 221Z"/>
+ <!-- front calves -->
+ <path class="${c('calves')}" d="M97 278 Q87 302 93 344 L107 347 111 286Z"/>
+ <path class="${c('calves')}" d="M143 278 Q153 302 147 344 L133 347 129 286Z"/>
+ <path class="muscle-sep" d="M99 291L104 338 M141 291L136 338"/>
  `:`
- <path class="${c('shoulders')}" d="M92 58 Q75 60 64 76 L76 92 94 84 101 62Z"/>
- <path class="${c('shoulders')}" d="M148 58 Q165 60 176 76 L164 92 146 84 139 62Z"/>
- <path class="${c('back')}" d="M101 65 Q120 56 139 65 L143 91 132 106 120 112 108 106 97 91Z"/>
- <path class="${c('back')}" d="M98 88 Q88 110 93 148 L110 171 119 151 116 106Z"/>
- <path class="${c('back')}" d="M142 88 Q152 110 147 148 L130 171 121 151 124 106Z"/>
- <path class="${c('triceps')}" d="M70 92 Q57 110 57 133 L68 137 80 105Z"/>
- <path class="${c('triceps')}" d="M170 92 Q183 110 183 133 L172 137 160 105Z"/>
- <path class="${c('forearms')}" d="M54 141 Q46 160 48 182 L58 184 65 146Z"/>
- <path class="${c('forearms')}" d="M186 141 Q194 160 192 182 L182 184 175 146Z"/>
- <path class="${c('glutes')}" d="M100 170 Q110 163 119 174 L118 199 Q104 202 96 190Z"/>
- <path class="${c('glutes')}" d="M140 170 Q130 163 121 174 L122 199 Q136 202 144 190Z"/>
- <path class="${c('hamstrings')}" d="M102 204 Q91 225 94 259 L109 264 117 207Z"/>
- <path class="${c('hamstrings')}" d="M138 204 Q149 225 146 259 L131 264 123 207Z"/>
- <path class="${c('calves')}" d="M98 269 Q88 291 94 330 L108 331 111 276Z"/>
- <path class="${c('calves')}" d="M142 269 Q152 291 146 330 L132 331 129 276Z"/>
+ <!-- rear delts -->
+ <path class="${c('shoulders')}" d="M93 60 Q75 62 63 78 L75 95 94 86 102 64Z"/>
+ <path class="${c('shoulders')}" d="M147 60 Q165 62 177 78 L165 95 146 86 138 64Z"/>
+ <!-- traps / back / lats -->
+ <path class="${c('back')}" d="M101 66 Q120 56 139 66 L144 91 132 108 120 115 108 108 96 91Z"/>
+ <path class="${c('back')}" d="M98 90 Q87 112 92 151 L109 176 119 154 116 108Z"/>
+ <path class="${c('back')}" d="M142 90 Q153 112 148 151 L131 176 121 154 124 108Z"/>
+ <path class="muscle-sep" d="M120 60V177 M103 80Q120 91 137 80 M95 115Q120 129 145 115"/>
+ <!-- triceps -->
+ <path class="${c('triceps')}" d="M70 95 Q56 111 56 137 L68 141 80 108Z"/>
+ <path class="${c('triceps')}" d="M170 95 Q184 111 184 137 L172 141 160 108Z"/>
+ <path class="muscle-sep" d="M61 111Q65 126 69 136 M179 111Q175 126 171 136"/>
+ <!-- rear forearms -->
+ <path class="${c('forearms')}" d="M54 144 Q45 163 47 188 L58 191 66 150Z"/>
+ <path class="${c('forearms')}" d="M186 144 Q195 163 193 188 L182 191 174 150Z"/>
+ <!-- glutes -->
+ <path class="${c('glutes')}" d="M99 174 Q110 165 119 176 L118 204 Q103 207 94 193Z"/>
+ <path class="${c('glutes')}" d="M141 174 Q130 165 121 176 L122 204 Q137 207 146 193Z"/>
+ <path class="muscle-sep" d="M120 173V204"/>
+ <!-- hamstrings -->
+ <path class="${c('hamstrings')}" d="M101 211 Q89 232 92 270 L108 276 117 215Z"/>
+ <path class="${c('hamstrings')}" d="M139 211 Q151 232 148 270 L132 276 123 215Z"/>
+ <path class="muscle-sep" d="M99 224L106 267 M141 224L134 267"/>
+ <!-- calves -->
+ <path class="${c('calves')}" d="M98 279 Q87 302 93 345 L108 347 111 286Z"/>
+ <path class="${c('calves')}" d="M142 279 Q153 302 147 345 L132 347 129 286Z"/>
+ <path class="muscle-sep" d="M100 292L104 337 M140 292L136 337"/>
  `}
- <path class="body-fine" d="M103 52Q120 60 137 52M86 81Q120 91 154 81M98 181Q120 188 142 181M120 199V337"/>
+ <path class="body-fine" d="M104 54Q120 61 136 54 M87 82Q120 92 153 82 M97 184Q120 191 143 184 M120 205V352"/>
+ <text class="chart-view-label" x="120" y="386">${front?'FRONT':'BACK'}</text>
  </svg>`;
 }
 function renderMuscleChart(primaryList,secondaryList,name){
@@ -568,7 +612,7 @@ function renderMuscleChart(primaryList,secondaryList,name){
  if(views.length===2 && Math.min(frontScore,backScore)<2)views=[frontScore>=backScore?'front':'back'];
  return `<div class="target-chart-wrap">${views.map(v=>`<div class="target-chart-card ${views.length>1?'dual':''}"><span class="view-tag">${v==='front'?'Front':'Back'}</span>${muscularFigureSvg(v,t.primary,t.secondary)}</div>`).join('')}</div>
  <div class="target-chart-legend"><span><i class="target-chart-swatch primary"></i>Primary</span><span><i class="target-chart-swatch secondary"></i>Secondary</span></div>
- <div class="target-chart-note">Highlighted muscle groups show where this exercise places the most training demand.</div>`;
+ <div class="target-chart-note">Red = primary target · lighter red = secondary involvement</div>`;
 }
 function mediaPlaceholder(label){
  let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560"><rect width="100%" height="100%" fill="#06171a"/><rect x="18" y="18" width="864" height="524" rx="18" fill="none" stroke="#285e64" stroke-width="3"/><text x="450" y="250" text-anchor="middle" font-family="Arial" font-size="34" fill="#6f9b9e">${label}</text><text x="450" y="310" text-anchor="middle" font-family="Arial" font-size="18" fill="#ff8d43">VERIFIED EXERCISE MEDIA UNAVAILABLE</text></svg>`;
