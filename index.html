@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#041417">
-<title>CUT+STR — Mobile Optimized v3.2.6</title>
+<title>CUT+STR — Mobile Optimized v3.2.7</title>
 <style>
 :root{
  --bg:#031315;--bg2:#061b1f;--panel:#061a1e;--panel2:#08262a;--line:#1f666c;
@@ -237,7 +237,6 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 }
 </style>
 
-
 <style id="mobile-media-layout-v325">
 @media(max-width:760px){
   .visuals{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;max-width:100%!important;min-width:0!important;overflow:visible!important;gap:10px!important;padding:0!important;margin:0!important;scroll-snap-type:none!important}
@@ -256,18 +255,11 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 }
 @media(max-width:380px){.visual img{padding:6px!important}.target-chart-card{max-width:295px!important}}
 </style>
-
-
-<style id="history-delete-v326">
+<style id="history-delete-v327">
 .history-card-actions{display:flex;justify-content:flex-end;margin-top:9px;padding-top:9px;border-top:1px solid #202b2e}
-.history-delete-btn{min-height:38px;padding:8px 11px;border:1px solid #5b3535;border-radius:9px;background:#1a1111;color:#e89696;font-size:9px;font-weight:850;letter-spacing:.02em}
-@media(hover:hover) and (pointer:fine){.history-delete-btn:hover{background:#261414;border-color:#7b4545;color:#ffb0b0}}
-@media(max-width:760px){
- .history-card-actions{justify-content:stretch}
- .history-delete-btn{width:100%;min-height:44px;font-size:10px}
-}
+.history-delete-btn{min-height:38px;padding:8px 11px;border:1px solid #5b3535;border-radius:9px;background:#1a1111;color:#e89696;font-size:9px;font-weight:850}
+@media(max-width:760px){.history-card-actions{justify-content:stretch}.history-delete-btn{width:100%;min-height:44px;font-size:10px}}
 </style>
-
 </head>
 <body>
 <div class="app">
@@ -890,32 +882,18 @@ function renderHistory(){
      }).join('')||'<div class="small">No set data saved.</div>';
      return `<div class="history-exercise"><div class="row"><div class="history-exercise-name">${escapeHtml(e.name)}</div><div class="small">${escapeHtml(e.target||'')}</div></div><div class="history-set-list">${sets}</div>${e.notes?`<div class="history-notes"><strong>Notes:</strong> ${escapeHtml(e.notes)}</div>`:''}</div>`;
    }).join('');
-   return `<div class="history-card" id="historyCard-${h.id}">
-     <button type="button" class="history-summary" data-history-toggle="${h.id}">
-       <div class="row">
-         <div><strong>${escapeHtml(h.day)} — ${escapeHtml(h.focus)}</strong><div class="small">${escapeHtml(h.program)} • ${fmt(h.date)}</div><div class="history-toggle-label" data-history-label="${h.id}">View workout details</div></div>
-         <div style="text-align:right"><strong>${h.setCount||0} sets</strong><div class="small">${Math.round(h.volume||0).toLocaleString()} lb volume</div></div>
-       </div>
-     </button>
-     <div class="history-card-actions">
-       <button type="button" class="history-delete-btn" data-history-delete="${h.id}">Delete workout</button>
-     </div>
-     <div class="history-details hidden" id="historyDetails-${h.id}">${exercises}</div>
-   </div>`;
+   return `<div class="history-card" id="historyCard-${h.id}"><button type="button" class="history-summary" data-history-toggle="${h.id}"><div class="row"><div><strong>${escapeHtml(h.day)} — ${escapeHtml(h.focus)}</strong><div class="small">${escapeHtml(h.program)} • ${fmt(h.date)}</div><div class="history-toggle-label" data-history-label="${h.id}">View workout details</div></div><div style="text-align:right"><strong>${h.setCount||0} sets</strong><div class="small">${Math.round(h.volume||0).toLocaleString()} lb volume</div></div></div></button><div class="history-card-actions"><button type="button" class="history-delete-btn" data-history-delete="${h.id}">Delete workout</button></div><div class="history-details hidden" id="historyDetails-${h.id}">${exercises}</div></div>`;
  }).join('');
  historyList.querySelectorAll('[data-history-toggle]').forEach(b=>b.onclick=()=>{
    let id=b.dataset.historyToggle,detail=document.getElementById('historyDetails-'+id),card=document.getElementById('historyCard-'+id),label=historyList.querySelector(`[data-history-label="${id}"]`),opening=detail.classList.contains('hidden');
    detail.classList.toggle('hidden',!opening);card.classList.toggle('open',opening);if(label)label.textContent=opening?'Hide workout details':'View workout details';
  });
  historyList.querySelectorAll('[data-history-delete]').forEach(b=>b.onclick=()=>{
-   let id=Number(b.dataset.historyDelete),item=state.history.find(h=>Number(h.id)===id);
+   let id=b.dataset.historyDelete,item=state.history.find(h=>String(h.id)===String(id));
    let label=item?`${item.day} — ${item.focus}`:'this workout';
    if(!confirm(`Delete ${label} from history? This cannot be undone.`))return;
-   state.history=state.history.filter(h=>Number(h.id)!==id);
-   save();
-   renderHistory();
-   renderDashboard();
-   renderProgress();
+   state.history=state.history.filter(h=>String(h.id)!==String(id));
+   save();renderAll();setView('history');
  });
 }
 function customUsageCount(id){return Object.values(state.dayAdditions).reduce((n,a)=>n+(Array.isArray(a)&&a.includes(id)?1:0),0)}
@@ -998,3 +976,43 @@ function renderProgress(){
 function renderBadges(){let g=game(),w=weekSessions().length,totalSets=state.history.reduce((n,h)=>n+(h.setCount||0),0);let b=[['🏁','First Workout',state.history.length>=1],['🔥','3 Workout Week',w>=3],['🏆','5 Workout Week',w>=5],['⚡','100 Sets',totalSets>=100],['💪','Level 5',g.level>=5],['🚀','Level 10',g.level>=10],['🧠','Program Builder',state.generated.length>=1],['🔁','Three Refreshes',state.generated.length>=3],['⭐','Five Favorites',Object.keys(state.favorites).filter(k=>state.favorites[k]).length>=5]];badgeGrid.innerHTML=b.map(x=>`<div class="badge ${x[2]?'':'locked'}"><div class="bi">${x[0]}</div><div class="bn">${x[1]}</div><div class="small">${x[2]?'Unlocked':'Locked'}</div></div>`).join('')}
 function renderPrograms(){programRefresh.innerHTML=`<div class="refresh"><strong>${refreshInfo().due?'PROGRAM REFRESH RECOMMENDED':'3-WEEK ROTATION TIMER'}</strong><div class="small">${refreshInfo().text}</div></div>`;programList.innerHTML=programs().map(p=>`<div class="program-card ${p.id===state.activeProgramId?'active':''}"><div class="row"><div><strong style="color:var(--teal)">${p.name}</strong><div class="small">${p.createdAt?'Generated '+fmt(p.createdAt):'Built-in program'}</div></div><div>${p.id===state.activeProgramId?'<span class="good">ACTIVE</span>':''}</div></div><div style="margin-top:8px"><button class="btn" data-use="${p.id}">Use Program</button>${p.createdAt?` <button class="btn orange" data-del="${p.id}">Delete</button>`:''}</div></div>`).join('');document.querySelectorAll('[data-use]').forEach(b=>b.onclick=()=>{state.activeProgramId=b.dataset.use;selectedDay=0;selectedEx=0;save();renderAll()});document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{state.generated=state.generated.filter(p=>p.id!==b.dataset.del);if(state.activeProgramId===b.dataset.del)state.activeProgramId='current';save();renderAll()})}
 function generateProgram(){
+ let now=new Date(),plan=[
+  {day:'Monday',focus:'Chest + Triceps | Strength',ex:[['Barbell Bench Press','5 × 4–6','barbell-bench-press'],...pick(POOL.chest,3),...pick(POOL.triceps,2)]},
+  {day:'Tuesday',focus:'Back + Biceps | Strength',ex:[...pick(POOL.back,5),...pick(POOL.biceps,2)]},
+  {day:'Wednesday',focus:'Legs | Strength + Size',ex:[...pick(POOL.legs,7)]},
+  {day:'Thursday',focus:'Shoulders + Arms',ex:[...pick(POOL.shoulders,4),...pick(POOL.biceps,2),...pick(POOL.triceps,2)]},
+  {day:'Friday',focus:'Upper | Hypertrophy',ex:[...pick(POOL.chest,2),...pick(POOL.back,3),...pick(POOL.shoulders,2)]},
+  {day:'Saturday',focus:'Pump + Abs',ex:[...pick(POOL.chest,2),...pick(POOL.legs,3),...pick(POOL.core,3)]},
+  {day:'Sunday',focus:'Recovery',ex:[['Walk','30–45 min','walking'],['Mobility / Stretching','10–15 min','full-body-stretch'],['Foam Rolling','10 min','foam-rolling']]}
+ ];let p={id:'gen-'+now.getTime(),name:'Generated '+now.toLocaleDateString(undefined,{month:'short',day:'numeric'}),createdAt:now.toISOString(),plan};state.generated.unshift(p);state.generated=state.generated.slice(0,8);state.activeProgramId=p.id;state.lastGeneratedAt=now.toISOString();selectedDay=0;selectedEx=0;save();renderAll();setView('workouts')
+}
+
+async function mediaQA(){
+ let all=[];programs().forEach(p=>p.plan.forEach((d,di)=>dayBaseExercises(p.id,di).forEach(e=>all.push(e))));
+ let unique=[...new Map(all.map(e=>[e[0]+'|'+e[2],e])).values()];
+ let missing=[];
+ unique.forEach(e=>{let r=resolveRecord(e[2],e[0]),flat=r&&r.images&&r.images.flat;if(!flat||(!flat.main&&(!flat.start||!flat.peak)))missing.push(e[0])})
+ return {total:unique.length,missing};
+}
+function renderSettings(){profileName.value=state.profile.name||'';profileWeight.value=state.profile.currentWeight??state.goals.currentWeight??'';profileName.oninput=()=>{state.profile.name=profileName.value;save();renderHeader()};profileWeight.oninput=()=>{state.profile.currentWeight=profileWeight.value===''?'':Number(profileWeight.value);state.goals.currentWeight=state.profile.currentWeight;save()}}
+function renderAll(){renderHeader();renderDashboard();renderWorkout();renderHistory();renderGoals();renderProgress();renderBadges();renderPrograms();renderCustomBuilder();renderSettings();genStatus.textContent=refreshInfo().text}
+function setView(v){document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.view===v));['dashboard','workouts','history','goals','progress','achievements','programs','custom','generate','settings'].forEach(x=>document.getElementById(x+'View').classList.toggle('hidden',x!==v));if(v==='workouts')renderWorkout();if(v==='history')renderHistory();if(v==='progress')renderProgress();if(v==='programs')renderPrograms();if(v==='custom')renderCustomBuilder()}
+document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>setView(b.dataset.view));
+openWorkout.onclick=()=>setView('workouts');dashGenerate.onclick=generateProgram;generateNow.onclick=()=>{if(confirm('Generate a completely new 7-day program and make it active?'))generateProgram()};
+customProgram.onchange=populateCustomDays;saveCustomExercise.onclick=createCustomExercise;addCustomFromWorkout.onclick=()=>{setView('custom');customProgram.value=program().id;populateCustomDays();customDay.value=String(selectedDay)};
+favoriteBtn.onclick=()=>{state.favorites[exId()]=!state.favorites[exId()];save();renderWorkoutDetail()};
+document.querySelectorAll('#mobileDetailTabs [data-mobile-panel]').forEach(b=>b.onclick=()=>setMobileWorkoutPanel(b.dataset.mobilePanel));
+mobileFinishWorkout.onclick=()=>finishDay.click();
+nextExercise.onclick=()=>{selectedEx=(selectedEx+1)%dayExercises().length;setMobileWorkoutPanel('log');renderWorkoutDetail()};
+completeExercise.onclick=()=>{for(let i=0;i<setsCount(ex()[1]);i++){let k=draftKey(i);state.draft[k]=state.draft[k]||{};state.draft[k].done=true}save();renderSets();if(selectedEx<dayExercises().length-1){selectedEx++;setMobileWorkoutPanel('log');renderWorkoutDetail()}else{renderWorkoutDetail()}};
+clearDay.onclick=()=>{if(confirm('Clear all entries for this day?')){clearDayData();renderWorkout()}};
+saveWorkout.onclick=()=>{state.history.unshift(snapshot());save();renderAll();alert('Workout saved.')};
+finishDay.onclick=()=>{state.history.unshift(snapshot());clearDayData();save();renderAll();alert('Workout saved and cleared.')};
+let timer,secs=120;restBtn.onclick=()=>{clearInterval(timer);secs=120;timerToast.classList.remove('hidden');timerText.textContent='2:00';timer=setInterval(()=>{secs--;timerText.textContent=Math.floor(secs/60)+':'+String(secs%60).padStart(2,'0');if(secs<=0){clearInterval(timer);timerText.textContent='GO';setTimeout(()=>timerToast.classList.add('hidden'),3000)}},1000)};
+exportBtn.onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='cut-strength-backup.json';a.click();URL.revokeObjectURL(a.href)};
+importFile.onchange=async e=>{let f=e.target.files[0];if(!f)return;try{state={...DEFAULT,...JSON.parse(await f.text())};state.exerciseOrder=state.exerciseOrder||{};state.draftKeyVersion=Number(state.draftKeyVersion)||0;state.customExercises=state.customExercises||[];state.dayAdditions=state.dayAdditions||{};migrateDraftKeys();save();renderAll();alert('Backup imported.')}catch(err){alert('Invalid backup file.')}};
+resetBtn.onclick=()=>{if(confirm('Reset all app data in this browser?')){state=structuredClone(DEFAULT);save();renderAll();setView('dashboard')}};
+migrateDraftKeys();renderAll();loadDataset();
+</script>
+</body>
+</html>
