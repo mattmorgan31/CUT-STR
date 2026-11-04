@@ -1,0 +1,12 @@
+{
+  "name": "cut-str",
+  "version": "2.5.0",
+  "private": true,
+  "description": "CUT+STR workout tracker",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
