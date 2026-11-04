@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#041417">
-<title>CUT+STR — Mobile Optimized v3.2.4</title>
+<title>CUT+STR — Mobile Optimized v3.2.3</title>
 <style>
 :root{
  --bg:#031315;--bg2:#061b1f;--panel:#061a1e;--panel2:#08262a;--line:#1f666c;
@@ -237,119 +237,24 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 }
 </style>
 
-
-<style id="mobile-media-layout-v324">
+<style id="mobile-media-layout-v325">
 @media(max-width:760px){
-  /* Media lives inside the workout detail card, so size against the parent,
-     never against the viewport. */
-  .visuals{
-    display:grid!important;
-    grid-template-columns:minmax(0,1fr)!important;
-    width:100%!important;
-    max-width:100%!important;
-    min-width:0!important;
-    overflow:visible!important;
-    gap:10px!important;
-    padding:0!important;
-    margin:0!important;
-    scroll-snap-type:none!important;
-  }
-
-  .visual,
-  .muscle-card{
-    width:100%!important;
-    max-width:100%!important;
-    min-width:0!important;
-    flex:none!important;
-    scroll-snap-align:unset!important;
-    box-sizing:border-box!important;
-  }
-
-  /* Never crop the exercise illustration. */
-  .visual{
-    min-height:0!important;
-    height:auto!important;
-    overflow:hidden!important;
-  }
-  .visual img{
-    display:block!important;
-    width:100%!important;
-    height:auto!important;
-    min-height:0!important;
-    max-height:none!important;
-    aspect-ratio:auto!important;
-    object-fit:contain!important;
-    object-position:center!important;
-    box-sizing:border-box!important;
-    padding:8px!important;
-    margin:0!important;
-    background:#0c1214!important;
-  }
-  .visual .cap{
-    width:100%!important;
-    box-sizing:border-box!important;
-    position:static!important;
-  }
-
-  /* Muscle target card scales to the same parent width. */
-  .muscle-card{
-    min-height:0!important;
-    height:auto!important;
-    overflow:hidden!important;
-  }
-  .target-chart-wrap{
-    width:100%!important;
-    max-width:100%!important;
-    min-width:0!important;
-    display:flex!important;
-    justify-content:center!important;
-    align-items:flex-start!important;
-    gap:6px!important;
-    overflow:visible!important;
-  }
-  .target-chart-card{
-    width:100%!important;
-    max-width:320px!important;
-    min-width:0!important;
-    height:auto!important;
-    min-height:0!important;
-    box-sizing:border-box!important;
-    overflow:hidden!important;
-  }
-  .target-chart-card.dual{
-    width:calc(50% - 3px)!important;
-    max-width:210px!important;
-  }
-  .muscle-chart-svg{
-    display:block!important;
-    width:100%!important;
-    height:auto!important;
-    min-height:0!important;
-    max-height:none!important;
-    aspect-ratio:240 / 390!important;
-    overflow:visible!important;
-  }
-
-  /* Demo = both full-width images stacked.
-     Muscles = only target card. */
-  #workoutDetail[data-mobile-panel="demo"] .visuals{
-    display:grid!important;
-    grid-template-columns:minmax(0,1fr)!important;
-  }
-  #workoutDetail[data-mobile-panel="target"] .visuals{
-    display:block!important;
-  }
-  #workoutDetail[data-mobile-panel="target"] .muscle-card{
-    display:flex!important;
-    width:100%!important;
-  }
+  .visuals{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;max-width:100%!important;min-width:0!important;overflow:visible!important;gap:10px!important;padding:0!important;margin:0!important;scroll-snap-type:none!important}
+  .visual,.muscle-card{width:100%!important;max-width:100%!important;min-width:0!important;flex:none!important;scroll-snap-align:unset!important;box-sizing:border-box!important}
+  .visual{min-height:0!important;height:auto!important;overflow:hidden!important}
+  .visual img{display:block!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important;box-sizing:border-box!important;padding:8px!important;margin:0!important;background:#0c1214!important}
+  .visual .cap{width:100%!important;box-sizing:border-box!important;position:static!important}
+  .muscle-card{min-height:0!important;height:auto!important;overflow:hidden!important}
+  .target-chart-wrap{width:100%!important;max-width:100%!important;min-width:0!important;display:flex!important;justify-content:center!important;align-items:flex-start!important;gap:6px!important;overflow:visible!important}
+  .target-chart-card{width:100%!important;max-width:320px!important;min-width:0!important;height:auto!important;min-height:0!important;box-sizing:border-box!important;overflow:hidden!important}
+  .target-chart-card.dual{width:calc(50% - 3px)!important;max-width:210px!important}
+  .muscle-chart-svg{display:block!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:240 / 390!important;overflow:visible!important}
+  #workoutDetail[data-mobile-panel="demo"] .visuals{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
+  #workoutDetail[data-mobile-panel="target"] .visuals{display:block!important}
+  #workoutDetail[data-mobile-panel="target"] .muscle-card{display:flex!important;width:100%!important}
 }
-@media(max-width:380px){
-  .visual img{padding:6px!important}
-  .target-chart-card{max-width:295px!important}
-}
+@media(max-width:380px){.visual img{padding:6px!important}.target-chart-card{max-width:295px!important}}
 </style>
-
 </head>
 <body>
 <div class="app">
@@ -998,3 +903,104 @@ function deleteCustomExercise(id){
  Object.keys(state.dayAdditions).forEach(k=>state.dayAdditions[k]=(state.dayAdditions[k]||[]).filter(x=>x!==id));
  Object.keys(state.exerciseOrder).forEach(k=>state.exerciseOrder[k]=(state.exerciseOrder[k]||[]).filter(x=>!x.startsWith(id+'||')));
  Object.keys(state.draft).filter(k=>k.includes('|'+id+'|')).forEach(k=>delete state.draft[k]);save();renderAll();
+}
+function populateCustomDays(){
+ let pid=customProgram.value||program().id,p=programs().find(x=>x.id===pid)||program(),prev=Number(customDay.value);
+ customDay.innerHTML=p.plan.map((d,i)=>`<option value="${i}">${d.day} — ${escapeHtml(d.focus)}</option>`).join('');
+ customDay.value=Number.isFinite(prev)&&prev<p.plan.length?String(prev):String(pid===program().id?selectedDay:0);
+}
+function renderCustomBuilder(){
+ let prevProgram=customProgram.value||program().id;
+ customProgram.innerHTML=programs().map(p=>`<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('');
+ customProgram.value=programs().some(p=>p.id===prevProgram)?prevProgram:program().id;populateCustomDays();
+ let currentIds=state.dayAdditions[orderKey()]||[];
+ customLibrary.innerHTML=state.customExercises.length?state.customExercises.map(c=>{
+   let inCurrent=currentIds.includes(c.id),usage=customUsageCount(c.id);
+   return `<div class="custom-card"><div class="row"><div><h3>${escapeHtml(c.name)}</h3><div class="custom-meta">${escapeHtml(c.target)} • Primary: ${escapeHtml(c.primary)}${c.secondary&&c.secondary.length?' • Secondary: '+escapeHtml(c.secondary.join(', ')):''}<br>Used in ${usage} workout day${usage===1?'':'s'}</div></div><div class="small">${c.startImage&&c.peakImage?'Media added':'No custom media'}</div></div><div class="custom-actions"><button class="btn ${inCurrent?'':'primary'}" data-custom-add="${c.id}" ${inCurrent?'disabled':''}>${inCurrent?'Added to Current Day':'Add to Current Day'}</button>${inCurrent?`<button class="btn" data-custom-remove="${c.id}">Remove from Current Day</button>`:''}<button class="btn orange" data-custom-delete="${c.id}">Delete</button></div></div>`;
+ }).join(''):'<div class="small">No custom exercises yet. Create one on the left.</div>';
+ customLibrary.querySelectorAll('[data-custom-add]').forEach(b=>b.onclick=()=>addCustomToDay(b.dataset.customAdd));
+ customLibrary.querySelectorAll('[data-custom-remove]').forEach(b=>b.onclick=()=>removeCustomFromDay(b.dataset.customRemove));
+ customLibrary.querySelectorAll('[data-custom-delete]').forEach(b=>b.onclick=()=>deleteCustomExercise(b.dataset.customDelete));
+}
+function createCustomExercise(){
+ let name=customName.value.trim(),sets=Math.max(1,Math.min(10,Number(customSets.value)||3)),reps=customReps.value.trim()||'8-10';
+ if(!name){customStatus.textContent='Enter an exercise name first.';customName.focus();return}
+ let now=Date.now(),id='custom-'+now,primary=customPrimary.value,secondary=customSecondary.value.split(',').map(x=>x.trim()).filter(Boolean),instructions=customInstructions.value.split(/\n+/).map(x=>x.trim()).filter(Boolean);
+ let c={id,name,target:`${sets} × ${reps}`,primary,secondary,instructions,startImage:customStartImage.value.trim(),peakImage:customPeakImage.value.trim(),createdAt:new Date().toISOString()};
+ state.customExercises.push(c);let pid=customProgram.value||program().id,di=Number(customDay.value)||0,k=orderKey(pid,di);state.dayAdditions[k]=state.dayAdditions[k]||[];state.dayAdditions[k].push(id);save();
+ customStatus.textContent=`Added ${name} to ${(programs().find(p=>p.id===pid)||program()).plan[di].day}.`;
+ customName.value='';customSecondary.value='';customStartImage.value='';customPeakImage.value='';customInstructions.value='';
+ if(pid===program().id&&di===selectedDay){selectedEx=dayExercises().findIndex(e=>e[2]===id);renderWorkout()}
+ renderCustomBuilder();
+}
+function renderGoals(){let ids=[['gCurrent','currentWeight'],['gGoal','goalWeight'],['gBench','bench'],['gSquat','squat'],['gOhp','ohp'],['gChin','chin']];ids.forEach(([id,k])=>{let x=document.getElementById(id);x.value=state.goals[k]??'';x.oninput=()=>{state.goals[k]=x.value===''?'':Number(x.value);if(k==='currentWeight')state.profile.currentWeight=state.goals[k];save();renderHeader();renderGoals()}});let c=+state.goals.currentWeight||0,g=+state.goals.goalWeight||240;goalSummary.textContent=c?`${c.toFixed(1)} lb current • ${g.toFixed(1)} lb goal • ${(c-g).toFixed(1)} lb remaining. Bench ${state.goals.bench||'—'}, squat ${state.goals.squat||'—'}, OHP ${state.goals.ohp||'—'}, weighted chin ${state.goals.chin||'—'} lb.`:'Enter your current weight to begin tracking.'}
+function renderProgress(){
+ let currentSessions=weekSessions(),priorSessions=weekSessions(-1),c=agg(currentSessions),p=agg(priorSessions);
+ pSessions.textContent=c.sessions;
+ pSets.textContent=c.sets;
+ pVolume.textContent=Math.round(c.volume).toLocaleString();
+ let ch=p.volume?((c.volume-p.volume)/p.volume*100):(c.volume?100:0);
+ pChange.textContent=(ch>=0?'+':'')+ch.toFixed(0)+'%';
+ pChange.className='v '+(ch>0?'good':ch<0?'bad':'');
+ let cv=muscleVolume(currentSessions),pv=muscleVolume(priorSessions);
+ let groups=['Chest','Back','Legs','Shoulders','Biceps','Triceps','Core'];
+ let maxVol=Math.max(1,...groups.map(g=>cv[g]||0));
+ muscleVolumeGrid.innerHTML=groups.map(g=>{
+   let now=cv[g]||0,prev=pv[g]||0,delta=prev?((now-prev)/prev*100):(now?100:0);
+   let label=prev?(delta>=0?'+':'')+delta.toFixed(0)+'%':'—';
+   let cls=prev?(delta>0?'good':delta<0?'bad':'warn'):'warn';
+   let width=Math.max(0,Math.min(100,now/maxVol*100));
+   return `<div class="muscle-volume-card">
+     <div class="muscle-volume-head">
+       <div><div class="muscle-volume-name">${g}</div><div class="muscle-volume-prior">Last week: ${Math.round(prev).toLocaleString()} lb</div></div>
+       <div><div class="muscle-volume-value">${Math.round(now).toLocaleString()} lb</div><div class="muscle-volume-change ${cls}">${label}</div></div>
+     </div>
+     <div class="muscle-volume-track"><div class="muscle-volume-fill" style="width:${width}%"></div></div>
+   </div>`;
+ }).join('');
+ let recent=state.history.slice(0,8);
+ trendList.innerHTML=recent.length?recent.map(h=>`<div class="trend-card row"><div><strong>${h.day}</strong><div class="small">${fmt(h.date)}</div></div><div>${Math.round(h.volume).toLocaleString()} lb</div></div>`).join(''):'<div class="small">Save workouts to build trends.</div>';
+}
+function renderBadges(){let g=game(),w=weekSessions().length,totalSets=state.history.reduce((n,h)=>n+(h.setCount||0),0);let b=[['🏁','First Workout',state.history.length>=1],['🔥','3 Workout Week',w>=3],['🏆','5 Workout Week',w>=5],['⚡','100 Sets',totalSets>=100],['💪','Level 5',g.level>=5],['🚀','Level 10',g.level>=10],['🧠','Program Builder',state.generated.length>=1],['🔁','Three Refreshes',state.generated.length>=3],['⭐','Five Favorites',Object.keys(state.favorites).filter(k=>state.favorites[k]).length>=5]];badgeGrid.innerHTML=b.map(x=>`<div class="badge ${x[2]?'':'locked'}"><div class="bi">${x[0]}</div><div class="bn">${x[1]}</div><div class="small">${x[2]?'Unlocked':'Locked'}</div></div>`).join('')}
+function renderPrograms(){programRefresh.innerHTML=`<div class="refresh"><strong>${refreshInfo().due?'PROGRAM REFRESH RECOMMENDED':'3-WEEK ROTATION TIMER'}</strong><div class="small">${refreshInfo().text}</div></div>`;programList.innerHTML=programs().map(p=>`<div class="program-card ${p.id===state.activeProgramId?'active':''}"><div class="row"><div><strong style="color:var(--teal)">${p.name}</strong><div class="small">${p.createdAt?'Generated '+fmt(p.createdAt):'Built-in program'}</div></div><div>${p.id===state.activeProgramId?'<span class="good">ACTIVE</span>':''}</div></div><div style="margin-top:8px"><button class="btn" data-use="${p.id}">Use Program</button>${p.createdAt?` <button class="btn orange" data-del="${p.id}">Delete</button>`:''}</div></div>`).join('');document.querySelectorAll('[data-use]').forEach(b=>b.onclick=()=>{state.activeProgramId=b.dataset.use;selectedDay=0;selectedEx=0;save();renderAll()});document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{state.generated=state.generated.filter(p=>p.id!==b.dataset.del);if(state.activeProgramId===b.dataset.del)state.activeProgramId='current';save();renderAll()})}
+function generateProgram(){
+ let now=new Date(),plan=[
+  {day:'Monday',focus:'Chest + Triceps | Strength',ex:[['Barbell Bench Press','5 × 4–6','barbell-bench-press'],...pick(POOL.chest,3),...pick(POOL.triceps,2)]},
+  {day:'Tuesday',focus:'Back + Biceps | Strength',ex:[...pick(POOL.back,5),...pick(POOL.biceps,2)]},
+  {day:'Wednesday',focus:'Legs | Strength + Size',ex:[...pick(POOL.legs,7)]},
+  {day:'Thursday',focus:'Shoulders + Arms',ex:[...pick(POOL.shoulders,4),...pick(POOL.biceps,2),...pick(POOL.triceps,2)]},
+  {day:'Friday',focus:'Upper | Hypertrophy',ex:[...pick(POOL.chest,2),...pick(POOL.back,3),...pick(POOL.shoulders,2)]},
+  {day:'Saturday',focus:'Pump + Abs',ex:[...pick(POOL.chest,2),...pick(POOL.legs,3),...pick(POOL.core,3)]},
+  {day:'Sunday',focus:'Recovery',ex:[['Walk','30–45 min','walking'],['Mobility / Stretching','10–15 min','full-body-stretch'],['Foam Rolling','10 min','foam-rolling']]}
+ ];let p={id:'gen-'+now.getTime(),name:'Generated '+now.toLocaleDateString(undefined,{month:'short',day:'numeric'}),createdAt:now.toISOString(),plan};state.generated.unshift(p);state.generated=state.generated.slice(0,8);state.activeProgramId=p.id;state.lastGeneratedAt=now.toISOString();selectedDay=0;selectedEx=0;save();renderAll();setView('workouts')
+}
+
+async function mediaQA(){
+ let all=[];programs().forEach(p=>p.plan.forEach((d,di)=>dayBaseExercises(p.id,di).forEach(e=>all.push(e))));
+ let unique=[...new Map(all.map(e=>[e[0]+'|'+e[2],e])).values()];
+ let missing=[];
+ unique.forEach(e=>{let r=resolveRecord(e[2],e[0]),flat=r&&r.images&&r.images.flat;if(!flat||(!flat.main&&(!flat.start||!flat.peak)))missing.push(e[0])})
+ return {total:unique.length,missing};
+}
+function renderSettings(){profileName.value=state.profile.name||'';profileWeight.value=state.profile.currentWeight??state.goals.currentWeight??'';profileName.oninput=()=>{state.profile.name=profileName.value;save();renderHeader()};profileWeight.oninput=()=>{state.profile.currentWeight=profileWeight.value===''?'':Number(profileWeight.value);state.goals.currentWeight=state.profile.currentWeight;save()}}
+function renderAll(){renderHeader();renderDashboard();renderWorkout();renderHistory();renderGoals();renderProgress();renderBadges();renderPrograms();renderCustomBuilder();renderSettings();genStatus.textContent=refreshInfo().text}
+function setView(v){document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.view===v));['dashboard','workouts','history','goals','progress','achievements','programs','custom','generate','settings'].forEach(x=>document.getElementById(x+'View').classList.toggle('hidden',x!==v));if(v==='workouts')renderWorkout();if(v==='history')renderHistory();if(v==='progress')renderProgress();if(v==='programs')renderPrograms();if(v==='custom')renderCustomBuilder()}
+document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>setView(b.dataset.view));
+openWorkout.onclick=()=>setView('workouts');dashGenerate.onclick=generateProgram;generateNow.onclick=()=>{if(confirm('Generate a completely new 7-day program and make it active?'))generateProgram()};
+customProgram.onchange=populateCustomDays;saveCustomExercise.onclick=createCustomExercise;addCustomFromWorkout.onclick=()=>{setView('custom');customProgram.value=program().id;populateCustomDays();customDay.value=String(selectedDay)};
+favoriteBtn.onclick=()=>{state.favorites[exId()]=!state.favorites[exId()];save();renderWorkoutDetail()};
+document.querySelectorAll('#mobileDetailTabs [data-mobile-panel]').forEach(b=>b.onclick=()=>setMobileWorkoutPanel(b.dataset.mobilePanel));
+mobileFinishWorkout.onclick=()=>finishDay.click();
+nextExercise.onclick=()=>{selectedEx=(selectedEx+1)%dayExercises().length;setMobileWorkoutPanel('log');renderWorkoutDetail()};
+completeExercise.onclick=()=>{for(let i=0;i<setsCount(ex()[1]);i++){let k=draftKey(i);state.draft[k]=state.draft[k]||{};state.draft[k].done=true}save();renderSets();if(selectedEx<dayExercises().length-1){selectedEx++;setMobileWorkoutPanel('log');renderWorkoutDetail()}else{renderWorkoutDetail()}};
+clearDay.onclick=()=>{if(confirm('Clear all entries for this day?')){clearDayData();renderWorkout()}};
+saveWorkout.onclick=()=>{state.history.unshift(snapshot());save();renderAll();alert('Workout saved.')};
+finishDay.onclick=()=>{state.history.unshift(snapshot());clearDayData();save();renderAll();alert('Workout saved and cleared.')};
+let timer,secs=120;restBtn.onclick=()=>{clearInterval(timer);secs=120;timerToast.classList.remove('hidden');timerText.textContent='2:00';timer=setInterval(()=>{secs--;timerText.textContent=Math.floor(secs/60)+':'+String(secs%60).padStart(2,'0');if(secs<=0){clearInterval(timer);timerText.textContent='GO';setTimeout(()=>timerToast.classList.add('hidden'),3000)}},1000)};
+exportBtn.onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='cut-strength-backup.json';a.click();URL.revokeObjectURL(a.href)};
+importFile.onchange=async e=>{let f=e.target.files[0];if(!f)return;try{state={...DEFAULT,...JSON.parse(await f.text())};state.exerciseOrder=state.exerciseOrder||{};state.draftKeyVersion=Number(state.draftKeyVersion)||0;state.customExercises=state.customExercises||[];state.dayAdditions=state.dayAdditions||{};migrateDraftKeys();save();renderAll();alert('Backup imported.')}catch(err){alert('Invalid backup file.')}};
+resetBtn.onclick=()=>{if(confirm('Reset all app data in this browser?')){state=structuredClone(DEFAULT);save();renderAll();setView('dashboard')}};
+migrateDraftKeys();renderAll();loadDataset();
+</script>
+</body>
+</html>
