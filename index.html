@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#041417">
-<title>CUT+STR — Mobile Optimized v3.2</title>
+<title>CUT+STR — Mobile Optimized v3.2.1</title>
 <style>
 :root{
  --bg:#031315;--bg2:#061b1f;--panel:#061a1e;--panel2:#08262a;--line:#1f666c;
@@ -222,6 +222,97 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 </style>
 
 \n<style id="mobile-optimized-v32">\n.mobile-session-bar,.mobile-detail-tabs{display:none}\n@media(max-width:760px){\n html{-webkit-text-size-adjust:100%}\n body{overscroll-behavior-y:contain}\n .main{padding-left:6px;padding-right:6px;padding-bottom:calc(78px + env(safe-area-inset-bottom))}\n .topbar{position:sticky;top:0;z-index:30;background:rgba(8,12,14,.97)}\n .brand{white-space:nowrap}\n .account{min-width:132px}.account .acc-row{gap:5px}.account .acc-row span:first-child{max-width:82px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}\n #workoutsView>.week{position:sticky;top:58px;z-index:23;background:rgba(8,12,14,.97);padding:5px 6px 6px;margin-left:-6px;margin-right:-6px}\n #workoutsView>.hero{margin-top:2px;padding:9px 11px}.hero h1{font-size:18px}.hero h1 br{display:none}.hero h1 span{font-size:13px;color:var(--muted);margin-left:5px}.hero p{margin-top:4px}\n .mobile-session-bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;align-items:center;background:#101719;border:1px solid #263236;border-radius:11px;padding:9px 9px 8px;margin-bottom:7px}\n .mobile-session-copy{min-width:0}.mobile-session-copy strong{display:block;font-size:11px;color:#eef5f3}.mobile-session-copy span{display:block;margin-top:2px;font-size:9px;color:#839396;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}\n .mobile-session-progress{grid-column:1/2;height:5px;background:#202a2d;border-radius:999px;overflow:hidden}.mobile-session-progress span{display:block;height:100%;width:0;background:var(--teal);border-radius:999px;transition:width .2s ease}\n .mobile-finish-btn{grid-column:2;grid-row:1/3;min-width:64px;min-height:42px;border:1px solid #4e3b32;background:#1c1613;color:#f0a07a;border-radius:9px;font-size:9px;font-weight:900}\n .reorder-help{display:none}\n .exercise-list{padding-top:3px;padding-bottom:5px;margin-bottom:6px}\n .exercise-item{min-width:250px;min-height:58px;padding:5px 6px}.drag-handle{height:40px}.exname{font-size:10.5px}.extarget{font-size:8.5px}\n .detail{padding:8px;gap:6px;border-radius:12px}\n .mobile-detail-tabs{display:grid;grid-template-columns:repeat(4,1fr);order:0;position:sticky;top:111px;z-index:21;background:rgba(11,17,19,.97);border:1px solid #263136;border-radius:10px;padding:3px;gap:2px;backdrop-filter:blur(10px)}\n .mobile-detail-tab{min-height:38px;border:0;border-radius:8px;background:transparent;color:#829295;font-size:9px;font-weight:850}\n .mobile-detail-tab.active{background:#18302b;color:#eafff9;box-shadow:inset 0 0 0 1px #2e5c53}\n .detail-head{order:1;padding:4px 2px 2px}.detail-title{font-size:19px;line-height:1.12}.favorite{min-height:40px;padding:7px 9px;font-size:9px}\n .info-row{order:2;grid-template-columns:1.15fr .925fr .925fr;gap:4px}.infobox{padding:6px 7px}.infobox .k{font-size:6.5px}.infobox .v{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}\n .lower{order:3;gap:6px}.setsbox,.how,.notesbox{padding:9px;border-radius:10px}\n .setsbox h3,.how h3,.notesbox h3{margin-bottom:7px}.rep-prescription{padding:7px 8px;margin-bottom:6px}\n .settable{table-layout:fixed}.settable th:nth-child(1),.settable td:nth-child(1){width:33px}.settable th:nth-child(2),.settable td:nth-child(2){width:58px}.settable th:nth-child(5),.settable td:nth-child(5){width:48px}\n .settable th{font-size:6.5px}.settable th,.settable td{padding:5px 2px}.settable input{width:100%;min-height:46px;font-size:18px;border-radius:8px;padding:6px 3px}.done{width:43px;height:43px;font-size:15px}\n .notesbox textarea{height:145px;min-height:145px;padding:10px;font-size:16px}.how li{font-size:11px;line-height:1.5;margin:7px 0}\n .visuals{order:4;margin-top:0}.visual,.muscle-card{min-width:calc(100vw - 30px);max-width:calc(100vw - 30px)}.visual{min-height:270px}.visual img{height:238px}.muscle-card{min-height:300px}.target-chart-card{max-width:285px}\n .detail>.actions{order:5;bottom:64px;padding:5px;grid-template-columns:.85fr 1.35fr 1fr}.detail>.actions .btn{min-height:48px;font-size:8.5px;border-radius:9px}.detail>.actions .btn.primary{font-size:9.5px}\n #workoutDetail[data-mobile-panel="log"] .visuals,#workoutDetail[data-mobile-panel="log"] .how,#workoutDetail[data-mobile-panel="log"] .notesbox{display:none!important}\n #workoutDetail[data-mobile-panel="demo"] .setsbox,#workoutDetail[data-mobile-panel="demo"] .notesbox,#workoutDetail[data-mobile-panel="demo"] .muscle-card{display:none!important}\n #workoutDetail[data-mobile-panel="demo"] .visuals{display:flex!important}\n #workoutDetail[data-mobile-panel="target"] .setsbox,#workoutDetail[data-mobile-panel="target"] .how,#workoutDetail[data-mobile-panel="target"] .notesbox,#workoutDetail[data-mobile-panel="target"] .visual{display:none!important}\n #workoutDetail[data-mobile-panel="target"] .visuals{display:flex!important}#workoutDetail[data-mobile-panel="target"] .muscle-card{display:flex!important}\n #workoutDetail[data-mobile-panel="notes"] .setsbox,#workoutDetail[data-mobile-panel="notes"] .how,#workoutDetail[data-mobile-panel="notes"] .visuals{display:none!important}\n #workoutDetail[data-mobile-panel="demo"] .info-row,#workoutDetail[data-mobile-panel="target"] .info-row,#workoutDetail[data-mobile-panel="notes"] .info-row{display:none}\n #workoutDetail[data-mobile-panel="notes"] .notesbox{display:block!important}\n #workoutsView>.actions[style]{grid-template-columns:1fr 1fr 1fr!important;gap:5px!important;margin-top:7px!important}#workoutsView>.actions[style] .btn{min-height:44px;font-size:8px;padding:8px 5px}\n #addCustomFromWorkout{min-height:44px;font-size:9px}\n .sidebar{scroll-snap-type:x proximity}.nav{scroll-snap-align:start;min-width:62px}.nav span:last-child{font-size:7px}\n .timer-toast{right:8px;left:8px;bottom:72px;text-align:center;border-radius:10px}\n}\n@media(max-width:380px){#workoutsView>.week{top:56px}.mobile-detail-tabs{top:107px}.mobile-session-bar{padding:8px}.mobile-finish-btn{min-width:58px}.exercise-item{min-width:236px}.detail-title{font-size:18px}.settable th:nth-child(2),.settable td:nth-child(2){width:52px}.visual,.muscle-card{min-width:calc(100vw - 26px);max-width:calc(100vw - 26px)}}\n</style>\n
+
+<style id="mobile-image-fix-v321">
+@media(max-width:760px){
+ /* Size media to the workout panel, not the viewport. This prevents the right edge
+    from being clipped by the detail card's padding. */
+ .visuals{
+   width:100%!important;
+   max-width:100%!important;
+   min-width:0!important;
+   overflow-x:auto!important;
+   overflow-y:visible!important;
+   scroll-padding-inline:0!important;
+   align-items:flex-start!important;
+ }
+ .visual,
+ .muscle-card{
+   flex:0 0 100%!important;
+   width:100%!important;
+   min-width:100%!important;
+   max-width:100%!important;
+   box-sizing:border-box!important;
+ }
+ /* Let the full RepDB illustration determine its own height instead of forcing
+    it into a fixed mobile crop box. */
+ .visual{
+   height:auto!important;
+   min-height:0!important;
+   overflow:hidden!important;
+ }
+ .visual img{
+   display:block!important;
+   width:100%!important;
+   height:auto!important;
+   min-height:0!important;
+   max-height:none!important;
+   object-fit:contain!important;
+   object-position:center!important;
+   box-sizing:border-box!important;
+   padding:8px!important;
+   margin:0!important;
+ }
+ .visual .cap{
+   position:static!important;
+   width:100%!important;
+ }
+ /* Keep the entire target-muscle figure visible too. */
+ .muscle-card{
+   height:auto!important;
+   min-height:0!important;
+   overflow:hidden!important;
+ }
+ .target-chart-wrap{
+   width:100%!important;
+   max-width:100%!important;
+   min-width:0!important;
+   justify-content:center!important;
+   align-items:flex-start!important;
+   overflow:visible!important;
+ }
+ .target-chart-card{
+   width:100%!important;
+   max-width:310px!important;
+   height:auto!important;
+   min-height:0!important;
+   overflow:hidden!important;
+   box-sizing:border-box!important;
+ }
+ .target-chart-card.dual{
+   width:calc(50% - 4px)!important;
+   max-width:220px!important;
+ }
+ .muscle-chart-svg{
+   display:block!important;
+   width:100%!important;
+   height:auto!important;
+   min-height:0!important;
+   max-height:none!important;
+   aspect-ratio:240 / 390!important;
+   overflow:visible!important;
+ }
+ #workoutDetail[data-mobile-panel="demo"] .visuals,
+ #workoutDetail[data-mobile-panel="target"] .visuals{
+   align-items:flex-start!important;
+ }
+}
+@media(max-width:380px){
+ .visual img{padding:6px!important}
+ .target-chart-card{max-width:290px!important}
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -907,67 +998,3 @@ function renderProgress(){
  pSets.textContent=c.sets;
  pVolume.textContent=Math.round(c.volume).toLocaleString();
  let ch=p.volume?((c.volume-p.volume)/p.volume*100):(c.volume?100:0);
- pChange.textContent=(ch>=0?'+':'')+ch.toFixed(0)+'%';
- pChange.className='v '+(ch>0?'good':ch<0?'bad':'');
- let cv=muscleVolume(currentSessions),pv=muscleVolume(priorSessions);
- let groups=['Chest','Back','Legs','Shoulders','Biceps','Triceps','Core'];
- let maxVol=Math.max(1,...groups.map(g=>cv[g]||0));
- muscleVolumeGrid.innerHTML=groups.map(g=>{
-   let now=cv[g]||0,prev=pv[g]||0,delta=prev?((now-prev)/prev*100):(now?100:0);
-   let label=prev?(delta>=0?'+':'')+delta.toFixed(0)+'%':'—';
-   let cls=prev?(delta>0?'good':delta<0?'bad':'warn'):'warn';
-   let width=Math.max(0,Math.min(100,now/maxVol*100));
-   return `<div class="muscle-volume-card">
-     <div class="muscle-volume-head">
-       <div><div class="muscle-volume-name">${g}</div><div class="muscle-volume-prior">Last week: ${Math.round(prev).toLocaleString()} lb</div></div>
-       <div><div class="muscle-volume-value">${Math.round(now).toLocaleString()} lb</div><div class="muscle-volume-change ${cls}">${label}</div></div>
-     </div>
-     <div class="muscle-volume-track"><div class="muscle-volume-fill" style="width:${width}%"></div></div>
-   </div>`;
- }).join('');
- let recent=state.history.slice(0,8);
- trendList.innerHTML=recent.length?recent.map(h=>`<div class="trend-card row"><div><strong>${h.day}</strong><div class="small">${fmt(h.date)}</div></div><div>${Math.round(h.volume).toLocaleString()} lb</div></div>`).join(''):'<div class="small">Save workouts to build trends.</div>';
-}
-function renderBadges(){let g=game(),w=weekSessions().length,totalSets=state.history.reduce((n,h)=>n+(h.setCount||0),0);let b=[['🏁','First Workout',state.history.length>=1],['🔥','3 Workout Week',w>=3],['🏆','5 Workout Week',w>=5],['⚡','100 Sets',totalSets>=100],['💪','Level 5',g.level>=5],['🚀','Level 10',g.level>=10],['🧠','Program Builder',state.generated.length>=1],['🔁','Three Refreshes',state.generated.length>=3],['⭐','Five Favorites',Object.keys(state.favorites).filter(k=>state.favorites[k]).length>=5]];badgeGrid.innerHTML=b.map(x=>`<div class="badge ${x[2]?'':'locked'}"><div class="bi">${x[0]}</div><div class="bn">${x[1]}</div><div class="small">${x[2]?'Unlocked':'Locked'}</div></div>`).join('')}
-function renderPrograms(){programRefresh.innerHTML=`<div class="refresh"><strong>${refreshInfo().due?'PROGRAM REFRESH RECOMMENDED':'3-WEEK ROTATION TIMER'}</strong><div class="small">${refreshInfo().text}</div></div>`;programList.innerHTML=programs().map(p=>`<div class="program-card ${p.id===state.activeProgramId?'active':''}"><div class="row"><div><strong style="color:var(--teal)">${p.name}</strong><div class="small">${p.createdAt?'Generated '+fmt(p.createdAt):'Built-in program'}</div></div><div>${p.id===state.activeProgramId?'<span class="good">ACTIVE</span>':''}</div></div><div style="margin-top:8px"><button class="btn" data-use="${p.id}">Use Program</button>${p.createdAt?` <button class="btn orange" data-del="${p.id}">Delete</button>`:''}</div></div>`).join('');document.querySelectorAll('[data-use]').forEach(b=>b.onclick=()=>{state.activeProgramId=b.dataset.use;selectedDay=0;selectedEx=0;save();renderAll()});document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{state.generated=state.generated.filter(p=>p.id!==b.dataset.del);if(state.activeProgramId===b.dataset.del)state.activeProgramId='current';save();renderAll()})}
-function generateProgram(){
- let now=new Date(),plan=[
-  {day:'Monday',focus:'Chest + Triceps | Strength',ex:[['Barbell Bench Press','5 × 4–6','barbell-bench-press'],...pick(POOL.chest,3),...pick(POOL.triceps,2)]},
-  {day:'Tuesday',focus:'Back + Biceps | Strength',ex:[...pick(POOL.back,5),...pick(POOL.biceps,2)]},
-  {day:'Wednesday',focus:'Legs | Strength + Size',ex:[...pick(POOL.legs,7)]},
-  {day:'Thursday',focus:'Shoulders + Arms',ex:[...pick(POOL.shoulders,4),...pick(POOL.biceps,2),...pick(POOL.triceps,2)]},
-  {day:'Friday',focus:'Upper | Hypertrophy',ex:[...pick(POOL.chest,2),...pick(POOL.back,3),...pick(POOL.shoulders,2)]},
-  {day:'Saturday',focus:'Pump + Abs',ex:[...pick(POOL.chest,2),...pick(POOL.legs,3),...pick(POOL.core,3)]},
-  {day:'Sunday',focus:'Recovery',ex:[['Walk','30–45 min','walking'],['Mobility / Stretching','10–15 min','full-body-stretch'],['Foam Rolling','10 min','foam-rolling']]}
- ];let p={id:'gen-'+now.getTime(),name:'Generated '+now.toLocaleDateString(undefined,{month:'short',day:'numeric'}),createdAt:now.toISOString(),plan};state.generated.unshift(p);state.generated=state.generated.slice(0,8);state.activeProgramId=p.id;state.lastGeneratedAt=now.toISOString();selectedDay=0;selectedEx=0;save();renderAll();setView('workouts')
-}
-
-async function mediaQA(){
- let all=[];programs().forEach(p=>p.plan.forEach((d,di)=>dayBaseExercises(p.id,di).forEach(e=>all.push(e))));
- let unique=[...new Map(all.map(e=>[e[0]+'|'+e[2],e])).values()];
- let missing=[];
- unique.forEach(e=>{let r=resolveRecord(e[2],e[0]),flat=r&&r.images&&r.images.flat;if(!flat||(!flat.main&&(!flat.start||!flat.peak)))missing.push(e[0])})
- return {total:unique.length,missing};
-}
-function renderSettings(){profileName.value=state.profile.name||'';profileWeight.value=state.profile.currentWeight??state.goals.currentWeight??'';profileName.oninput=()=>{state.profile.name=profileName.value;save();renderHeader()};profileWeight.oninput=()=>{state.profile.currentWeight=profileWeight.value===''?'':Number(profileWeight.value);state.goals.currentWeight=state.profile.currentWeight;save()}}
-function renderAll(){renderHeader();renderDashboard();renderWorkout();renderHistory();renderGoals();renderProgress();renderBadges();renderPrograms();renderCustomBuilder();renderSettings();genStatus.textContent=refreshInfo().text}
-function setView(v){document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.view===v));['dashboard','workouts','history','goals','progress','achievements','programs','custom','generate','settings'].forEach(x=>document.getElementById(x+'View').classList.toggle('hidden',x!==v));if(v==='workouts')renderWorkout();if(v==='history')renderHistory();if(v==='progress')renderProgress();if(v==='programs')renderPrograms();if(v==='custom')renderCustomBuilder()}
-document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>setView(b.dataset.view));
-openWorkout.onclick=()=>setView('workouts');dashGenerate.onclick=generateProgram;generateNow.onclick=()=>{if(confirm('Generate a completely new 7-day program and make it active?'))generateProgram()};
-customProgram.onchange=populateCustomDays;saveCustomExercise.onclick=createCustomExercise;addCustomFromWorkout.onclick=()=>{setView('custom');customProgram.value=program().id;populateCustomDays();customDay.value=String(selectedDay)};
-favoriteBtn.onclick=()=>{state.favorites[exId()]=!state.favorites[exId()];save();renderWorkoutDetail()};
-document.querySelectorAll('#mobileDetailTabs [data-mobile-panel]').forEach(b=>b.onclick=()=>setMobileWorkoutPanel(b.dataset.mobilePanel));
-mobileFinishWorkout.onclick=()=>finishDay.click();
-nextExercise.onclick=()=>{selectedEx=(selectedEx+1)%dayExercises().length;setMobileWorkoutPanel('log');renderWorkoutDetail()};
-completeExercise.onclick=()=>{for(let i=0;i<setsCount(ex()[1]);i++){let k=draftKey(i);state.draft[k]=state.draft[k]||{};state.draft[k].done=true}save();renderSets();if(selectedEx<dayExercises().length-1){selectedEx++;setMobileWorkoutPanel('log');renderWorkoutDetail()}else{renderWorkoutDetail()}};
-clearDay.onclick=()=>{if(confirm('Clear all entries for this day?')){clearDayData();renderWorkout()}};
-saveWorkout.onclick=()=>{state.history.unshift(snapshot());save();renderAll();alert('Workout saved.')};
-finishDay.onclick=()=>{state.history.unshift(snapshot());clearDayData();save();renderAll();alert('Workout saved and cleared.')};
-let timer,secs=120;restBtn.onclick=()=>{clearInterval(timer);secs=120;timerToast.classList.remove('hidden');timerText.textContent='2:00';timer=setInterval(()=>{secs--;timerText.textContent=Math.floor(secs/60)+':'+String(secs%60).padStart(2,'0');if(secs<=0){clearInterval(timer);timerText.textContent='GO';setTimeout(()=>timerToast.classList.add('hidden'),3000)}},1000)};
-exportBtn.onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='cut-strength-backup.json';a.click();URL.revokeObjectURL(a.href)};
-importFile.onchange=async e=>{let f=e.target.files[0];if(!f)return;try{state={...DEFAULT,...JSON.parse(await f.text())};state.exerciseOrder=state.exerciseOrder||{};state.draftKeyVersion=Number(state.draftKeyVersion)||0;state.customExercises=state.customExercises||[];state.dayAdditions=state.dayAdditions||{};migrateDraftKeys();save();renderAll();alert('Backup imported.')}catch(err){alert('Invalid backup file.')}};
-resetBtn.onclick=()=>{if(confirm('Reset all app data in this browser?')){state=structuredClone(DEFAULT);save();renderAll();setView('dashboard')}};
-migrateDraftKeys();renderAll();loadDataset();
-</script>
-</body>
-</html>
