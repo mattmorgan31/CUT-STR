@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#041417">
-<title>CUT+STR — Progression v4.0</title>
+<title>CUT+STR — Progression v4.1</title>
 <style>
 :root{
  --bg:#031315;--bg2:#061b1f;--panel:#061a1e;--panel2:#08262a;--line:#1f666c;
@@ -270,6 +270,23 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
  .progression-card{grid-template-columns:1fr;gap:8px;padding:10px}.e1rm-box{text-align:left;border-left:0;border-top:1px solid #293735;padding:8px 0 0;display:grid;grid-template-columns:1fr auto;align-items:end}.e1rm-box span{grid-column:1}.e1rm-box strong{grid-column:2;grid-row:1/3}.e1rm-box small{grid-column:1}
  .advanced-settable thead{display:none}.advanced-settable,.advanced-settable tbody{display:block;width:100%}.advanced-settable tr{display:grid;grid-template-columns:42px 1fr 1fr 58px;grid-template-areas:"num prev prev done" "target weight reps rir" "type type type type";gap:5px;border:1px solid #263136;background:#0c1315;border-radius:11px;padding:8px;margin-bottom:8px}.advanced-settable td{border:0!important;padding:0!important;min-width:0}.advanced-settable td:nth-child(1){grid-area:num}.advanced-settable td:nth-child(2){grid-area:prev}.advanced-settable td:nth-child(3){grid-area:target}.advanced-settable td:nth-child(4){grid-area:weight}.advanced-settable td:nth-child(5){grid-area:reps}.advanced-settable td:nth-child(6){grid-area:rir}.advanced-settable td:nth-child(7){grid-area:type}.advanced-settable td:nth-child(8){grid-area:done;text-align:right}.mobile-set-label{display:block;font-size:6px;color:#697d80;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}.advanced-settable input,.advanced-settable select{min-height:44px!important;font-size:16px!important}.advanced-settable td:nth-child(7) select{font-size:13px!important}.advanced-settable .done{width:44px;height:44px}.set-prev{align-self:center}.previous-meta{font-size:7px}.set-target{display:block;padding-top:7px}
  .workout-summary-card{padding:16px;border-radius:14px}.summary-metrics{grid-template-columns:1fr 1fr}.summary-metric strong{font-size:17px}
+}
+</style>
+<style id="bodybuilding-chart-v41">
+.bodybuilder-chart{filter:drop-shadow(0 3px 5px rgba(0,0,0,.12))}
+.bodybuilder-chart .bodybuilder-base{fill:var(--body-metal);stroke:#4f4f4f;stroke-width:1.15}
+.bodybuilder-chart .muscle-region{fill:var(--body-fill)!important;stroke:#686868;stroke-width:.9}
+.bodybuilder-chart .muscle-region.primary{fill:var(--primary-fill)!important;stroke:#8d251c;stroke-width:1.15}
+.bodybuilder-chart .muscle-region.secondary{fill:var(--secondary-fill)!important;stroke:#a04b38;stroke-width:1.02}
+.bodybuilder-chart .bodybuilder-line{stroke:#484848;stroke-width:.8}
+.bodybuilder-chart .bodybuilder-sep{stroke:#575757;stroke-width:.62;opacity:.95}
+.bodybuilder-chart .chart-view-label{font-size:8px;fill:#252525}
+.target-chart-card{max-width:340px!important;padding:5px 7px 1px!important}
+.muscle-chart-svg.bodybuilder-chart{height:auto!important;aspect-ratio:260 / 420!important}
+@media(max-width:760px){
+ .target-chart-card{max-width:330px!important}
+ .target-chart-card.dual{max-width:200px!important}
+ .muscle-chart-svg.bodybuilder-chart{width:100%!important;height:auto!important;aspect-ratio:260 / 420!important}
 }
 </style>
 </head>
@@ -648,103 +665,118 @@ function regionClass(key,primary,secondary){
  return 'muscle-region';
 }
 function muscularFigureSvg(view,primary,secondary){
- const c=k=>regionClass(k,primary,secondary),front=view==='front';
- return `<svg class="muscle-chart-svg" viewBox="0 0 240 390" role="img" aria-label="${front?'Front':'Back'} muscle target chart">
+ const cls=k=>regionClass(k,primary,secondary),front=view==='front';
+ const uid=(front?'f':'b')+'-'+Math.random().toString(36).slice(2,7);
+ return `<svg class="muscle-chart-svg bodybuilder-chart" style="--body-metal:url(#bodyMetal-${uid})" viewBox="0 0 260 420" role="img" aria-label="${front?'Front':'Back'} bodybuilding muscle target chart">
  <defs>
-  <linearGradient id="bodyMetal" x1="0" y1="0" x2="1" y2="1">
-   <stop offset="0" stop-color="#f7f7f7"/><stop offset=".28" stop-color="#d8d8d8"/><stop offset=".58" stop-color="#b6b6b6"/><stop offset=".82" stop-color="#eeeeee"/><stop offset="1" stop-color="#9f9f9f"/>
+  <linearGradient id="bodyMetal-${uid}" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0" stop-color="#fafafa"/><stop offset=".22" stop-color="#e4e4e4"/><stop offset=".5" stop-color="#bcbcbc"/><stop offset=".73" stop-color="#eeeeee"/><stop offset="1" stop-color="#9f9f9f"/>
   </linearGradient>
-  <linearGradient id="targetPrimary" x1="0" y1="0" x2="0" y2="1">
-   <stop offset="0" stop-color="#ef654d"/><stop offset=".48" stop-color="#d8442f"/><stop offset="1" stop-color="#af2d22"/>
+  <linearGradient id="targetPrimary-${uid}" x1="0" y1="0" x2="0" y2="1">
+   <stop offset="0" stop-color="#ef6d55"/><stop offset=".48" stop-color="#d74330"/><stop offset="1" stop-color="#a9251c"/>
   </linearGradient>
-  <linearGradient id="targetSecondary" x1="0" y1="0" x2="0" y2="1">
-   <stop offset="0" stop-color="#f09b84"/><stop offset="1" stop-color="#d7654e"/>
+  <linearGradient id="targetSecondary-${uid}" x1="0" y1="0" x2="0" y2="1">
+   <stop offset="0" stop-color="#f4aa97"/><stop offset="1" stop-color="#dc6f59"/>
   </linearGradient>
  </defs>
 
- <!-- head and neck -->
- <ellipse class="body-base" cx="120" cy="30" rx="18.5" ry="25"/>
- <path class="body-line" d="M108 23 Q120 29 132 23 M109 36 Q120 41 131 36 M120 7L120 54"/>
- <path class="body-line" d="M111 53 L103 63 M129 53 L137 63"/>
+ <!-- BODYBUILDER BASE: broad shoulders, V taper, thick arms and legs -->
+ <ellipse class="body-base bodybuilder-base" cx="130" cy="30" rx="17" ry="23"/>
+ <path class="body-base bodybuilder-base" d="M116 50 Q130 55 144 50 L149 67 111 67Z"/>
+ <path class="body-base bodybuilder-base" d="M100 59 Q82 61 69 72 Q61 80 58 92 L70 108 Q80 92 91 89 L98 119 100 157 106 193 116 210 144 210 154 193 160 157 162 119 169 89 Q180 92 190 108 L202 92 Q199 80 191 72 178 61 160 59 L146 63 Q130 70 114 63Z"/>
+ <path class="body-base bodybuilder-base" d="M70 84 Q52 91 46 108 L34 154 Q32 167 42 171 L55 151 68 118 79 101Z"/>
+ <path class="body-base bodybuilder-base" d="M190 84 Q208 91 214 108 L226 154 Q228 167 218 171 L205 151 192 118 181 101Z"/>
+ <path class="body-base bodybuilder-base" d="M42 169 Q31 188 30 218 Q31 229 40 231 L51 207 58 176Z"/>
+ <path class="body-base bodybuilder-base" d="M218 169 Q229 188 230 218 Q229 229 220 231 L209 207 202 176Z"/>
+ <path class="body-base bodybuilder-base" d="M31 218 Q24 226 28 239 L38 238 42 230Z"/>
+ <path class="body-base bodybuilder-base" d="M229 218 Q236 226 232 239 L222 238 218 230Z"/>
+ <path class="body-base bodybuilder-base" d="M108 199 Q96 210 91 232 L82 289 Q81 312 89 360 L108 360 118 298 126 228 130 211Z"/>
+ <path class="body-base bodybuilder-base" d="M152 199 Q164 210 169 232 L178 289 Q179 312 171 360 L152 360 142 298 134 228 130 211Z"/>
+ <path class="body-base bodybuilder-base" d="M89 357 L84 386 Q92 391 109 386 L109 358Z"/>
+ <path class="body-base bodybuilder-base" d="M171 357 L176 386 Q168 391 151 386 L151 358Z"/>
 
- <!-- torso -->
- <path class="body-base" d="M98 56 Q120 47 142 56 L156 77 151 132 144 181 134 205 106 205 96 181 89 132 84 77Z"/>
- <!-- arms -->
- <path class="body-base" d="M91 63 Q69 66 58 87 L44 136 52 141 73 101 96 85Z"/>
- <path class="body-base" d="M149 63 Q171 66 182 87 L196 136 188 141 167 101 144 85Z"/>
- <path class="body-base" d="M52 141 L43 194 54 196 67 148Z"/>
- <path class="body-base" d="M188 141 L197 194 186 196 173 148Z"/>
- <!-- hands -->
- <path class="body-base" d="M43 194 Q35 202 39 214 L47 211 52 198Z"/>
- <path class="body-base" d="M197 194 Q205 202 201 214 L193 211 188 198Z"/>
- <!-- legs -->
- <path class="body-base" d="M106 202 L88 267 92 354 109 354 120 272 120 204Z"/>
- <path class="body-base" d="M134 202 L152 267 148 354 131 354 120 272 120 204Z"/>
- <path class="body-base" d="M92 354 L87 370 107 370 109 354Z"/>
- <path class="body-base" d="M148 354 L153 370 133 370 131 354Z"/>
+ <!-- face / neck / structural definition -->
+ <path class="body-line bodybuilder-line" d="M119 24 Q130 29 141 24 M120 37 Q130 41 140 37 M130 8V51"/>
+ <path class="body-line bodybuilder-line" d="M116 51 Q108 57 105 67 M144 51 Q152 57 155 67"/>
+ <path class="body-fine" d="M103 69 Q130 78 157 69 M105 191 Q130 200 155 191 M130 208V362"/>
 
  ${front?`
- <!-- front delts -->
- <path class="${c('shoulders')}" d="M93 60 Q75 62 63 78 L75 95 93 84 102 64Z"/>
- <path class="${c('shoulders')}" d="M147 60 Q165 62 177 78 L165 95 147 84 138 64Z"/>
- <!-- pecs -->
- <path class="${c('chest')}" d="M99 69 Q111 60 119 66 L119 106 Q104 111 93 99Z"/>
- <path class="${c('chest')}" d="M141 69 Q129 60 121 66 L121 106 Q136 111 147 99Z"/>
- <path class="muscle-sep" d="M120 65V107 M96 85Q110 90 119 85 M121 85Q135 90 144 85"/>
- <!-- biceps -->
- <path class="${c('biceps')}" d="M70 94 Q57 108 55 133 L68 138 79 106Z"/>
- <path class="${c('biceps')}" d="M170 94 Q183 108 185 133 L172 138 161 106Z"/>
- <path class="muscle-sep" d="M61 112Q66 121 70 132 M179 112Q174 121 170 132"/>
- <!-- forearms -->
- <path class="${c('forearms')}" d="M54 143 Q45 161 47 187 L58 190 66 150Z"/>
- <path class="${c('forearms')}" d="M186 143 Q195 161 193 187 L182 190 174 150Z"/>
- <path class="muscle-sep" d="M49 165L61 177 M191 165L179 177"/>
- <!-- abs / obliques -->
- <path class="${c('core')}" d="M105 110 Q120 115 135 110 L139 174 Q120 186 101 174Z"/>
- <path class="muscle-sep" d="M120 113V177 M103 128H137 M102 147H138 M105 165H135"/>
- <path class="${c('core')}" d="M98 114 Q89 133 93 169 L102 176 106 116Z"/>
- <path class="${c('core')}" d="M142 114 Q151 133 147 169 L138 176 134 116Z"/>
- <!-- quads -->
- <path class="${c('quads')}" d="M104 209 Q89 229 92 267 L108 273 118 215Z"/>
- <path class="${c('quads')}" d="M136 209 Q151 229 148 267 L132 273 122 215Z"/>
- <path class="muscle-sep" d="M101 219L106 264 M139 219L134 264"/>
- <path class="${c('adductors')}" d="M115 212 L119 268 107 258 108 221Z"/>
- <path class="${c('adductors')}" d="M125 212 L121 268 133 258 132 221Z"/>
- <!-- front calves -->
- <path class="${c('calves')}" d="M97 278 Q87 302 93 344 L107 347 111 286Z"/>
- <path class="${c('calves')}" d="M143 278 Q153 302 147 344 L133 347 129 286Z"/>
- <path class="muscle-sep" d="M99 291L104 338 M141 291L136 338"/>
+ <!-- DELTOIDS -->
+ <path class="${cls('shoulders')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M100 65 Q81 62 69 74 Q61 82 61 94 Q72 104 88 102 Q98 91 105 72Z"/>
+ <path class="${cls('shoulders')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M160 65 Q179 62 191 74 Q199 82 199 94 Q188 104 172 102 Q162 91 155 72Z"/>
+
+ <!-- PECS: large separate clavicular/sternal masses -->
+ <path class="${cls('chest')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M104 72 Q115 63 128 68 L128 111 Q112 116 96 104 L94 83Z"/>
+ <path class="${cls('chest')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M156 72 Q145 63 132 68 L132 111 Q148 116 164 104 L166 83Z"/>
+ <path class="muscle-sep bodybuilder-sep" d="M130 67V114 M99 85Q113 91 127 87 M133 87Q147 91 161 85 M101 101Q114 108 127 105 M133 105Q146 108 159 101"/>
+
+ <!-- BICEPS -->
+ <path class="${cls('biceps')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M70 102 Q54 111 51 132 Q51 148 58 159 L72 154 82 119 86 102Z"/>
+ <path class="${cls('biceps')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M190 102 Q206 111 209 132 Q209 148 202 159 L188 154 178 119 174 102Z"/>
+ <path class="muscle-sep bodybuilder-sep" d="M57 125Q64 137 69 151 M203 125Q196 137 191 151"/>
+
+ <!-- FOREARMS -->
+ <path class="${cls('forearms')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M56 160 Q43 175 38 205 L42 222 52 214 63 177 67 158Z"/>
+ <path class="${cls('forearms')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M204 160 Q217 175 222 205 L218 222 208 214 197 177 193 158Z"/>
+ <path class="muscle-sep bodybuilder-sep" d="M47 179L54 207 M213 179L206 207"/>
+
+ <!-- ABS + OBLIQUES -->
+ <path class="${cls('core')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M112 113 Q130 118 148 113 L151 175 Q142 191 130 194 Q118 191 109 175Z"/>
+ <path class="${cls('core')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M107 114 Q96 131 98 163 L108 181 114 123Z"/>
+ <path class="${cls('core')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M153 114 Q164 131 162 163 L152 181 146 123Z"/>
+ <path class="muscle-sep bodybuilder-sep" d="M130 116V190 M112 132H148 M111 151H149 M113 171H147 M102 137L110 171 M158 137L150 171"/>
+
+ <!-- QUADS: vastus lateralis / rectus / teardrop separation -->
+ <path class="${cls('quads')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M108 211 Q93 220 90 245 L88 287 Q92 300 106 300 L117 267 123 219Z"/>
+ <path class="${cls('quads')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M152 211 Q167 220 170 245 L172 287 Q168 300 154 300 L143 267 137 219Z"/>
+ <path class="${cls('adductors')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M122 220 Q115 237 116 276 L126 289 129 222Z"/>
+ <path class="${cls('adductors')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M138 220 Q145 237 144 276 L134 289 131 222Z"/>
+ <path class="muscle-sep bodybuilder-sep" d="M103 225Q99 258 104 289 M116 224L112 278 M157 225Q161 258 156 289 M144 224L148 278 M111 286Q119 293 125 286 M149 286Q141 293 135 286"/>
+
+ <!-- CALVES -->
+ <path class="${cls('calves')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M94 304 Q84 323 88 348 Q91 361 102 357 L109 328 108 303Z"/>
+ <path class="${cls('calves')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M166 304 Q176 323 172 348 Q169 361 158 357 L151 328 152 303Z"/>
+ <path class="muscle-sep bodybuilder-sep" d="M95 314L99 349 M165 314L161 349"/>
  `:`
- <!-- rear delts -->
- <path class="${c('shoulders')}" d="M93 60 Q75 62 63 78 L75 95 94 86 102 64Z"/>
- <path class="${c('shoulders')}" d="M147 60 Q165 62 177 78 L165 95 146 86 138 64Z"/>
- <!-- traps / back / lats -->
- <path class="${c('back')}" d="M101 66 Q120 56 139 66 L144 91 132 108 120 115 108 108 96 91Z"/>
- <path class="${c('back')}" d="M98 90 Q87 112 92 151 L109 176 119 154 116 108Z"/>
- <path class="${c('back')}" d="M142 90 Q153 112 148 151 L131 176 121 154 124 108Z"/>
- <path class="muscle-sep" d="M120 60V177 M103 80Q120 91 137 80 M95 115Q120 129 145 115"/>
- <!-- triceps -->
- <path class="${c('triceps')}" d="M70 95 Q56 111 56 137 L68 141 80 108Z"/>
- <path class="${c('triceps')}" d="M170 95 Q184 111 184 137 L172 141 160 108Z"/>
- <path class="muscle-sep" d="M61 111Q65 126 69 136 M179 111Q175 126 171 136"/>
- <!-- rear forearms -->
- <path class="${c('forearms')}" d="M54 144 Q45 163 47 188 L58 191 66 150Z"/>
- <path class="${c('forearms')}" d="M186 144 Q195 163 193 188 L182 191 174 150Z"/>
- <!-- glutes -->
- <path class="${c('glutes')}" d="M99 174 Q110 165 119 176 L118 204 Q103 207 94 193Z"/>
- <path class="${c('glutes')}" d="M141 174 Q130 165 121 176 L122 204 Q137 207 146 193Z"/>
- <path class="muscle-sep" d="M120 173V204"/>
- <!-- hamstrings -->
- <path class="${c('hamstrings')}" d="M101 211 Q89 232 92 270 L108 276 117 215Z"/>
- <path class="${c('hamstrings')}" d="M139 211 Q151 232 148 270 L132 276 123 215Z"/>
- <path class="muscle-sep" d="M99 224L106 267 M141 224L134 267"/>
- <!-- calves -->
- <path class="${c('calves')}" d="M98 279 Q87 302 93 345 L108 347 111 286Z"/>
- <path class="${c('calves')}" d="M142 279 Q153 302 147 345 L132 347 129 286Z"/>
- <path class="muscle-sep" d="M100 292L104 337 M140 292L136 337"/>
+ <!-- REAR DELTS -->
+ <path class="${cls('shoulders')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M100 65 Q81 62 69 74 Q61 82 61 94 Q73 104 89 102 Q98 90 105 72Z"/>
+ <path class="${cls('shoulders')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M160 65 Q179 62 191 74 Q199 82 199 94 Q187 104 171 102 Q162 90 155 72Z"/>
+
+ <!-- TRAPS / UPPER BACK -->
+ <path class="${cls('back')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M111 61 Q130 53 149 61 L157 82 145 101 130 111 115 101 103 82Z"/>
+ <!-- LATS: strong V shape -->
+ <path class="${cls('back')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M103 86 Q88 103 91 134 Q95 164 111 184 L126 160 123 107Z"/>
+ <path class="${cls('back')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M157 86 Q172 103 169 134 Q165 164 149 184 L134 160 137 107Z"/>
+ <!-- ERECTORS / MID BACK -->
+ <path class="${cls('back')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M118 108 Q124 116 127 132 L126 181 117 190 111 166 113 126Z"/>
+ <path class="${cls('back')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M142 108 Q136 116 133 132 L134 181 143 190 149 166 147 126Z"/>
+ <path class="muscle-sep bodybuilder-sep" d="M130 60V193 M108 78Q130 92 152 78 M96 112Q130 129 164 112 M104 146Q130 157 156 146"/>
+
+ <!-- TRICEPS -->
+ <path class="${cls('triceps')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M71 101 Q54 113 51 135 Q52 151 59 160 L72 154 81 120 84 103Z"/>
+ <path class="${cls('triceps')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M189 101 Q206 113 209 135 Q208 151 201 160 L188 154 179 120 176 103Z"/>
+ <path class="muscle-sep bodybuilder-sep" d="M58 120Q64 137 69 153 M202 120Q196 137 191 153"/>
+
+ <!-- REAR FOREARMS -->
+ <path class="${cls('forearms')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M56 160 Q43 175 38 205 L42 222 52 214 63 177 67 158Z"/>
+ <path class="${cls('forearms')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M204 160 Q217 175 222 205 L218 222 208 214 197 177 193 158Z"/>
+
+ <!-- GLUTES -->
+ <path class="${cls('glutes')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M105 184 Q118 175 129 189 L127 213 Q108 219 96 205Z"/>
+ <path class="${cls('glutes')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M155 184 Q142 175 131 189 L133 213 Q152 219 164 205Z"/>
+ <path class="muscle-sep bodybuilder-sep" d="M130 185V215 M101 199Q115 207 127 202 M159 199Q145 207 133 202"/>
+
+ <!-- HAMSTRINGS -->
+ <path class="${cls('hamstrings')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M108 216 Q93 228 90 252 L89 291 Q95 303 108 299 L119 265 124 221Z"/>
+ <path class="${cls('hamstrings')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M152 216 Q167 228 170 252 L171 291 Q165 303 152 299 L141 265 136 221Z"/>
+ <path class="muscle-sep bodybuilder-sep" d="M101 229L105 288 M159 229L155 288"/>
+
+ <!-- CALVES -->
+ <path class="${cls('calves')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M95 304 Q84 321 88 350 Q93 362 103 357 L111 330 108 303Z"/>
+ <path class="${cls('calves')}" style="--body-fill:url(#bodyMetal-${uid});--primary-fill:url(#targetPrimary-${uid});--secondary-fill:url(#targetSecondary-${uid})" d="M165 304 Q176 321 172 350 Q167 362 157 357 L149 330 152 303Z"/>
+ <path class="muscle-sep bodybuilder-sep" d="M94 317Q99 328 101 350 M166 317Q161 328 159 350"/>
  `}
- <path class="body-fine" d="M104 54Q120 61 136 54 M87 82Q120 92 153 82 M97 184Q120 191 143 184 M120 205V352"/>
- <text class="chart-view-label" x="120" y="386">${front?'FRONT':'BACK'}</text>
+ <text class="chart-view-label" x="130" y="410">${front?'FRONT':'BACK'}</text>
  </svg>`;
 }
 function renderMuscleChart(primaryList,secondaryList,name){
